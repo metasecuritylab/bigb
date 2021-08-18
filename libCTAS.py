@@ -97,3 +97,16 @@ def LookupIp(address):
     ParsedData = ParseData(data, address)
     ClassTypeList = GetClassType(ParsedData)
     return ClassTypeList
+    
+def CheckCTAS():
+
+    url = '{}'.format(CTAS_SVR)
+
+    try:
+        res = requests.get(url)
+        if res.status_code == 200:
+            return True
+    except requests.ConnectionError as exception:
+        return False
+
+    return False
