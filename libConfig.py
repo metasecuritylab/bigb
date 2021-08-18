@@ -36,3 +36,17 @@ def GetConfig(section, key):
         return config.get(section, key)
 
     return config.get(section, key)
+
+def UnitTest():
+    section = 'DETECTION'
+    key = 'DURATION'
+    value = '1'
+    UpdateConfig(section, key, value)
+    retValue = GetConfig(section, key)
+
+    if retValue == value:
+        text = "[UnitTest:LibConfig] SUCCESS : The set value({}) is the same as the set value({})".format(value, retValue)
+    else:
+        text = "[UnitTest:LibConfig] FAIL : : The set value({})  is different from the set value({})".format(value, retValue)
+
+    print(text)
