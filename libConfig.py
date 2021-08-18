@@ -22,3 +22,17 @@ def UpdateConfig(section, key, value):
     fp.close()
 
     return True
+    
+def GetConfig(section, key):
+    # Get value of section in config
+    config = configparser.ConfigParser()
+    config.read(ConfName)
+
+    if section not in config.sections():
+        log = 'no section {}-{}'.format(section, key)
+        return False
+
+    if key == 'DAY':
+        return config.get(section, key)
+
+    return config.get(section, key)
