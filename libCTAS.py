@@ -18,7 +18,7 @@ def GetClassType(data):
             ClassType.append(item['classtype'])
 
     return list(set(ClassType))
-    
+
 def ParseData(data, address):
     outlist = []
     out = {'rules': 'none', 'classtype': 'none', 'raw': 'none'}
@@ -97,7 +97,7 @@ def LookupIp(address):
     ParsedData = ParseData(data, address)
     ClassTypeList = GetClassType(ParsedData)
     return ClassTypeList
-    
+
 def CheckCTAS():
 
     url = '{}'.format(CTAS_SVR)
@@ -110,3 +110,21 @@ def CheckCTAS():
         return False
 
     return False
+
+
+def UnitTest():
+    ret = CheckCTAS()
+    if ret:
+        text = '[UnitTest:LibCTAS:CheckCTAS] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibCTAS:CheckCTAS] FAIL : {}'.format(ret)
+
+    print(text)
+    IP = '8.8.8.8'
+    data = LookupIp(IP)
+    if data[0] == 'exploit':
+        text = '[UnitTest:LibCTAS:LookupIp] SUCCESS : {}'.format(data)
+    else:
+        text = '[UnitTest:LibCTAS:LookupIp] FAIL : {}'.format(data)
+
+    print(text)
