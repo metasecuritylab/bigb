@@ -41,12 +41,22 @@ def UnitTest():
     section = 'DETECTION'
     key = 'DURATION'
     value = '1'
-    UpdateConfig(section, key, value)
-    retValue = GetConfig(section, key)
-
-    if retValue == value:
-        text = "[UnitTest:LibConfig] SUCCESS : The set value({}) is the same as the set value({})".format(value, retValue)
+    ret_A = UpdateConfig(section, key, value)
+    if ret_A:
+        text = "[UnitTest:LibConfig:UpdateConfig] SUCCESS : {}".format(value, ret_A)
     else:
-        text = "[UnitTest:LibConfig] FAIL : : The set value({})  is different from the set value({})".format(value, retValue)
+        text = "[UnitTest:LibConfig:UpdateConfig] FAIL : {}".format(value, ret_A)
+    print(text)
 
+    ret_B = GetConfig(section, key)
+    if ret_B:
+        text = "[UnitTest:LibConfig:GetConfig] SUCCESS : {}".format(value, ret_B)
+    else:
+        text = "[UnitTest:LibConfig:GetConfig] FAIL : {}".format(value, ret_B)
+    print(text)
+
+    if value == ret_B:
+        text = "[UnitTest:LibConfig:GetConfig] SUCCESS : The set value({}) is the same as the set value({})".format(value, ret_B)
+    else:
+        text = "[UnitTest:LibConfig:GetConfig] FAIL : The set value({})  is different from the set value({})".format(value, ret_B)
     print(text)
