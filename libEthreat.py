@@ -31,3 +31,42 @@ def ParseETRules(fname):
                     bucket.append({'ip': line.strip('\n'), 'ref': fname})
 
     return bucket
+    
+def GetETRules():
+    filename = "{}/emerging-block-ips.txt".format(DIR)
+    if not Download(emerging_block_ips, filename):
+        return False
+
+    filename = "{}/compromised-ips.txt".format(DIR)
+    if not Download(compromised_ips, filename):
+        return False
+
+    return True
+
+def GetBlackListFromET():
+    BlackList = list()
+    filename = "{}/emerging-block-ips.txt".format(DIR)
+    ret = ParseETRules(filename)
+    if not ret:
+        return BlackList
+
+    BlackList.extend(ret)
+    filename = "{}/compromised-ips.txt".format(DIR)
+    ret = ParseETRules(filename)
+    if not ret:
+        return BlackList
+
+    BlackList.extend(ret)
+
+    return BlackList
+
+def DetectEmergingThreats(address):
+    maliciousIPs = GetBlackListFromET()
+    if not maliciousIPs:
+        return False
+
+    for mip in maliciousIPs:
+        if mip['ip'] == address:
+            return mip
+
+    return False
