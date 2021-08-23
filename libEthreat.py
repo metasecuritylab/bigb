@@ -70,3 +70,18 @@ def DetectEmergingThreats(address):
             return mip
 
     return False
+    
+def UnitTest():
+    ret = GetETRules()
+    if ret:
+        text = '[UnitTest:LibET:GetETRules] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibET:GetETRules] FAIL : {}'.format(ret)
+    print(text)
+
+    ret = GetBlackListFromET()
+    if len(ret):
+        text = '[UnitTest:LibET:GetBlackListFromET] SUCCESS :'
+    else:
+        text = '[UnitTest:LibET:GetBlackListFromET] FAIL :'
+    print(text)
