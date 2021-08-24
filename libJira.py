@@ -85,3 +85,39 @@ def CheckJIRA():
         return False
 
     return False
+
+def UnitTest():
+    ret = CheckJIRA()
+    if ret:
+        text = '[UnitTest:LibJIRA:CheckJIRA] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibJIRA:CheckJIRA] FAIL : {}'.format(ret)
+    print(text)
+
+    IssueKey = "ISWT-2"
+    ret = ReviewIssue(IssueKey)
+    if ret:
+        text = '[UnitTest:LibJIRA:ReviewIssue] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibJIRA:ReviewIssue] FAIL : {}'.format(ret)
+    print(text)
+
+    desc = "it's a test for creating issue in jira"
+    summary = "New issue for soar"
+    # ret = CreateIssue(summary, desc)
+    # print(ret)
+
+    Key = "ISWT-531"
+    ret = UpdateIssue(Key)
+    if ret:
+        text = '[UnitTest:LibJIRA:UpdateIssue] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibJIRA:UpdateIssue] FAIL : {}'.format(ret)
+    print(text)
+
+    ret = AddWatcher(Key)
+    if ret:
+        text = '[UnitTest:LibJIRA:AddWatcher] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibJIRA:AddWatcher] FAIL : {}'.format(ret)
+    print(text)
