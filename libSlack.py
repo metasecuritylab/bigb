@@ -142,3 +142,19 @@ def SendSlack(critical=0, warning=0, fIP="", mOTX="", mWINS="", mET=""):
         return False
 
     return True
+    
+def UnitTest():
+    fIP = '8.8.8.8'
+    cmessage =''
+    wmessage ='Threat class-type is Reconnaissance.'
+
+    cnum = 0
+    wnum = 0
+    ret = SendSlack(critical=cnum, warning=wnum, fIP=fIP, mOTX=cmessage, mWINS=wmessage)
+    text = '[UnitTest:LibSlack:SendSlack] SUCCESS'
+    if not ret:
+        text = '[UnitTest:LibSlack:SendSlack] FAIL : {}'.format(ret)
+
+    print(text)
+
+UnitTest()
