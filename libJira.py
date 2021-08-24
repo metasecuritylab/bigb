@@ -54,3 +54,34 @@ def UpdateIssue(Key):
         return False
 
     return True
+    
+def AddWatcher(Key):
+    watcher='suwonchon'
+
+    issue = jira.issue(Key)
+    watcher = jira.watchers(issue)
+    """
+    for watcher in watcher.watchers:
+        print(watcher)
+        print(watcher.emailAddress)
+    """
+    watcher='userid'
+    try:
+        jira.add_watcher(issue, watcher)
+    except JIRAError as e:
+        return False
+
+    return True
+
+def CheckJIRA():
+
+    url = '{}'.format(JIRA_URL)
+
+    try:
+        res = requests.get(url)
+        if res.status_code == 200:
+            return True
+    except:
+        return False
+
+    return False
