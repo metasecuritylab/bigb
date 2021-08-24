@@ -186,3 +186,40 @@ def LookupIp(ip):
         print(text)
     '''
     return ret
+
+def LookupHost(hostname):
+    alerts = hostname(OTX, hostname)
+    if len(alerts) > 0:
+        retStr = "{}".format(alerts)
+    else:
+        retStr = "Unknown or not identified as malicious"
+
+    return retStr
+
+def LookupUrl(url):
+    alerts = url(OTX, url)
+    if len(alerts) > 0:
+        retStr = "{}".format(alerts)
+    else:
+        retStr = "Unknown or not identified as malicious"
+
+    return retStr
+
+def LookupHash(hash):
+    alerts = file(OTX, hash)
+    if len(alerts) > 0:
+        retStr = "{}".format(alerts)
+    else:
+        retStr = "Unknown or not identified as malicious"
+
+    return retStr
+
+def LookupFile(file):
+    hash = hashlib.md5(open(file, 'rb').read()).hexdigest()
+    alerts = file(OTX, hash)
+    if len(alerts) > 0:
+        retStr = "{}".format(alerts)
+    else:
+        retStr = "Unknown or not identified as malicious"
+
+    return retStr
