@@ -40,3 +40,20 @@ def CheckVT():
         return False
 
     return False
+
+def UnitTest():
+    address = '8.8.8.8'
+    ret = CheckVT()
+    if ret:
+        text = '[UnitTest:LibVT:LookupIp] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibVT:LookupIp] FAIL : {}'.format(ret)
+    print(text)
+
+    ret = LookupIp(address)
+    if ret:
+        text = '[UnitTest:LibVT:LookupIp] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibVT:LookupIp] FAIL : {}'.format(ret)
+
+    print(text)
