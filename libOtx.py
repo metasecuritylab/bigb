@@ -223,3 +223,48 @@ def LookupFile(file):
         retStr = "Unknown or not identified as malicious"
 
     return retStr
+    
+def UnitTest():
+    ip = '216.58.197.174'
+    ip = '216.239.32.21'
+    ip = '151.101.194.133'
+    ip = '23.227.38.64'
+    ip = '52.114.133.60'
+    ret = {'pulse_info_cnt': 0, 'reputation': 0}
+    retVal = LookupIp(ip)
+    text = '[UnitTest:LibOTX:LookupIp] SUCCESS : {}'.format(retVal)
+    print(text)
+
+    try:
+        result = OTX.get_indicator_details_by_section(libTypes.IPv4, ip, 'general')
+        '''
+        print(json.dumps(result, indent=4, sort_keys=True))
+        print(ip)
+        print(len(result['validation']))
+        '''
+
+        if len(result['validation']):
+            ret['pulse_info_cnt'] = 0
+            ret['reputation'] = 0
+            for i in result['validation']:
+                if 'source' in i:
+                    if i['source'] == 'whitelist':
+                        print(i['source'])
+                        print(ret)
+                        print("CLEAN")
+                        exit()
+
+        ret['pulse_info_cnt'] = result['pulse_info']['count']
+        ret['reputation'] = result['reputation']
+        text = '[UnitTest:LibOTX:OTXv2] SUCCESS : pulse_info_cnt: {}, reputation: {}'.format(ret['pulse_info_cnt'], ret['reputation'])
+        print(text)
+
+    except Exception as e:
+        text = '[UnitTest:LibOTX:OTXv2] FAIL : Exception!!'
+        print(text)
+        ret['pulse_info_cnt'] = 0
+        ret['reputation'] = 0
+
+    if ret['reputation']:
+        text = '[UnitTest:LibOTX:OTXv2] SUCCESS : ip: {}, reputation; {}, count: {}'.format(ip, ret['reputation'], ret['pulse_info']['count'])
+        print(text)
