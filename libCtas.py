@@ -97,3 +97,20 @@ def CheckCtas():
         return False
 
     return False
+
+def UnitTest():
+    ret = CheckCtas()
+    if ret:
+        text = '[UnitTest:LibCTAS:CheckCtas] SUCCESS : {}'.format(ret)
+    else:
+        text = '[UnitTest:LibCTAS:CheckCtas] FAIL : {}'.format(ret)
+
+    print(text)
+    IP = '8.8.8.8'
+    data = LookupIp(IP)
+    if data[0] == 'exploit':
+        text = '[UnitTest:LibCTAS:LookupIp] SUCCESS : {}'.format(data)
+    else:
+        text = '[UnitTest:LibCTAS:LookupIp] FAIL : {}'.format(data)
+
+    print(text)
