@@ -86,3 +86,14 @@ def LookupIp(address):
     ParsedData = ParseData(data, address)
     ClassTypeList = GetClassType(ParsedData)
     return ClassTypeList
+    
+def CheckCtas():
+
+    try:
+        res = requests.get(URL)
+        if res.status_code == 200:
+            return True
+    except requests.ConnectionError as exception:
+        return False
+
+    return False
