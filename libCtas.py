@@ -57,3 +57,32 @@ def ParseData(data, address):
             return outlist
 
     return False
+    
+def LookupIp(address):
+
+    if libUtils.IsPrivateIP(address):
+        return False
+
+    IP_Search_URL = '{}/model/multi_search_data.php?model=ip_search'.format(URL)
+    raw_data = '-----------------------------237611620126405\n' \
+               'Content-Disposition: form-data; name="multi_search"\n\n{}' \
+               '\n-----------------------------237611620126405--'.format(address)
+    headers = {'Content-Type': "multipart/form-data; boundary=---------------------------237611620126405",
+               'Referer': 'https://securecast.co.kr'}
+
+    try:
+        ret = requests.post(IP_Search_URL, data=raw_data, headers=headers, timeout=10)
+    except Exception as e:
+        return False
+
+    if ret.status_code != 200:
+        return False
+
+    try:
+        data = json.loads(ret.text)
+    except:
+        return False
+
+    ParsedData = ParseData(data, address)
+    ClassTypeList = GetClassType(ParsedData)
+    return ClassTypeList
