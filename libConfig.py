@@ -2,34 +2,30 @@
 # dev: suwonchon(suwonchon@gmail.com)
 
 import configparser
+import datetime
 
 ConfName = 'config/config.ini'
 config = configparser.ConfigParser()
-
 
 def UpdateConfig(section, key, value):
     config = configparser.ConfigParser()
     config.read(ConfName)
 
     if section not in config.sections():
-        log = 'no section {}-{}-{}'.format(section, key, value)
         return False
 
     config.set(section, key, value)
 
-    fp = open(ConfName, "w")
-    config.write(fp)
-    fp.close()
+    with open(ConfName, 'w') as configfile:
+        config.write(configfile)
 
     return True
-    
+
 def GetConfig(section, key):
-    # Get value of section in config
     config = configparser.ConfigParser()
     config.read(ConfName)
 
     if section not in config.sections():
-        log = 'no section {}-{}'.format(section, key)
         return False
 
     if key == 'DAY':
@@ -37,10 +33,22 @@ def GetConfig(section, key):
 
     return config.get(section, key)
 
+def GetTasks():
+    index = list()
+    day = int(GetConfig('DETECTION', 'DURATION'))
+    today = datetime.date.today()
+
+    for i in range(day):
+        strIndex = today - datetime.timedelta(days=i)
+        nowDate = strIndex.strftime('%Y-%m-%d')
+        index.append(nowDate)
+
+    return index
+
 def UnitTest():
     section = 'DETECTION'
     key = 'DURATION'
-    value = '1'
+    value = '12'
     ret_A = UpdateConfig(section, key, value)
     if ret_A:
         text = "[UnitTest:LibConfig:UpdateConfig] SUCCESS : {}".format(value, ret_A)
