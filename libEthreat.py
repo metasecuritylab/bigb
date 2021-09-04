@@ -80,9 +80,10 @@ def UnitTest():
     print(text)
 
     ret = GetBlackListFromET()
-    print(ret)
     if len(ret):
         text = '[UnitTest:libEthreat:GetBlackListFromET] SUCCESS : {}'.format(len(ret))
     else:
         text = '[UnitTest:libEthreat:GetBlackListFromET] FAIL : {}'.format(len(ret))
     print(text)
+
+UnitTest()
