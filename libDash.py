@@ -2,7 +2,6 @@
 # dev: suwonchon(suwonchon@gmail.com)
 
 import requests
-import json
 import libConfig
 
 SERVER = libConfig.GetConfig('DASHBOARD', 'HOST')
@@ -32,7 +31,6 @@ def CommFront(URI, data):
 
     try:
         requests.post(URL, json=data, timeout=int(TIMEOUT))
-        # 버전에 따라서 다른가 보네
     except:
         return False
 
@@ -65,14 +63,14 @@ def UpdateCritical(clist=[], init=False):
 
     return ret
 
-def UpdateThreatInfo(UMcnt=0, AMcnt=0, BIPcnt=0, Tcnt=0, Traffic=0, WIPcnt=0, init=False):
+def UpdateThreatInfo(UMcnt=0, AMcnt=0, BIPnum=0, Tcnt=0, Traffic=0, EIPnum=0, init=False):
     items = [
         {"label": "Estimation Model", "value": UMcnt},
         {"label": "AI/ML Model", "value": AMcnt},
         {"label": "Task(Day)", "value": Tcnt},
         {"label": "Inspect Traffic", "value": Traffic},
-        {"label": "Black IP", "value": BIPcnt},
-        {"label": "White IP", "value": WIPcnt}
+        {"label": "Black IP", "value": BIPnum},
+        {"label": "Excluded IP", "value": EIPnum}
     ]
 
     if init:
@@ -201,7 +199,7 @@ def UnitTest():
 
     print(text)
 
-    message = "Hi, My name is suwonchon"
+    message = "Hello"
     ret = UpdateMessage(message)
     if ret:
         text = '[UnitTest:LibDash:UpdateMessage] SUCCESS : {}'.format(ret)
