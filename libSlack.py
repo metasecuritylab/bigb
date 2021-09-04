@@ -12,6 +12,44 @@ vt = libConfig.GetConfig('VIRUSTOTAL', 'URL')
 DASHBOARD = libConfig.GetConfig('DASHBOARD', 'REMOTE')
 username = libConfig.GetConfig('SLACK', 'USER')
 
+def Watcher():
+    status = "DOWN"
+    icon_emoji = ":grinning:"
+    Title = "[SOAR: Warning] Daemon status was changed"
+    Message = "*Status : {}".format(status)
+    payload = {
+        "username": username,
+        "icon_emoji": icon_emoji,
+        "blocks": [
+            {
+                "type": "section",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": Title
+                }
+            },
+            {
+                "type": "section",
+                "fields": [
+                    {
+                        "type": "mrkdwn",
+                        "text": Message
+                    }
+                ]
+            },
+            {
+                "type": "divider"
+            }
+        ]
+    }
+
+    try:
+        requests.post(url, data=json.dumps(payload), headers={'Content-Type': 'application/json'})
+    except requests.exceptions.HTTPError as e:
+        return False
+
+    return True
+
 def SendSlack(critical=0, warning=0, fIP="", mOTX="", mWINS="", mET=""):
     icon_emoji = ":grinning:"
     Title = "New reported cases:\n*<{}|Incident Response - New critical IP is reported>*".format(DASHBOARD)
@@ -142,8 +180,10 @@ def SendSlack(critical=0, warning=0, fIP="", mOTX="", mWINS="", mET=""):
         return False
 
     return True
-    
+
+
 def UnitTest():
+    '''
     fIP = '8.8.8.8'
     cmessage =''
     wmessage ='Threat class-type is Reconnaissance.'
@@ -154,7 +194,10 @@ def UnitTest():
     text = '[UnitTest:LibSlack:SendSlack] SUCCESS'
     if not ret:
         text = '[UnitTest:LibSlack:SendSlack] FAIL : {}'.format(ret)
-
+    '''
+    ret = Watcher()
+    if ret:
+        text = '[UnitTest:LibSlack:Watcher] SUCCESS'
+    else:
+        text = '[UnitTest:LibSlack:Watcher] FAIL'
     print(text)
-
-UnitTest()
