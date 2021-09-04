@@ -31,7 +31,7 @@ def ParseETRules(fname):
                     bucket.append({'ip': line.strip('\n'), 'ref': fname})
 
     return bucket
-    
+
 def GetETRules():
     filename = "{}/emerging-block-ips.txt".format(DIR)
     if not Download(emerging_block_ips, filename):
@@ -70,18 +70,19 @@ def DetectEmergingThreats(address):
             return mip
 
     return False
-    
+
 def UnitTest():
     ret = GetETRules()
     if ret:
-        text = '[UnitTest:LibET:GetETRules] SUCCESS : {}'.format(ret)
+        text = '[UnitTest:libEthreat:GetETRules] SUCCESS : {}'.format(ret)
     else:
-        text = '[UnitTest:LibET:GetETRules] FAIL : {}'.format(ret)
+        text = '[UnitTest:libEthreat:GetETRules] FAIL : {}'.format(ret)
     print(text)
 
     ret = GetBlackListFromET()
+    print(ret)
     if len(ret):
-        text = '[UnitTest:LibET:GetBlackListFromET] SUCCESS :'
+        text = '[UnitTest:libEthreat:GetBlackListFromET] SUCCESS : {}'.format(len(ret))
     else:
-        text = '[UnitTest:LibET:GetBlackListFromET] FAIL :'
+        text = '[UnitTest:libEthreat:GetBlackListFromET] FAIL : {}'.format(len(ret))
     print(text)
