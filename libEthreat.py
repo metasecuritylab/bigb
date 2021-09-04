@@ -85,5 +85,3 @@ def UnitTest():
     else:
         text = '[UnitTest:libEthreat:GetBlackListFromET] FAIL : {}'.format(len(ret))
     print(text)
-
-UnitTest()
