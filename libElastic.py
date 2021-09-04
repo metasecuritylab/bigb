@@ -130,7 +130,7 @@ def GetTargetListFromElastic(index, start, end, tIP, side):
     return bucket, len(bucket)
 
 
-def GetIPsFromElastic(index, start, end, side=None):
+def GetIPsFromElastic(start, end, side=None):
     # Call playbook
     if not side:
         return {}, 0
@@ -148,7 +148,7 @@ def GetIPsFromElastic(index, start, end, side=None):
     for item in windows:
         body = libDsl.GetIPsBySide(item['start'], item['end'], Lhits=0, Laggs=size, side=side)
         try:
-            response = es_client.search(index=index, body=body)
+            response = es_client.search(index='nss-fw-*', body=body)
         except:
             return {}, 0
 
