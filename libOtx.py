@@ -223,7 +223,7 @@ def LookupFile(file):
         retStr = "Unknown or not identified as malicious"
 
     return retStr
-    
+
 def UnitTest():
     ip = '216.58.197.174'
     ip = '216.239.32.21'
