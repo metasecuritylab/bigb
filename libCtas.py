@@ -18,7 +18,7 @@ def GetClassType(data):
             ClassType.append(item['classtype'])
 
     return list(set(ClassType))
-    
+
 def ParseData(data, address):
     outlist = []
     out = {'rules': 'none', 'classtype': 'none', 'raw': 'none'}
@@ -57,11 +57,13 @@ def ParseData(data, address):
             return outlist
 
     return False
-    
+
 def LookupIp(address):
+    #https://securecast.co.kr/model/multi_search_data.php?model=ip_search
+    ret = ['none']
 
     if libUtils.IsPrivateIP(address):
-        return False
+        return ret
 
     IP_Search_URL = '{}/model/multi_search_data.php?model=ip_search'.format(URL)
     raw_data = '-----------------------------237611620126405\n' \
@@ -71,22 +73,22 @@ def LookupIp(address):
                'Referer': 'https://securecast.co.kr'}
 
     try:
-        ret = requests.post(IP_Search_URL, data=raw_data, headers=headers, timeout=10)
+        ret = requests.post(IP_Search_URL, data=raw_data, headers=headers, timeout=3)
     except Exception as e:
-        return False
+        return ret
 
     if ret.status_code != 200:
-        return False
+        return ret
 
     try:
         data = json.loads(ret.text)
     except:
-        return False
+        return ret
 
     ParsedData = ParseData(data, address)
-    ClassTypeList = GetClassType(ParsedData)
-    return ClassTypeList
-    
+    ret = GetClassType(ParsedData)
+    return ret
+
 def CheckCtas():
 
     try:
@@ -98,19 +100,22 @@ def CheckCtas():
 
     return False
 
+
 def UnitTest():
     ret = CheckCtas()
     if ret:
-        text = '[UnitTest:LibCTAS:CheckCtas] SUCCESS : {}'.format(ret)
+        text = '[UnitTest:LibCtas:CheckCtas] SUCCESS : {}'.format(ret)
     else:
-        text = '[UnitTest:LibCTAS:CheckCtas] FAIL : {}'.format(ret)
-
+        text = '[UnitTest:LibCtas:CheckCtas] FAIL : {}'.format(ret)
     print(text)
+
     IP = '8.8.8.8'
     data = LookupIp(IP)
     if data[0] == 'exploit':
-        text = '[UnitTest:LibCTAS:LookupIp] SUCCESS : {}'.format(data)
+        text = '[UnitTest:LibCtas:LookupIp] SUCCESS : {}'.format(data)
     else:
-        text = '[UnitTest:LibCTAS:LookupIp] FAIL : {}'.format(data)
+        text = '[UnitTest:LibCtas:LookupIp] FAIL : {}'.format(data)
 
     print(text)
+
+
