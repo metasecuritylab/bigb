@@ -10,7 +10,7 @@ logging.getLogger().setLevel(logging.ERROR)
 
 JIRA_URL = libConfig.GetConfig('JIRA', 'URL')
 USER = libConfig.GetConfig('JIRA', 'USER')
-PASS = libConfig.GetConfig('JIRA', 'PASS')
+PASS = libConfig.GetConfig('JIRA', 'API_KEY')
 PROJ = libConfig.GetConfig('JIRA', 'PROJECT')
 EXCEPTIP = libConfig.GetConfig('JIRA', 'EXCLUDEDIP')
 
