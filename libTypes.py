@@ -2,15 +2,6 @@
 # dev: suwonchon(suwonchon@gmail.com)
 
 class IndicatorTypes(object):
-    """
-    IndicatorTypes object define indicators used in OTX.
-    :var name string recognized by the OTX platform.
-    :var description string verbose description of what the type denotes.
-    :var api_support if true, indicator api is supported for this type.
-    :var sections indicator List of valid sections for this type (api is split into sections).
-    :var slug for building indicator details URLs, similar to name but not always unique (i.e. 'file' for all
-              hash types)
-    """
     def __init__(self, name, description, api_support=False, sections=None, slug=None):
         self.name = name
         self.description = description
@@ -149,8 +140,6 @@ all_types = [
     CVE
 ]
 
-# supported_api_types are a subset of all_types for which AlienVault OTX API can offer additional data, such as
-# static/dynamic analysis for files, passive dns for hostnames & domains, IP Reputation for IPs, CVE data, etc.
 supported_api_types = [
     IPv4,
     IPv6,
