@@ -14,8 +14,7 @@ VT = VirusTotalAPIIPAddresses(API_KEY)
 def LookupIp(address):
     try:
         result = VT.get_report(address)
-    except VirusTotalAPIError as err:
-        #print(err, err.err_code)
+    except:
         return False
     else:
         if VT.get_last_http_error() == VT.HTTP_OK:
@@ -23,10 +22,8 @@ def LookupIp(address):
             result = json.dumps(result, sort_keys=False, indent=4)
 
         else:
-            #print('HTTP Error [' + str(VT.get_last_http_error()) + ']')
             return False
 
-    #print(result)
     return True
 
 def CheckVT():
