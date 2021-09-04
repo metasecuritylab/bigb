@@ -47,6 +47,7 @@ def GetDescIssue(Key):
         return ''
 
     return desc
+
 def GetExcludedIP():
     ExcludedIP = []
     jira = ConnJIRA()
