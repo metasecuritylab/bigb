@@ -229,9 +229,9 @@ def main():
                         warningNum += 1
                         wlist.append({'label': fIP, 'value': mET})
                     else:
-                        if not ListDeduplication(fIP, cET, wlist):
+                        if not ListDeduplication(fIP, mET, wlist):
                             warningNum += 1
-                            wlist.append({'label': fIP, 'value': cET})
+                            wlist.append({'label': fIP, 'value': mET})
 
                 if cOTX + cWINS + cET > 1:
                     if len(clist) < 1:
