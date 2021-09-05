@@ -63,14 +63,15 @@ def UpdateCritical(clist=[], init=False):
 
     return ret
 
-def UpdateThreatInfo(UMcnt=0, AMcnt=0, BIPnum=0, Tcnt=0, Traffic=0, EIPnum=0, init=False):
+def UpdateThreatInfo(Pnum=0, MLnum=0, BIPnum=0, IIPnum=0, Tasknum=0, Traffic=0, EIPnum=0, init=False):
     items = [
-        {"label": "Estimation Model", "value": UMcnt},
-        {"label": "AI/ML Model", "value": AMcnt},
-        {"label": "Task(Day)", "value": Tcnt},
-        {"label": "Inspect Traffic", "value": Traffic},
-        {"label": "Black IP", "value": BIPnum},
-        {"label": "Excluded IP", "value": EIPnum}
+        {"label": "Task(Day)", "value": Tasknum},
+        {"label": "Playbook Model", "value": Pnum},
+        {"label": "AI/ML Model", "value": MLnum},
+        {"label": "Traffic", "value": Traffic},
+        {"label": "Inspected IP", "value": IIPnum},
+        {"label": "Blacklist IP", "value": BIPnum},
+        {"label": "Excluded IP", "value": EIPnum},
     ]
 
     if init:
@@ -233,14 +234,15 @@ def UnitTest():
 
     print(text)
 
-    ValueOfEmodel = 1
-    ValueOfMLmodel = 1
-    DayOfTask = 12
-    ValueOfTraffic = 10
-    CountOfBIP = 30
-    CountOfWIP = 10
+    Pnum = 1
+    MLnum = 1
+    BIPnum = 12
+    IIPnum = 10
+    Tasknum = 30
+    Traffic = 10
+    EIPnum = 10
 
-    ret = UpdateThreatInfo(ValueOfEmodel, ValueOfMLmodel, CountOfBIP, DayOfTask, ValueOfTraffic, CountOfWIP)
+    ret = UpdateThreatInfo(Pnum, MLnum, BIPnum, IIPnum, Tasknum, Traffic, EIPnum)
     if ret:
         text = '[UnitTest:LibDash:UpdateThreatInfo] SUCCESS : {}'.format(ret)
     else:

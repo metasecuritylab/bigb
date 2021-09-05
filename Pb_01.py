@@ -61,11 +61,11 @@ def CalcProgressValue(total, done):
 def GetThreatInfo():
     TaskList = libConfig.GetTasks()
     BlackIP = libEthreat.GetBlackListFromET()
-    UserModel = 0
-    EstiModel = 7
+    AIMLnum = 0
+    PlaybookNum = 7
     ExcludedIP = libJira.GetExcludedIP()
 
-    return TaskList, BlackIP, UserModel, EstiModel, ExcludedIP
+    return  TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP
 
 def main():
     libDash.ClearDashBoard()
@@ -77,7 +77,7 @@ def main():
     ''' Start of demon '''
     while True:
         signal.signal(signal.SIGINT, signal_handler)
-        TaskList, BlackIP, UserModelNum, EstiModelNum, ExcludedIP = GetThreatInfo()
+        TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP = GetThreatInfo()
         print("[INFO] Get threat information")
         TaskDoneNum = 0
         TaskTotalNum = len(TaskList)
@@ -117,8 +117,9 @@ def main():
 
             HfIPList = libUtils.ConvHumanFormat(len(fIPList))
             HfIPHits = libUtils.ConvHumanFormat(fIPHits)
-            libDash.UpdateThreatInfo(UMcnt=UserModelNum, AMcnt=EstiModelNum, BIPnum=len(BlackIP),
-                                    Tcnt=len(TaskList), Traffic=HfIPHits, EIPnum=len(ExcludedIP))
+            libDash.UpdateThreatInfo(Pnum=PlaybookNum, MLnum=AIMLnum, BIPnum=len(BlackIP),
+                                    IIPnum=len(fIPList), Tasknum=len(TaskList), Traffic=HfIPHits, 
+                                    EIPnum=len(ExcludedIP))
             text = "[INFO] Inspected IP: {}, Volume: {}".format(HfIPList, HfIPHits)
             print(text)
             libDash.UpdateMessage(message=text)
@@ -128,6 +129,7 @@ def main():
             wData = {}
 
             for i, fIP in enumerate(fIPList):
+                time.sleep(1)
                 if i < ProcessTotalNum-1:
                     print('.', end='')
                 else:
