@@ -1,18 +1,37 @@
 # !/usr/bin/env python
 # dev: suwonchon(suwonchon@gmail.com)
 
+import os
+import random
+
+DIR = 'demo'
+FNAME = 'bambenek_banjori.ipset'
+
+def ParseRules(fname):
+    bucket = {}
+    ret = os.path.isfile(fname)
+
+    if not ret:
+        return False
+
+    with open(fname, 'r') as fdata:
+        lines = fdata.readlines()
+        for line in lines:
+            if len(line) > 1:
+                if line[0] != '#':
+                    bucket[line.strip('\n')] = random.randrange(1000000,9000000)
+
+    return bucket
+
 def GetTraffic(stat_done):
-    if stat_done == 0:
-        fw_dst_ip = {'111.221.29.254': 123123, '74.220.199.6': 222, '183.90.232.30': 123123,
-                     '103.109.247.13': 2677668, '110.45.202.121': 163835, "211.233.46.76": 1256634,
-                     '111.230.104.169': 110840, '104.168.154.79': 165472, '107.170.64.97': 274392,
-                     '211.43.191.93': 278068}
-    else:
-        fw_dst_ip = {'74.220.199.6': 222, '211.233.46.76': 123123, '172.104.58.76': 7262405,
-                     '165.22.28.242': 2677668, '110.45.202.121': 163835, '178.79.147.66': 165472,
-                     '193.25.100.114': 274392, '195.234.101.236': 110840, "103.118.157.187": 9018237,
-                     '110.45.202.122': 170815}
+    fw_dst_hits = 0
+    filename = "{}/{}".format(DIR, FNAME)
+    fw_dst_ip = ParseRules(filename)
+    if not fw_dst_ip:
+        return {}, 0
 
-    fw_dst_hits = 718569578
+    for i, v in fw_dst_ip.items():
+        fw_dst_hits = fw_dst_hits + v
 
+    print(fw_dst_hits)
     return fw_dst_ip, fw_dst_hits
