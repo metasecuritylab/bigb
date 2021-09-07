@@ -2,6 +2,7 @@
 # dev: suwonchon(suwonchon@gmail.com)
 
 import time
+import datetime
 import signal
 import sys
 import libConfig
@@ -69,7 +70,8 @@ def GetThreatInfo():
 
 def main():
     libDash.ClearDashBoard()
-    print("[INFO] Playbook01 is started, Reset the dashboard")
+    text = "Playbook01 is started, Reset the dashboard"
+    libUtils.InfoPrint(text)
     plist = []
     wlist = []
     clist = []
@@ -78,7 +80,8 @@ def main():
     while True:
         signal.signal(signal.SIGINT, signal_handler)
         TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP = GetThreatInfo()
-        print("[INFO] Get threat information")
+        text = "Get threat information"
+        libUtils.InfoPrint(text)
         TaskDoneNum = 0
         TaskTotalNum = len(TaskList)
         plist = []
@@ -90,38 +93,42 @@ def main():
             libDash.UpdateSecurityLevel(criticals=criticalNum, warnings=warningNum)
             time.sleep(1)
 
-            text = '[INFO] Task {} is started. '.format(Task)
-            print(text)
+            text = 'Task {} is started. '.format(Task)
+            libUtils.InfoPrint(text)
             TaskReadyNum = TaskTotalNum - TaskDoneNum
             libDash.UpdateTaskChart(done=TaskDoneNum, ready=TaskReadyNum)
             libDash.UpdateMessage(message=text)
             time.sleep(1)
 
             sDate, eDate = ConvTimeStamp(Task)
-            text = "[INFO] Please wait for gathering data. It takes few minutes"
-            print(text)
+            text = "Please wait for gathering data. It takes few minutes"
+            libUtils.InfoPrint(text)
             libDash.UpdateMessage(message=text)
             time.sleep(1)
             if not Debug:
                 fIPList, fIPHits = libElastic.GetIPsFromElastic(sDate, eDate, 'DST')
             else:
-                print("[INFO] Start in demo mode")
-                fIPList, fIPHits = libDemo.GetTraffic(TaskDoneNum)
+                text = "Start in demo mode" 
+                libUtils.InfoPrint(text)
+                buf = Task.split('-')
+                date_buf = datetime.date(int(buf[0]), int(buf[1]), int(buf[2]))
+                date = date_buf.strftime("%a %d %b %Y")
+                fIPList, fIPHits = libDemo.GetTrafficYML(TaskDoneNum)
 
             if len(fIPList) == 0:
-                text = '[INFO] No logs, please check log repository!'
-                print(text)
+                text = 'No logs, please check log repository!'
+                libUtils.InfoPrint(text)
                 libDash.UpdateMessage(message=text)
-                time.sleep(10)
+                time.sleep(600)
                 continue
 
             HfIPList = libUtils.ConvHumanFormat(len(fIPList))
             HfIPHits = libUtils.ConvHumanFormat(fIPHits)
-            libDash.UpdateThreatInfo(Pnum=PlaybookNum, MLnum=AIMLnum, BIPnum=len(BlackIP),
+            libDash.UpdateThreatInfo(Pnum=PlaybookNum, MLnum=AIMLnum, BIPnum=len(BlackIP), 
                                     IIPnum=len(fIPList), Tasknum=len(TaskList), Traffic=HfIPHits, 
                                     EIPnum=len(ExcludedIP))
-            text = "[INFO] Inspected IP: {}, Volume: {}".format(HfIPList, HfIPHits)
-            print(text)
+            text = "Inspected IP: {}, Volume: {}".format(HfIPList, HfIPHits)
+            libUtils.InfoPrint(text)
             libDash.UpdateMessage(message=text)
 
             ProcessTotalNum = len(fIPList)
@@ -129,11 +136,10 @@ def main():
             wData = {}
 
             for i, fIP in enumerate(fIPList):
-                time.sleep(1)
-                if i < ProcessTotalNum-1:
-                    print('.', end='')
-                else:
-                    print('.')
+                time.sleep(0.5)
+                libUtils.printProgressBar(i,len(fIPList)-1,"completed","[INFO]")
+                if i == len(fIPList)-1:
+                    print('')
 
                 cWhite = 0
                 mWhite = ''
@@ -234,6 +240,13 @@ def main():
                             wlist.append({'label': fIP, 'value': mET})
 
                 if cOTX + cWINS + cET > 1:
+                    if Debug:
+                        import random
+                        color = ['red', 'orange', 'yellow', 'green',  'blue', 'violet', 'cyan', 'black', 'pink', '#e0440e']
+                        colornum = random.randrange(0,len(color))
+                        event = {"name":fIP, "date":date, "background": color[colornum]}
+                        libDash.SetTimeline(event)
+
                     if len(clist) < 1:
                         criticalNum += 1
                         clist.append({'label': fIP, 'value': 'Suspicious'})
