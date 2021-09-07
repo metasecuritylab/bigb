@@ -1,0 +1,53 @@
+<!--
+  dev: suwonchon(suwonchon@gmail.com)
+-->
+
+<script type='text/javascript'>
+   Dashing.widget_base_dimensions = [310, 340]
+   Dashing.numColumns = 6
+</script>
+
+<% content_for :title do %>BigBu<% end %>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="convergence" data-view="Graph" data-title="TRAFFIC" style="background-color:#47bbb3;"></div>
+    </li>
+      <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-view="Clock" style="background-color:#880015;"></div>
+      <i class="fa fa-clock-o icon-background"></i>
+    </li>
+      <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="securitylevel" data-view="Health" data-title="SECURITY LEVEL"></div>
+    </li>
+      <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="threatinfo" data-view="List" data-unordered="true" data-title="THREAT INFO" style="background-color:#ef751a;" </div>
+    </li>
+      <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="task" data-view ="PieChart" data-title="TASK STATUS" data-top-margin="80" data-bottom-margin="10"></div>
+    </li>
+      <li data-row="1" data-col="6" data-sizex="1" data-sizey="3">
+      <div data-id="a_timeline" data-view="Timeline" data-title="Timeline"></div>
+    </li>
+      <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="taskprogress" data-view="Meter" data-title="TASK Progress" data-height="200" data-width="200" data-min="0" data-max="100" data-suffix="%" ></div>
+    </li>
+      <li data-row="2" data-col="2" data-sizex="2" data-sizey="1">
+      <div data-id="processing" data-view="Monitor" data-title="Processing" data-unordered="true" style="background-color:#1667aa;"></div>
+    </li>
+      <li data-row="2" data-col="4" data-sizex="2" data-sizey="1">
+      <div data-id="message" data-view="Text" data-title="Message" style="background-color:#42aa16;" data-text=""></div>
+    </li>
+      <li data-row="3" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="criticallist" data-view="List" data-title="Critical" style="background-color:#e3394f;"></div>
+    </li>
+      <li data-row="3" data-col="2" data-sizex="2" data-sizey="1">
+      <div data-id="warninglist" data-view="List" data-title="Warning" style="background-color:#f8be3f;"></div>
+    </li>
+      <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="radarchart" data-view="RadarChart" data-title="ANAYSIS"></div>
+    </li>
+  </ul>
+  <center><div style="font-size: 15px">Development 2021 dev by hellowon(suwonchon@gmail.com)</div></center>
+</div>

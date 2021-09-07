@@ -1,0 +1,27 @@
+<!--
+    author: suwonchon(schon@ebay.com)
+-->
+
+<h1 class="title" data-bind="title"></h1>
+<div data-showif = "status | equals 'NO DATA'">
+   <li class="label" data-bind="status"></li>
+</div>
+
+<div data-hideif="status | equals 'NO DATA'">
+	<ol>
+	  <li data-foreach-item="items">
+	    <span class="label" data-bind="item.label"></span>
+	    <span class="value" data-bind="item.value"></span>
+	  </li>
+	</ol>
+
+	<ul class="monitor-nostyle">
+	  <li data-foreach-item="items">
+	    <span class="label" data-bind="item.label"></span>
+	    <span class="value" data-bind="item.value"></span>
+	  </li>
+	</ul>
+</div>
+
+<p class="more-info" data-bind="moreinfo"></p>
+<p class="updated-at" data-bind="updatedAtMessage"></p>

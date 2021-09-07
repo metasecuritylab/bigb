@@ -1,0 +1,4 @@
+events:
+- background: lightblue
+  date: Dec 31, 2023
+  name: Exit

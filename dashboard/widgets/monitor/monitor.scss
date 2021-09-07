@@ -1,0 +1,72 @@
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$background-color:  #12b0c5;
+$value-color:       #ffffff;
+
+$title-color:       rgba(255, 255, 255, 0.3);
+$label-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+$title-position:    top;
+
+
+// ----------------------------------------------------------------------------
+// Widget-monitor styles
+// ----------------------------------------------------------------------------
+.widget-monitor {
+
+  background-color: $background-color;
+  vertical-align: top;
+
+  .title {
+      @if $title-position == 'top' {
+      left: 0;
+      right: 0;
+      top: 10px;
+      position: absolute;
+    }
+    color: $title-color;
+  }
+
+  ol, ul {
+    margin: 0 40px;
+    text-align: left;
+    color: $label-color;
+  }
+
+  ol {
+    list-style-position: inside;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+
+  .monitor-nostyle {
+    list-style: none;
+  }
+
+  .label {
+    // color: $label-color;
+    color: $value-color;
+    font-size: 18px;
+  }
+
+  .value {
+    float: right;
+    margin-left: 12px;
+    font-weight: 600;
+    // color: $value-color;
+    color: $label-color;
+    font-size: 15px;
+  }
+
+  .updated-at {
+    color: rgba(0, 0, 0, 0.3);
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+}
