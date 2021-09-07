@@ -3,6 +3,7 @@
 
 import elasticsearch
 import libConfig
+import libUtils
 import datetime
 import libDsl
 import warnings
@@ -270,3 +271,6 @@ def GetLogLinux(hostname, start, end):
     ret = GetListSearch('syslog-linux-*', SYS_ELK_URL, body)
 
     return ret
+
+def UnitTest():
+    libUtils.UnitTestPrint(True, 'libElastic', 'GetLogLinux', 1)

@@ -232,8 +232,7 @@ def UnitTest():
     ip = '52.114.133.60'
     ret = {'pulse_info_cnt': 0, 'reputation': 0}
     retVal = LookupIp(ip)
-    text = '[UnitTest:LibOTX:LookupIp] SUCCESS : {}'.format(retVal)
-    print(text)
+    libUtils.UnitTestPrint(True, 'libOtx', 'LookupIp', retVal)
 
     try:
         result = OTX.get_indicator_details_by_section(libTypes.IPv4, ip, 'general')
@@ -256,15 +255,12 @@ def UnitTest():
 
         ret['pulse_info_cnt'] = result['pulse_info']['count']
         ret['reputation'] = result['reputation']
-        text = '[UnitTest:LibOTX:OTXv2] SUCCESS : pulse_info_cnt: {}, reputation: {}'.format(ret['pulse_info_cnt'], ret['reputation'])
-        print(text)
+        libUtils.UnitTestPrint(True, 'libOtx', 'OTXv2', ret['pulse_info_cnt'])
 
     except Exception as e:
-        text = '[UnitTest:LibOTX:OTXv2] FAIL : Exception!!'
-        print(text)
         ret['pulse_info_cnt'] = 0
         ret['reputation'] = 0
+        libUtils.UnitTestPrint(False, 'libOtx', 'OTXv2', ret['pulse_info_cnt'])
 
     if ret['reputation']:
-        text = '[UnitTest:LibOTX:OTXv2] SUCCESS : ip: {}, reputation; {}, count: {}'.format(ip, ret['reputation'], ret['pulse_info']['count'])
-        print(text)
+        libUtils.UnitTestPrint(True, 'libOtx', 'OTXv2', [ip, ret['reputation'], ret['pulse_info']['count']])

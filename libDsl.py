@@ -3,6 +3,7 @@
 
 import json
 import libConfig
+import libUtils
 
 OBSERVER_NAME = libConfig.GetConfig('FILTER', 'OBSERVER_NAME')
 
@@ -37,7 +38,7 @@ def query_get_target(gte, lte, dstip=None, srcip=None):
 
 def GetIPsBySide(gte, lte, Lhits=0, Laggs=5, side=None):
     if not side:
-        return False
+        return ''
 
     query = {'aggs': {'data': {}}, 'size': Lhits, 'query': {'bool': {'must': []}}}
     range = AddRange(gte, lte)
@@ -50,7 +51,7 @@ def GetIPsBySide(gte, lte, Lhits=0, Laggs=5, side=None):
         term = AddTerm('source.ip', Laggs, 'desc')
         query['aggs']['data'] = term
     else:
-        return False
+        return ''
 
     match_phrase = {"match_phrase":{"observer.name": OBSERVER_NAME}}
     query['query']['bool']['must'].append(match_phrase)
@@ -59,7 +60,7 @@ def GetIPsBySide(gte, lte, Lhits=0, Laggs=5, side=None):
 
 def GetIPsByTarget(gte, lte, Lhits=0, Laggs=5, dstip=None, srcip=None):
     if not dstip and not srcip:
-        return False
+        return ''
 
     query = {'aggs': {'data': {}}, 'size': Lhits, 'query': {'bool': {'must': []}}}
 
@@ -231,7 +232,7 @@ def loglinux(hostname, gte, lte):
 
 def logfw(srcip, dstip, gte, lte, sport=0, dport=0):
     if not srcip or not dstip:
-       return False
+       return ''
 
     query = {'aggs': {
         "2": {
@@ -287,17 +288,19 @@ def UnitTest():
     edate = "2020-11-03T14:30:00.000Z"
 
     query = logfw(srcip, dstip, sdate, edate)
-    if not query:
-        text = "1. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+    if query:
+        libUtils.UnitTestPrint(True, 'libDsl', 'logfw', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'logfw', len(query))
 
     dport = 80
     sport = 49430
 
     query = logfw(srcip, dstip, sdate, edate, sport, dport)
-    if not query:
-        text = "1. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+    if query:
+        libUtils.UnitTestPrint(True, 'libDsl', 'logfw', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'logfw', len(query))
 
     target = '33.33.33.33'
     gte = 1576162800000
@@ -307,31 +310,36 @@ def UnitTest():
 
     query = GetIPsBySide(gte, lte, Lhits=0, Laggs=5)
     if not query:
-        text = "1. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'GetIPsBySide', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'GetIPsBySide', len(query))
 
     query = GetIPsBySide(gte, lte, Lhits=0, Laggs=5, side='AA')
     if not query:
-        text = "2. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'GetIPsBySide', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'GetIPsBySide', len(query))
 
     query = GetIPsBySide(gte, lte, Lhits=0, Laggs=5, side='SRC')
-    print(type(query))
     if query:
-        text = "3. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'GetIPsBySide', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'GetIPsBySide', len(query))
 
     query = GetIPsByTarget(gte, lte, Lhits=hits_size, Laggs=aggs_size)
     if not query:
-        text = "4. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'GetIPsByTarget', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'GetIPsByTarget', len(query))
 
     query = GetIPsByTarget(gte, lte, Lhits=hits_size, Laggs=aggs_size, srcip=target)
     if query:
-        text = "5. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'GetIPsByTarget', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'GetIPsByTarget', len(query))
 
     query = query_get_target(gte, lte, dstip=target)
     if query:
-        text = "6. Unittest SUCCESS!!, query: {}".format(query)
-        print(text)
+        libUtils.UnitTestPrint(True, 'libDsl', 'query_get_target', len(query))
+    else:
+        libUtils.UnitTestPrint(False, 'libDsl', 'query_get_target', len(query))

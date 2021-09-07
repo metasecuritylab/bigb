@@ -1,9 +1,10 @@
 # !/usr/bin/env python
 # dev: suwonchon(suwonchon@gmail.com)
 
-import libConfig
 import json
 import requests
+import libConfig
+import libUtils
 
 url = libConfig.GetConfig('SLACK', 'TEST')
 otx = libConfig.GetConfig('OTX', 'URL')
@@ -197,7 +198,8 @@ def UnitTest():
     '''
     ret = Watcher()
     if ret:
-        text = '[UnitTest:LibSlack:Watcher] SUCCESS'
+        libUtils.UnitTestPrint(True, 'LibSlack', 'Watcher', ret)
     else:
-        text = '[UnitTest:LibSlack:Watcher] FAIL'
-    print(text)
+        libUtils.UnitTestPrint(False, 'LibSlack', 'Watcher', ret)
+
+    return True

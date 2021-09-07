@@ -140,51 +140,44 @@ def SetWatcher(Key, Watchers):
 def UnitTest():
     ret = CheckJIRA()
     if ret:
-        text = '[UnitTest:libJira:CheckJIRA] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libJira', 'CheckJIRA', ret)
     else:
-        text = '[UnitTest:libJira:CheckJIRA] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libJira', 'CheckJIRA', ret)
 
     IssueKey = "SOAR-1"
     ret = GetDescIssue(IssueKey)
     if len(ret):
-        text = '[UnitTest:libJira:GetDescIssue] SUCCESS : {}'.format(len(ret))
+        libUtils.UnitTestPrint(True, 'libJira', 'GetDescIssue', len(ret))
     else:
-        text = '[UnitTest:libJira:GetDescIssue] FAIL : {}'.format(len(ret))
-    print(text)
+        libUtils.UnitTestPrint(False, 'libJira', 'GetDescIssue', len(ret))
 
     ret = GetExcludedIP()
     if len(ret) == 32:
-        text = '[UnitTest:libJira:GetExcludedIP] SUCCESS : {}'.format(len(ret))
+        libUtils.UnitTestPrint(True, 'libJira', 'GetExcludedIP', len(ret))
     else:
-        text = '[UnitTest:libJira:GetExcludedIP] FAIL : {}'.format(len(ret))
-    print(text)
+        libUtils.UnitTestPrint(False, 'libJira', 'GetExcludedIP', len(ret))
 
     Key = "ISWT-531"
     ret = UpdateIssue(Key)
     if ret:
-        text = '[UnitTest:libJira:UpdateIssue] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libJira', 'UpdateIssue', ret)
     else:
-        text = '[UnitTest:libJira:UpdateIssue] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libJira', 'UpdateIssue', ret)
 
     Key = "ISWT-531"
     ret = GetWatcher(Key)
     if len(ret):
-        text = '[UnitTest:libJira:GetWatcher] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libJira', 'GetWatcher', ret)
     else:
-        text = '[UnitTest:libJira:GetWatcher] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libJira', 'GetWatcher', ret)
 
     Key = "ISWT-531"
     Watchers = ['suwonchon']
     ret = SetWatcher(Key, Watchers)
     if ret:
-        text = '[UnitTest:libJira:SetWatcher] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libJira', 'SetWatcher', ret)
     else:
-        text = '[UnitTest:libJira:SetWatcher] FAIL : {}'.format(ret)
-    print(text)
-
+        libUtils.UnitTestPrint(False, 'libJira', 'SetWatcher', ret)
 
     '''
     desc = "it's a test for creating issue in jira"

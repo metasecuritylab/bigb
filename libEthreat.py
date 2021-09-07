@@ -1,11 +1,12 @@
 # !/usr/bin/env python
 # dev: suwonchon(suwonchon@gmail.com)
 
-import libConfig
 import requests
 import os
+import libConfig
+import libUtils
 
-DIR = libConfig.GetConfig('ET', 'dir')
+DIR = libConfig.GetConfig('ET', 'DIR')
 emerging_block_ips = libConfig.GetConfig('ET', 'emerging-block-ips')
 compromised_ips = libConfig.GetConfig('ET', 'compromised-ips')
 
@@ -74,14 +75,12 @@ def DetectEmergingThreats(address):
 def UnitTest():
     ret = GetETRules()
     if ret:
-        text = '[UnitTest:libEthreat:GetETRules] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libEthreat', 'GetETRules', ret)
     else:
-        text = '[UnitTest:libEthreat:GetETRules] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libEthreat', 'GetETRules', ret)
 
     ret = GetBlackListFromET()
     if len(ret):
-        text = '[UnitTest:libEthreat:GetBlackListFromET] SUCCESS : {}'.format(len(ret))
+        libUtils.UnitTestPrint(True, 'libEthreat', 'GetBlackListFromET', len(ret))
     else:
-        text = '[UnitTest:libEthreat:GetBlackListFromET] FAIL : {}'.format(len(ret))
-    print(text)
+        libUtils.UnitTestPrint(False, 'libEthreat', 'GetBlackListFromET', len(ret))

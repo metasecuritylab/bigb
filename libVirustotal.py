@@ -3,6 +3,7 @@
 
 from vtapi3 import VirusTotalAPIIPAddresses, VirusTotalAPIError
 import libConfig
+import libUtils
 import json
 import requests
 
@@ -42,15 +43,14 @@ def UnitTest():
     address = '8.8.8.8'
     ret = CheckVT()
     if ret:
-        text = '[UnitTest:LibVT:LookupIp] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'LibVirustotal', 'CheckVT', ret)
     else:
-        text = '[UnitTest:LibVT:LookupIp] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'LibVirustotal', 'CheckVT', ret)
 
     ret = LookupIp(address)
     if ret:
-        text = '[UnitTest:LibVT:LookupIp] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'LibVirustotal', 'LookupIp', ret)
     else:
-        text = '[UnitTest:LibVT:LookupIp] FAIL : {}'.format(ret)
+        libUtils.UnitTestPrint(False, 'LibVirustotal', 'LookupIp', ret)
 
-    print(text)
+    return True
