@@ -3,6 +3,7 @@
 
 import configparser
 import datetime
+import libUtils
 
 ConfName = 'config/config.ini'
 config = configparser.ConfigParser()
@@ -51,20 +52,12 @@ def UnitTest():
     value = '12'
     ret_A = UpdateConfig(section, key, value)
     if ret_A:
-        text = "[UnitTest:LibConfig:UpdateConfig] SUCCESS : {}".format(value, ret_A)
+        libUtils.UnitTestPrint(True, 'libConfig', 'UpdateConfig', value)
     else:
-        text = "[UnitTest:LibConfig:UpdateConfig] FAIL : {}".format(value, ret_A)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libConfig', 'UpdateConfig', value)
 
     ret_B = GetConfig(section, key)
     if ret_B:
-        text = "[UnitTest:LibConfig:GetConfig] SUCCESS : {}".format(value, ret_B)
+        libUtils.UnitTestPrint(True, 'libConfig', 'GetConfig', value)
     else:
-        text = "[UnitTest:LibConfig:GetConfig] FAIL : {}".format(value, ret_B)
-    print(text)
-
-    if value == ret_B:
-        text = "[UnitTest:LibConfig:GetConfig] SUCCESS : The set value({}) is the same as the set value({})".format(value, ret_B)
-    else:
-        text = "[UnitTest:LibConfig:GetConfig] FAIL : The set value({})  is different from the set value({})".format(value, ret_B)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libConfig', 'GetConfig', value)

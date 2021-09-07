@@ -59,7 +59,6 @@ def ParseData(data, address):
     return False
 
 def LookupIp(address):
-    #https://securecast.co.kr/model/multi_search_data.php?model=ip_search
     ret = ['none']
 
     if libUtils.IsPrivateIP(address):
@@ -100,22 +99,18 @@ def CheckCtas():
 
     return False
 
-
 def UnitTest():
     ret = CheckCtas()
     if ret:
-        text = '[UnitTest:LibCtas:CheckCtas] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libCtas', 'CheckCtas', ret)
     else:
-        text = '[UnitTest:LibCtas:CheckCtas] FAIL : {}'.format(ret)
-    print(text)
+        libUtils.UnitTestPrint(False, 'libCtas', 'CheckCtas', ret)
 
     IP = '8.8.8.8'
     data = LookupIp(IP)
     if data[0] == 'exploit':
-        text = '[UnitTest:LibCtas:LookupIp] SUCCESS : {}'.format(data)
+        libUtils.UnitTestPrint(True, 'libCtas', 'LookupIp', data[0])
     else:
-        text = '[UnitTest:LibCtas:LookupIp] FAIL : {}'.format(data)
+        libUtils.UnitTestPrint(False, 'libCtas', 'LookupIp', data[0])
 
-    print(text)
-
-
+    return True

@@ -5,6 +5,7 @@ from pathlib import Path
 import socket
 import ipaddress
 import hashlib
+import sys
 
 def IsPrivateIP(address):
     if ipaddress.ip_address(address).is_private:
@@ -91,3 +92,22 @@ def GetToken(text):
     token = enc.hexdigest()
 
     return token
+
+def InfoPrint(text):
+    print('\033[96m' + '[INFO] ' + '\033[0m' + text)
+
+def UnitTestPrint(flag, file, func, str):
+    if flag:
+        text = "\033[93m[UNITTEST]\033[0m[{}:{}] \033[96mSUCCESS\033[0m : {}".format(file, func, str)
+        print(text)
+    else:
+        text = "\033[93m[UNITTEST]\033[0m[{}:{}] \033[101m\033[97mFAIL\033[0m : {}".format(file, func, str)
+        print(text)
+
+
+def printProgressBar(i,max,postText,preText):
+    n_bar =40 #size of progress bar
+    j= i/max
+    sys.stdout.write('\r')
+    sys.stdout.write(f"{preText} [{'█' * int(n_bar * j):{n_bar}s}] {int(100 * j)}%  {postText}")
+    sys.stdout.flush()

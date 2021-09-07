@@ -3,6 +3,9 @@
 
 import requests
 import libConfig
+import yaml
+import libUtils
+from datetime import datetime
 
 SERVER = libConfig.GetConfig('DASHBOARD', 'HOST')
 PORT = libConfig.GetConfig('DASHBOARD', 'PORT')
@@ -103,7 +106,7 @@ def UpdateTaskProgress(value=0, init=False):
     }
 
     if init:
-        del data['value']
+        data['value'] = 0
 
     ret = CommFront("taskprogress", data)
 
@@ -161,7 +164,6 @@ def UpdateSecurityLevelV2(criticals, warnings, status, init=False):
     return ret
 
 def ClearDashBoard():
-
     UpdateProcessing(init=True)
     UpdateMessage(init=True)
     UpdateWarning(init=True)
@@ -170,13 +172,41 @@ def ClearDashBoard():
     UpdateThreatInfo(init=True)
     UpdateTaskChart(init=True)
     UpdateSecurityLevel(init=True)
+    InitTimeline()
+
+    return True
+
+def GetTimeline():
+    fname = 'dashboard/timeline_data.yml'
+    with open(fname) as f:
+        ret = yaml.load(f, Loader=yaml.FullLoader)
+
+    return ret
+
+def InitTimeline():
+    fname = 'dashboard/timeline_data.yml'
+    data = {}
+    data['events'] = [{"name":'Exit', "date":'Dec 31, 2023', "background": 'lightblue'}]
+
+    with open(fname, 'w') as f:
+        yaml.dump(data, f)
+
+    return True
+
+def SetTimeline(event):
+    fname = 'dashboard/timeline_data.yml'
+
+    data = GetTimeline()
+    data['events'].append(event)
+
+    with open(fname, 'w') as f:
+        yaml.dump(data, f)
 
     return True
 
 def CheckDash():
 
     url = '{}'.format(SERVER)
-
     try:
         res = requests.get(url)
         if res.status_code == 200:
@@ -187,52 +217,41 @@ def CheckDash():
     return False
 
 def UnitTest():
-
     item1 = {"label":"1.1.1.1", "value":"OK"}
     item2 = {"label":"2.2.2.2", "value":"Analysing"}
     item3 = {"label":"3.3.3.3", "value":"BIP"}
     items = [item1, item2, item3]
     ret = UpdateProcessing(items)
     if ret:
-        text = '[UnitTest:LibDash:UpdateProcessing] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateProcessing', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateProcessing] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateProcessing', ret)
 
     message = "Hello"
     ret = UpdateMessage(message)
     if ret:
-        text = '[UnitTest:LibDash:UpdateMessage] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateMessage', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateMessage] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateMessage', ret)
 
     ret = UpdateWarning(items)
     if ret:
-        text = '[UnitTest:LibDash:UpdateWarning] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateWarning', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateWarning] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateWarning', ret)
 
     ret = UpdateCritical(items)
     if ret:
-        text = '[UnitTest:LibDash:UpdateCritical] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateCritical', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateCritical] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateCritical', ret)
 
     value = 10
     ret = UpdateTaskProgress(value)
     if ret:
-        text = '[UnitTest:LibDash:UpdateTaskProgress] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateTaskProgress', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateTaskProgress] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateTaskProgress', ret)
 
     Pnum = 1
     MLnum = 1
@@ -244,62 +263,84 @@ def UnitTest():
 
     ret = UpdateThreatInfo(Pnum, MLnum, BIPnum, IIPnum, Tasknum, Traffic, EIPnum)
     if ret:
-        text = '[UnitTest:LibDash:UpdateThreatInfo] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateThreatInfo', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateThreatInfo] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateThreatInfo', ret)
 
     done = 2
     ready = 1
     ret = UpdateTaskChart(done, ready)
     if ret:
-        text = '[UnitTest:LibDash:UpdateTaskChart] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateTaskChart', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateTaskChart] FAIL : {}'.format(ret)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateTaskChart', ret)
 
-    print(text)
-
-    event1 = {"name":"event1", "date":"Thu, 7 May 2020 09:54:51 +0000", "background": "red"}
-    event2 = {"name":"event2", "date":"Thu, 6 May 2020 09:54:51 +0000", "background": "yellow"}
-    event3 = {"name":"event3", "date":"Thu, 5 May 2020 09:54:51 +0000", "background": "white"}
+    event1 = {"name":"event1", "date":"Thu, 7 May 2021", "background": "red"}
+    event2 = {"name":"event2", "date":"Thu, 6 May 2021", "background": "yellow"}
+    event3 = {"name":"event3", "date":"Thu, 5 May 2021", "background": "white"}
     event = [event1, event2, event3]
     ret = UpdateTimeline(event)
     if ret:
-        text = '[UnitTest:LibDash:UpdateTimeline] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateTimeline', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateTimeline] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateTimeline', ret)
 
     criticals = 0
     warnings = 0
 
     ret = UpdateSecurityLevel(criticals, warnings)
     if ret:
-        text = '[UnitTest:LibDash:UpdateSecurityLevel] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateSecurityLevel', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateSecurityLevel] FAIL : {}'.format(ret)
-
-    print(text)
-
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateSecurityLevel', ret)
+    
     criticals = 2
     warnings = 2
     status = "yellow"
     ret = UpdateSecurityLevelV2(criticals, warnings, status)
     if ret:
-        text = '[UnitTest:LibDash:UpdateSecurityLevelV2] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'UpdateSecurityLevelV2', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateSecurityLevelV2] FAIL : {}'.format(ret)
-
-    print(text)
+        libUtils.UnitTestPrint(False, 'libDash', 'UpdateSecurityLevelV2', ret)
 
     ret = ClearDashBoard()
     if ret:
-        text = '[UnitTest:LibDash:UpdateSecurityLevelV2] SUCCESS : {}'.format(ret)
+        libUtils.UnitTestPrint(True, 'libDash', 'ClearDashBoard', ret)
     else:
-        text = '[UnitTest:LibDash:UpdateSecurityLevelV2] FAIL : {}'.format(ret)
+        libUtils.UnitTestPrint(False, 'libDash', 'ClearDashBoard', ret)
 
-    print(text)
+    InitTimeline()
+
+    event = {"name":"red", "date":"Thu, 1 Sep 2021", "background": "red"}
+    ret = SetTimeline(event)
+    event = {"name":"orange", "date":"Thu, 2 Sep 2021", "background": "orange"}
+    ret = SetTimeline(event)
+    event = {"name":"yellow", "date":"Thu, 3 Sep 2021", "background": "yellow"}
+    ret = SetTimeline(event)
+    event = {"name":"green", "date":"Thu, 4 Sep 2021", "background": "green"}
+    ret = SetTimeline(event)
+    event = {"name":"blue", "date":"Thu, 5 Sep 2021", "background": "blue"}
+    ret = SetTimeline(event)
+    event = {"name":"violet", "date":"Thu, 6 Sep 2021", "background": "violet"}
+    ret = SetTimeline(event)
+    event = {"name":"cyan", "date":"Thu, 7 Sep 2021", "background": "cyan"}
+    ret = SetTimeline(event)
+    event = {"name":"black", "date":"Thu, 8 Sep 2021", "background": "black"}
+    ret = SetTimeline(event)
+    event = {"name":"pink", "date":"Thu, 9 Sep 2021", "background": "pink"}
+    ret = SetTimeline(event)
+    event = {"name":"#e0440e", "date":"Thu, 10 Sep 2021", "background": "#e0440e"}
+    ret = SetTimeline(event)
+    event = {"name":"#e6693e", "date":"Thu, 11 Sep 2021", "background": "#e6693e"}
+    ret = SetTimeline(event)
+    event = {"name":"#ec8f6e", "date":"Thu, 12 Sep 2021", "background": "#ec8f6e"}
+    ret = SetTimeline(event)
+    event = {"name":"#f6c7b6", "date":"Thu, 13 Sep 2021", "background": "#f6c7b6"}
+    ret = SetTimeline(event)
+
+    if ret:
+        libUtils.UnitTestPrint(True, 'libDash', 'SetTimeline', ret)
+    else:
+        libUtils.UnitTestPrint(False, 'libDash', 'SetTimeline', ret)
 
     return True
