@@ -60,7 +60,7 @@ $ ./bigb.sh -r
 The dashboard consists of a total of 12 tiles. The current security level is expressed as a traffic light. Green means safe, Yellow means caution, and Red means alert. Each state also transitions sequentially from green to yellow and then from yellow to red, but also from green to red.
 
 ```
-$ ./bigb.sh [OPTIONS...]
+$ dashboard/run.sh [OPTIONS...]
 
  -r, --run        Executing web for debug(default port 80)
  -s, --ssl        Executing web production(default port 443)
@@ -72,7 +72,7 @@ $ ./bigb.sh [OPTIONS...]
 For example:
 
 ```
-$ ./run.sh -r
+$ dashboard/run.sh -r
 ```
 
 ## Customize your business
