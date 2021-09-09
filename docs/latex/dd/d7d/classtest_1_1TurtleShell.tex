@@ -1,0 +1,459 @@
+\hypertarget{classtest_1_1TurtleShell}{}\doxysection{test.\+Turtle\+Shell Class Reference}
+\label{classtest_1_1TurtleShell}\index{test.TurtleShell@{test.TurtleShell}}
+
+
+Inheritance diagram for test.\+Turtle\+Shell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{d7/d42/classtest_1_1TurtleShell__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for test.\+Turtle\+Shell\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{d6/d52/classtest_1_1TurtleShell__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a7b18ad5c5efa0ce5eb23d23bd2358982}{do\+\_\+forward}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a8fc58397fc7c1cfacb91dce8af5b394d}{do\+\_\+right}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a29dd17a42a117555396c951db5596f43}{do\+\_\+left}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a66686be6b979c8ad332598ee4951f995}{do\+\_\+goto}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_af45fcedead4b157ce7de4f1500c5d0e1}{do\+\_\+home}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a435d9ea34d6296d765e8bf26c3cf5e41}{do\+\_\+circle}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_af2fe7efa2bf7a43e384ee4af72eb8fe4}{do\+\_\+position}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a4f5e9ef5aeac934315945f5c894f9037}{do\+\_\+heading}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a6f5acc373568ab6128e850c95c439140}{do\+\_\+color}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_ab135457abaa9a47e00fe2148d50fe679}{do\+\_\+undo}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_aedf19d3fc8bb5b8d4327fff096287b35}{do\+\_\+reset}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_ac40cfadb91854676150bfe45f6e27352}{do\+\_\+bye}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_ac601f55277d826cbfee751a94f1fc70e}{do\+\_\+record}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a634fc8f7a91f13e52a6ffcdd5f5f24f1}{do\+\_\+playback}} (self, arg)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a42b442e926a2a5d9287531ef07d030b4}{precmd}} (self, line)
+\item 
+def \mbox{\hyperlink{classtest_1_1TurtleShell_a6f790d10f5abf628542535ed2356848b}{close}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classtest_1_1TurtleShell_a52692e4fb097734db479714ca27c260a}{intro}} = \textquotesingle{}Welcome to the turtle shell. Type help or ? to list commands.\textbackslash{}n\textquotesingle{}
+\item 
+string \mbox{\hyperlink{classtest_1_1TurtleShell_ab1d6954ebd7513d152cb563131d1d420}{prompt}} = \textquotesingle{}(turtle) \textquotesingle{}
+\item 
+\mbox{\hyperlink{classtest_1_1TurtleShell_a82b1c607dc6ef8ec84df24113e087d3f}{file}} = None
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 4 of file test.\+py.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a6f790d10f5abf628542535ed2356848b}\label{classtest_1_1TurtleShell_a6f790d10f5abf628542535ed2356848b}} 
+\index{test.TurtleShell@{test.TurtleShell}!close@{close}}
+\index{close@{close}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+close (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63     \textcolor{keyword}{def }close(self):}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if} self.file:}
+\DoxyCodeLine{65             self.file.close()}
+\DoxyCodeLine{66             self.file = \textcolor{keywordtype}{None}}
+\DoxyCodeLine{67 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d7d/classtest_1_1TurtleShell_a6f790d10f5abf628542535ed2356848b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_ac40cfadb91854676150bfe45f6e27352}\label{classtest_1_1TurtleShell_ac40cfadb91854676150bfe45f6e27352}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_bye@{do\_bye}}
+\index{do\_bye@{do\_bye}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_bye()}{do\_bye()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+bye (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42     \textcolor{keyword}{def }do\_bye(self, arg):}
+\DoxyCodeLine{43         \textcolor{stringliteral}{'Stop recording, close the turtle window, and exit:  BYE'}}
+\DoxyCodeLine{44         print(\textcolor{stringliteral}{'Thank you for using Turtle'})}
+\DoxyCodeLine{45         self.close()}
+\DoxyCodeLine{46         bye()}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/d7d/classtest_1_1TurtleShell_ac40cfadb91854676150bfe45f6e27352_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a435d9ea34d6296d765e8bf26c3cf5e41}\label{classtest_1_1TurtleShell_a435d9ea34d6296d765e8bf26c3cf5e41}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_circle@{do\_circle}}
+\index{do\_circle@{do\_circle}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_circle()}{do\_circle()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+circle (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25     \textcolor{keyword}{def }do\_circle(self, arg):}
+\DoxyCodeLine{26         \textcolor{stringliteral}{'Draw circle with given radius an options extent and steps:  CIRCLE 50'}}
+\DoxyCodeLine{27         circle(*\mbox{\hyperlink{namespacetest_ad92c1ec3e7fa07148210632a75b35a3c}{parse}}(arg))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{dd/d7d/classtest_1_1TurtleShell_a435d9ea34d6296d765e8bf26c3cf5e41_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a6f5acc373568ab6128e850c95c439140}\label{classtest_1_1TurtleShell_a6f5acc373568ab6128e850c95c439140}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_color@{do\_color}}
+\index{do\_color@{do\_color}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_color()}{do\_color()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+color (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34     \textcolor{keyword}{def }do\_color(self, arg):}
+\DoxyCodeLine{35         \textcolor{stringliteral}{'Set the color:  COLOR BLUE'}}
+\DoxyCodeLine{36         color(arg.lower())}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a7b18ad5c5efa0ce5eb23d23bd2358982}\label{classtest_1_1TurtleShell_a7b18ad5c5efa0ce5eb23d23bd2358982}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_forward@{do\_forward}}
+\index{do\_forward@{do\_forward}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_forward()}{do\_forward()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+forward (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10     \textcolor{keyword}{def }do\_forward(self, arg):}
+\DoxyCodeLine{11         \textcolor{stringliteral}{'Move the turtle forward by the specified distance:  FORWARD 10'}}
+\DoxyCodeLine{12         forward(*\mbox{\hyperlink{namespacetest_ad92c1ec3e7fa07148210632a75b35a3c}{parse}}(arg))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{dd/d7d/classtest_1_1TurtleShell_a7b18ad5c5efa0ce5eb23d23bd2358982_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a66686be6b979c8ad332598ee4951f995}\label{classtest_1_1TurtleShell_a66686be6b979c8ad332598ee4951f995}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_goto@{do\_goto}}
+\index{do\_goto@{do\_goto}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_goto()}{do\_goto()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+goto (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{19     \textcolor{keyword}{def }do\_goto(self, arg):}
+\DoxyCodeLine{20         \textcolor{stringliteral}{'Move turtle to an absolute position with changing orientation.  GOTO 100 200'}}
+\DoxyCodeLine{21         goto(*\mbox{\hyperlink{namespacetest_ad92c1ec3e7fa07148210632a75b35a3c}{parse}}(arg))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{dd/d7d/classtest_1_1TurtleShell_a66686be6b979c8ad332598ee4951f995_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a4f5e9ef5aeac934315945f5c894f9037}\label{classtest_1_1TurtleShell_a4f5e9ef5aeac934315945f5c894f9037}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_heading@{do\_heading}}
+\index{do\_heading@{do\_heading}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_heading()}{do\_heading()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+heading (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31     \textcolor{keyword}{def }do\_heading(self, arg):}
+\DoxyCodeLine{32         \textcolor{stringliteral}{'Print the current turtle heading in degrees:  HEADING'}}
+\DoxyCodeLine{33         print(\textcolor{stringliteral}{'Current heading is \%d\(\backslash\)n'} \% (heading(),))}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_af45fcedead4b157ce7de4f1500c5d0e1}\label{classtest_1_1TurtleShell_af45fcedead4b157ce7de4f1500c5d0e1}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_home@{do\_home}}
+\index{do\_home@{do\_home}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_home()}{do\_home()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+home (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22     \textcolor{keyword}{def }do\_home(self, arg):}
+\DoxyCodeLine{23         \textcolor{stringliteral}{'Return turtle to the home position:  HOME'}}
+\DoxyCodeLine{24         home()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a29dd17a42a117555396c951db5596f43}\label{classtest_1_1TurtleShell_a29dd17a42a117555396c951db5596f43}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_left@{do\_left}}
+\index{do\_left@{do\_left}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_left()}{do\_left()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+left (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16     \textcolor{keyword}{def }do\_left(self, arg):}
+\DoxyCodeLine{17         \textcolor{stringliteral}{'Turn turtle left by given number of degrees:  LEFT 90'}}
+\DoxyCodeLine{18         left(*\mbox{\hyperlink{namespacetest_ad92c1ec3e7fa07148210632a75b35a3c}{parse}}(arg))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{dd/d7d/classtest_1_1TurtleShell_a29dd17a42a117555396c951db5596f43_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a634fc8f7a91f13e52a6ffcdd5f5f24f1}\label{classtest_1_1TurtleShell_a634fc8f7a91f13e52a6ffcdd5f5f24f1}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_playback@{do\_playback}}
+\index{do\_playback@{do\_playback}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_playback()}{do\_playback()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+playback (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53     \textcolor{keyword}{def }do\_playback(self, arg):}
+\DoxyCodeLine{54         \textcolor{stringliteral}{'Playback commands from a file:  PLAYBACK rose.cmd'}}
+\DoxyCodeLine{55         self.close()}
+\DoxyCodeLine{56         \textcolor{keyword}{with} open(arg) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{57             self.cmdqueue.extend(f.read().splitlines())}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{dd/d7d/classtest_1_1TurtleShell_a634fc8f7a91f13e52a6ffcdd5f5f24f1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_af2fe7efa2bf7a43e384ee4af72eb8fe4}\label{classtest_1_1TurtleShell_af2fe7efa2bf7a43e384ee4af72eb8fe4}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_position@{do\_position}}
+\index{do\_position@{do\_position}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_position()}{do\_position()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+position (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28     \textcolor{keyword}{def }do\_position(self, arg):}
+\DoxyCodeLine{29         \textcolor{stringliteral}{'Print the current turtle position:  POSITION'}}
+\DoxyCodeLine{30         print(\textcolor{stringliteral}{'Current position is \%d \%d\(\backslash\)n'} \% position())}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_ac601f55277d826cbfee751a94f1fc70e}\label{classtest_1_1TurtleShell_ac601f55277d826cbfee751a94f1fc70e}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_record@{do\_record}}
+\index{do\_record@{do\_record}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_record()}{do\_record()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+record (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50     \textcolor{keyword}{def }do\_record(self, arg):}
+\DoxyCodeLine{51         \textcolor{stringliteral}{'Save future commands to filename:  RECORD rose.cmd'}}
+\DoxyCodeLine{52         self.file = open(arg, \textcolor{stringliteral}{'w'})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_aedf19d3fc8bb5b8d4327fff096287b35}\label{classtest_1_1TurtleShell_aedf19d3fc8bb5b8d4327fff096287b35}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_reset@{do\_reset}}
+\index{do\_reset@{do\_reset}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_reset()}{do\_reset()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+reset (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39     \textcolor{keyword}{def }do\_reset(self, arg):}
+\DoxyCodeLine{40         \textcolor{stringliteral}{'Clear the screen and return turtle to center:  RESET'}}
+\DoxyCodeLine{41         reset()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a8fc58397fc7c1cfacb91dce8af5b394d}\label{classtest_1_1TurtleShell_a8fc58397fc7c1cfacb91dce8af5b394d}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_right@{do\_right}}
+\index{do\_right@{do\_right}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_right()}{do\_right()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+right (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \textcolor{keyword}{def }do\_right(self, arg):}
+\DoxyCodeLine{14         \textcolor{stringliteral}{'Turn turtle right by given number of degrees:  RIGHT 20'}}
+\DoxyCodeLine{15         right(*\mbox{\hyperlink{namespacetest_ad92c1ec3e7fa07148210632a75b35a3c}{parse}}(arg))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{dd/d7d/classtest_1_1TurtleShell_a8fc58397fc7c1cfacb91dce8af5b394d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_ab135457abaa9a47e00fe2148d50fe679}\label{classtest_1_1TurtleShell_ab135457abaa9a47e00fe2148d50fe679}} 
+\index{test.TurtleShell@{test.TurtleShell}!do\_undo@{do\_undo}}
+\index{do\_undo@{do\_undo}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{do\_undo()}{do\_undo()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+do\+\_\+undo (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37     \textcolor{keyword}{def }do\_undo(self, arg):}
+\DoxyCodeLine{38         \textcolor{stringliteral}{'Undo (repeatedly) the last turtle action(s):  UNDO'}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a42b442e926a2a5d9287531ef07d030b4}\label{classtest_1_1TurtleShell_a42b442e926a2a5d9287531ef07d030b4}} 
+\index{test.TurtleShell@{test.TurtleShell}!precmd@{precmd}}
+\index{precmd@{precmd}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{precmd()}{precmd()}}
+{\footnotesize\ttfamily def test.\+Turtle\+Shell.\+precmd (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{line }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file test.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58     \textcolor{keyword}{def }precmd(self, line):}
+\DoxyCodeLine{59         line = line.lower()}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} self.file \textcolor{keywordflow}{and} \textcolor{stringliteral}{'playback'} \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} line:}
+\DoxyCodeLine{61             print(line, file=self.file)}
+\DoxyCodeLine{62         \textcolor{keywordflow}{return} line}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a82b1c607dc6ef8ec84df24113e087d3f}\label{classtest_1_1TurtleShell_a82b1c607dc6ef8ec84df24113e087d3f}} 
+\index{test.TurtleShell@{test.TurtleShell}!file@{file}}
+\index{file@{file}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily test.\+Turtle\+Shell.\+file = None\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 7 of file test.\+py.
+
+\mbox{\Hypertarget{classtest_1_1TurtleShell_a52692e4fb097734db479714ca27c260a}\label{classtest_1_1TurtleShell_a52692e4fb097734db479714ca27c260a}} 
+\index{test.TurtleShell@{test.TurtleShell}!intro@{intro}}
+\index{intro@{intro}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{intro}{intro}}
+{\footnotesize\ttfamily string test.\+Turtle\+Shell.\+intro = \textquotesingle{}Welcome to the turtle shell. Type help or ? to list commands.\textbackslash{}n\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 5 of file test.\+py.
+
+\mbox{\Hypertarget{classtest_1_1TurtleShell_ab1d6954ebd7513d152cb563131d1d420}\label{classtest_1_1TurtleShell_ab1d6954ebd7513d152cb563131d1d420}} 
+\index{test.TurtleShell@{test.TurtleShell}!prompt@{prompt}}
+\index{prompt@{prompt}!test.TurtleShell@{test.TurtleShell}}
+\doxysubsubsection{\texorpdfstring{prompt}{prompt}}
+{\footnotesize\ttfamily string test.\+Turtle\+Shell.\+prompt = \textquotesingle{}(turtle) \textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 6 of file test.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test_8py}{test.\+py}}\end{DoxyCompactItemize}

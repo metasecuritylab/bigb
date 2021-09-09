@@ -1,0 +1,195 @@
+\hypertarget{namespacelibConfig}{}\doxysection{lib\+Config Namespace Reference}
+\label{namespacelibConfig}\index{libConfig@{libConfig}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e}{Update\+Config}} (section, key, value)
+\item 
+def \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{Get\+Config}} (section, key)
+\item 
+def \mbox{\hyperlink{namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f}{Get\+Tasks}} ()
+\item 
+def \mbox{\hyperlink{namespacelibConfig_a2316b56fc5cf9d67f4d4891b2235a10f}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacelibConfig_a54ab6ffbe48c4d923fb5e411a480bb47}{Conf\+Name}} = \textquotesingle{}\mbox{\hyperlink{namespacelibConfig_a29f8c41be1ca991383869ca61ec9feb4}{config}}/config.\+ini\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacelibConfig_a29f8c41be1ca991383869ca61ec9feb4}{config}} = configparser.\+Config\+Parser()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}\label{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}} 
+\index{libConfig@{libConfig}!GetConfig@{GetConfig}}
+\index{GetConfig@{GetConfig}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{GetConfig()}{GetConfig()}}
+{\footnotesize\ttfamily def lib\+Config.\+Get\+Config (\begin{DoxyParamCaption}\item[{}]{section,  }\item[{}]{key }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file lib\+Config.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{GetConfig}}(section, key):}
+\DoxyCodeLine{26     config = configparser.ConfigParser()}
+\DoxyCodeLine{27     config.read(ConfName)}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} section \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} config.sections():}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} key == \textcolor{stringliteral}{'DAY'}:}
+\DoxyCodeLine{33         \textcolor{keywordflow}{return} config.get(section, key)}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{return} config.get(section, key)}
+\DoxyCodeLine{36 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0b/namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f}\label{namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f}} 
+\index{libConfig@{libConfig}!GetTasks@{GetTasks}}
+\index{GetTasks@{GetTasks}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{GetTasks()}{GetTasks()}}
+{\footnotesize\ttfamily def lib\+Config.\+Get\+Tasks (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file lib\+Config.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f}{GetTasks}}():}
+\DoxyCodeLine{38     index = list()}
+\DoxyCodeLine{39     day = int(\mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{GetConfig}}(\textcolor{stringliteral}{'DETECTION'}, \textcolor{stringliteral}{'DURATION'}))}
+\DoxyCodeLine{40     today = datetime.date.today()}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} range(day):}
+\DoxyCodeLine{43         strIndex = today -\/ datetime.timedelta(days=i)}
+\DoxyCodeLine{44         nowDate = strIndex.strftime(\textcolor{stringliteral}{'\%Y-\/\%m-\/\%d'})}
+\DoxyCodeLine{45         index.append(nowDate)}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} index}
+\DoxyCodeLine{48 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{d7/d0b/namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/d0b/namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibConfig_a2316b56fc5cf9d67f4d4891b2235a10f}\label{namespacelibConfig_a2316b56fc5cf9d67f4d4891b2235a10f}} 
+\index{libConfig@{libConfig}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Config.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file lib\+Config.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibConfig_a2316b56fc5cf9d67f4d4891b2235a10f}{UnitTest}}():}
+\DoxyCodeLine{50     section = \textcolor{stringliteral}{'DETECTION'}}
+\DoxyCodeLine{51     key = \textcolor{stringliteral}{'DURATION'}}
+\DoxyCodeLine{52     value = \textcolor{stringliteral}{'12'}}
+\DoxyCodeLine{53     ret\_A = \mbox{\hyperlink{namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e}{UpdateConfig}}(section, key, value)}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if} ret\_A:}
+\DoxyCodeLine{55         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libConfig'}, \textcolor{stringliteral}{'UpdateConfig'}, value)}
+\DoxyCodeLine{56     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{57         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libConfig'}, \textcolor{stringliteral}{'UpdateConfig'}, value)}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     ret\_B = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{GetConfig}}(section, key)}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} ret\_B:}
+\DoxyCodeLine{61         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libConfig'}, \textcolor{stringliteral}{'GetConfig'}, value)}
+\DoxyCodeLine{62     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{63         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libConfig'}, \textcolor{stringliteral}{'GetConfig'}, value)}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{d7/d0b/namespacelibConfig_a2316b56fc5cf9d67f4d4891b2235a10f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e}\label{namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e}} 
+\index{libConfig@{libConfig}!UpdateConfig@{UpdateConfig}}
+\index{UpdateConfig@{UpdateConfig}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{UpdateConfig()}{UpdateConfig()}}
+{\footnotesize\ttfamily def lib\+Config.\+Update\+Config (\begin{DoxyParamCaption}\item[{}]{section,  }\item[{}]{key,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file lib\+Config.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e}{UpdateConfig}}(section, key, value):}
+\DoxyCodeLine{12     config = configparser.ConfigParser()}
+\DoxyCodeLine{13     config.read(ConfName)}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{keywordflow}{if} section \textcolor{keywordflow}{not} \textcolor{keywordflow}{in} config.sections():}
+\DoxyCodeLine{16         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     config.set(section, key, value)}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keyword}{with} open(ConfName, \textcolor{stringliteral}{'w'}) \textcolor{keyword}{as} configfile:}
+\DoxyCodeLine{21         config.write(configfile)}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{24 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{d7/d0b/namespacelibConfig_aa70a4e111df7b84c3d9bbac31617d68e_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibConfig_a29f8c41be1ca991383869ca61ec9feb4}\label{namespacelibConfig_a29f8c41be1ca991383869ca61ec9feb4}} 
+\index{libConfig@{libConfig}!config@{config}}
+\index{config@{config}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{config}{config}}
+{\footnotesize\ttfamily lib\+Config.\+config = configparser.\+Config\+Parser()}
+
+
+
+Definition at line 9 of file lib\+Config.\+py.
+
+\mbox{\Hypertarget{namespacelibConfig_a54ab6ffbe48c4d923fb5e411a480bb47}\label{namespacelibConfig_a54ab6ffbe48c4d923fb5e411a480bb47}} 
+\index{libConfig@{libConfig}!ConfName@{ConfName}}
+\index{ConfName@{ConfName}!libConfig@{libConfig}}
+\doxysubsubsection{\texorpdfstring{ConfName}{ConfName}}
+{\footnotesize\ttfamily string lib\+Config.\+Conf\+Name = \textquotesingle{}\mbox{\hyperlink{namespacelibConfig_a29f8c41be1ca991383869ca61ec9feb4}{config}}/config.\+ini\textquotesingle{}}
+
+
+
+Definition at line 8 of file lib\+Config.\+py.
+

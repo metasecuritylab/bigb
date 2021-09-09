@@ -1,0 +1,351 @@
+\hypertarget{namespacelibSlack}{}\doxysection{lib\+Slack Namespace Reference}
+\label{namespacelibSlack}\index{libSlack@{libSlack}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9}{Watcher}} ()
+\item 
+def \mbox{\hyperlink{namespacelibSlack_a6b1aadc38661b2ba07a046ff6cb64f7d}{Send\+Slack}} (critical=0, warning=0, f\+IP=\char`\"{}\char`\"{}, m\+O\+TX=\char`\"{}\char`\"{}, m\+W\+I\+NS=\char`\"{}\char`\"{}, m\+ET=\char`\"{}\char`\"{})
+\item 
+def \mbox{\hyperlink{namespacelibSlack_a07ab2dd6173c3505d792ac740c26e7a0}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibSlack_a007db87e964f8b77b3b023cab0d3238d}{url}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}S\+L\+A\+CK\textquotesingle{}, \textquotesingle{}T\+E\+ST\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibSlack_a37233b86260405e77ecce494e7111112}{otx}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}O\+TX\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibSlack_a16c7b84dea803841177db96097147d8d}{ctas}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}C\+T\+AS\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibSlack_a866f98140d69593408df05a9c7c2afae}{vt}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}V\+I\+R\+U\+S\+T\+O\+T\+AL\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibSlack_a198596a5fa88fdb128302e2f0b2061ee}{D\+A\+S\+H\+B\+O\+A\+RD}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}R\+E\+M\+O\+TE\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibSlack_a1a9abeee10f50f92e01054659bba13b5}{username}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}S\+L\+A\+CK\textquotesingle{}, \textquotesingle{}U\+S\+ER\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibSlack_a6b1aadc38661b2ba07a046ff6cb64f7d}\label{namespacelibSlack_a6b1aadc38661b2ba07a046ff6cb64f7d}} 
+\index{libSlack@{libSlack}!SendSlack@{SendSlack}}
+\index{SendSlack@{SendSlack}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{SendSlack()}{SendSlack()}}
+{\footnotesize\ttfamily def lib\+Slack.\+Send\+Slack (\begin{DoxyParamCaption}\item[{}]{critical = {\ttfamily 0},  }\item[{}]{warning = {\ttfamily 0},  }\item[{}]{f\+IP = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{m\+O\+TX = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{m\+W\+I\+NS = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{m\+ET = {\ttfamily \char`\"{}\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file lib\+Slack.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibSlack_a6b1aadc38661b2ba07a046ff6cb64f7d}{SendSlack}}(critical=0, warning=0, fIP="", mOTX="", mWINS="", mET=""):}
+\DoxyCodeLine{55     icon\_emoji = \textcolor{stringliteral}{":grinning:"}}
+\DoxyCodeLine{56     Title = \textcolor{stringliteral}{"New reported cases:\(\backslash\)n*<\{\}|Incident Response -\/ New critical IP is reported>*"}.format(DASHBOARD)}
+\DoxyCodeLine{57     InfoIP = \textcolor{stringliteral}{"*IP :*\(\backslash\)n\{\}"}.format(fIP)}
+\DoxyCodeLine{58     InfoSecurityLevel = \textcolor{stringliteral}{"*Security Level :*\(\backslash\)nCritical: \{\}, Warning: \{\}"}.format(str(critical), str(warning))}
+\DoxyCodeLine{59     InfoReason = \textcolor{stringliteral}{"*Reason :*"}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} len(mOTX) > 0:}
+\DoxyCodeLine{62         InfoReason = InfoReason + \textcolor{stringliteral}{"\(\backslash\)n\{\}"}.format(mOTX)}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} len(mWINS) > 0:}
+\DoxyCodeLine{65         InfoReason = InfoReason + \textcolor{stringliteral}{"\(\backslash\)n\{\}"}.format(mWINS)}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} len(mET) > 0:}
+\DoxyCodeLine{68         InfoReason = InfoReason + \textcolor{stringliteral}{"\(\backslash\)n\{\}"}.format(mET)}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     InfoRef = \textcolor{stringliteral}{"*Ref: *\(\backslash\)n"}}
+\DoxyCodeLine{71     payload = \{}
+\DoxyCodeLine{72         \textcolor{stringliteral}{"username"}: username,}
+\DoxyCodeLine{73         \textcolor{stringliteral}{"icon\_emoji"}: icon\_emoji,}
+\DoxyCodeLine{74         \textcolor{stringliteral}{"blocks"}: [}
+\DoxyCodeLine{75             \{}
+\DoxyCodeLine{76                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"section"},}
+\DoxyCodeLine{77                 \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{78                     \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{79                     \textcolor{stringliteral}{"text"}: Title}
+\DoxyCodeLine{80                 \}}
+\DoxyCodeLine{81             \},}
+\DoxyCodeLine{82             \{}
+\DoxyCodeLine{83                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"section"},}
+\DoxyCodeLine{84                 \textcolor{stringliteral}{"fields"}: [}
+\DoxyCodeLine{85                     \{}
+\DoxyCodeLine{86                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{87                         \textcolor{stringliteral}{"text"}: InfoIP}
+\DoxyCodeLine{88                     \},}
+\DoxyCodeLine{89                     \{}
+\DoxyCodeLine{90                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{91                         \textcolor{stringliteral}{"text"}: InfoSecurityLevel}
+\DoxyCodeLine{92                     \},}
+\DoxyCodeLine{93                     \{}
+\DoxyCodeLine{94                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{95                         \textcolor{stringliteral}{"text"}: InfoReason}
+\DoxyCodeLine{96                     \},}
+\DoxyCodeLine{97                     \{}
+\DoxyCodeLine{98                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{99                         \textcolor{stringliteral}{"text"}: InfoRef}
+\DoxyCodeLine{100                     \}}
+\DoxyCodeLine{101                 ]}
+\DoxyCodeLine{102             \},}
+\DoxyCodeLine{103             \{}
+\DoxyCodeLine{104                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"actions"},}
+\DoxyCodeLine{105                 \textcolor{stringliteral}{"elements"}: [}
+\DoxyCodeLine{106                 ]}
+\DoxyCodeLine{107             \},}
+\DoxyCodeLine{108             \{}
+\DoxyCodeLine{109                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"section"},}
+\DoxyCodeLine{110                 \textcolor{stringliteral}{"fields"}: [}
+\DoxyCodeLine{111                     \{}
+\DoxyCodeLine{112                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{113                         \textcolor{stringliteral}{"text"}: \textcolor{stringliteral}{"*Actions:*\(\backslash\)n"}}
+\DoxyCodeLine{114                     \}}
+\DoxyCodeLine{115                 ]}
+\DoxyCodeLine{116             \},}
+\DoxyCodeLine{117             \{}
+\DoxyCodeLine{118                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"actions"},}
+\DoxyCodeLine{119                 \textcolor{stringliteral}{"elements"}: [}
+\DoxyCodeLine{120                     \{}
+\DoxyCodeLine{121                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"button"},}
+\DoxyCodeLine{122                         \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{123                             \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"plain\_text"},}
+\DoxyCodeLine{124                             \textcolor{stringliteral}{"emoji"}: \textcolor{keyword}{True},}
+\DoxyCodeLine{125                             \textcolor{stringliteral}{"text"}: \textcolor{stringliteral}{"Deny"}}
+\DoxyCodeLine{126                         \},}
+\DoxyCodeLine{127                         \textcolor{stringliteral}{"style"}: \textcolor{stringliteral}{"danger"},}
+\DoxyCodeLine{128                         \textcolor{stringliteral}{"value"}: \textcolor{stringliteral}{"click\_me\_123"},}
+\DoxyCodeLine{129                     \}}
+\DoxyCodeLine{130                 ]}
+\DoxyCodeLine{131             \}}
+\DoxyCodeLine{132         ]}
+\DoxyCodeLine{133     \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     element = \{}
+\DoxyCodeLine{136         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"button"},}
+\DoxyCodeLine{137             \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{138                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"plain\_text"},}
+\DoxyCodeLine{139                 \textcolor{stringliteral}{"emoji"}: \textcolor{keyword}{True},}
+\DoxyCodeLine{140                 \textcolor{stringliteral}{"text"}: \textcolor{stringliteral}{"OTX General Information"}}
+\DoxyCodeLine{141             \},}
+\DoxyCodeLine{142             \textcolor{stringliteral}{"style"}: \textcolor{stringliteral}{"primary"},}
+\DoxyCodeLine{143             \textcolor{stringliteral}{"value"}: \textcolor{stringliteral}{"click\_me\_123"},}
+\DoxyCodeLine{144             \textcolor{stringliteral}{"url"}: \textcolor{stringliteral}{"\{\}/indicator/ip/\{\}"}.format(otx, fIP)}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     payload[\textcolor{stringliteral}{'blocks'}][2][\textcolor{stringliteral}{'elements'}].append(element)}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     element = \{}
+\DoxyCodeLine{150         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"button"},}
+\DoxyCodeLine{151         \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{152             \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"plain\_text"},}
+\DoxyCodeLine{153             \textcolor{stringliteral}{"emoji"}: \textcolor{keyword}{True},}
+\DoxyCodeLine{154             \textcolor{stringliteral}{"text"}: \textcolor{stringliteral}{"C-\/TAS Threat Information"}}
+\DoxyCodeLine{155         \},}
+\DoxyCodeLine{156         \textcolor{stringliteral}{"style"}: \textcolor{stringliteral}{"primary"},}
+\DoxyCodeLine{157         \textcolor{stringliteral}{"value"}: \textcolor{stringliteral}{"click\_me\_123"},}
+\DoxyCodeLine{158         \textcolor{stringliteral}{"url"}: \textcolor{stringliteral}{"\{\}"}.format(ctas)}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161 \textcolor{comment}{\#    payload['blocks'][2]['elements'].append(element)}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     element = \{}
+\DoxyCodeLine{164         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"button"},}
+\DoxyCodeLine{165         \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{166             \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"plain\_text"},}
+\DoxyCodeLine{167             \textcolor{stringliteral}{"emoji"}: \textcolor{keyword}{True},}
+\DoxyCodeLine{168             \textcolor{stringliteral}{"text"}: \textcolor{stringliteral}{"VirusTotal Reputation"}}
+\DoxyCodeLine{169         \},}
+\DoxyCodeLine{170         \textcolor{stringliteral}{"style"}: \textcolor{stringliteral}{"primary"},}
+\DoxyCodeLine{171         \textcolor{stringliteral}{"value"}: \textcolor{stringliteral}{"click\_me\_123"},}
+\DoxyCodeLine{172         \textcolor{stringliteral}{"url"}: \textcolor{stringliteral}{"\{\}/gui/ip-\/address/\{\}/detection"}.format(vt, fIP)}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     payload[\textcolor{stringliteral}{'blocks'}][2][\textcolor{stringliteral}{'elements'}].append(element)}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{178         requests.post(url, data=json.dumps(payload), headers=\{\textcolor{stringliteral}{'Content-\/Type'}: \textcolor{stringliteral}{'application/json'}\})}
+\DoxyCodeLine{179     \textcolor{keywordflow}{except} requests.exceptions.HTTPError \textcolor{keyword}{as} e:}
+\DoxyCodeLine{180         \textcolor{comment}{\#print(e.response.text)}}
+\DoxyCodeLine{181         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelibSlack_a07ab2dd6173c3505d792ac740c26e7a0}\label{namespacelibSlack_a07ab2dd6173c3505d792ac740c26e7a0}} 
+\index{libSlack@{libSlack}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Slack.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}fIP = '8.8.8.8'
+cmessage =''
+wmessage ='Threat class-type is Reconnaissance.'
+
+cnum = 0
+wnum = 0
+ret = SendSlack(critical=cnum, warning=wnum, fIP=fIP, mOTX=cmessage, mWINS=wmessage)
+text = '[UnitTest:LibSlack:SendSlack] SUCCESS'
+if not ret:
+    text = '[UnitTest:LibSlack:SendSlack] FAIL : {}'.format(ret)
+\end{DoxyVerb}
+ 
+
+Definition at line 186 of file lib\+Slack.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibSlack_a07ab2dd6173c3505d792ac740c26e7a0}{UnitTest}}():}
+\DoxyCodeLine{187     \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{188 \textcolor{stringliteral}{    fIP = '8.8.8.8'}}
+\DoxyCodeLine{189 \textcolor{stringliteral}{    cmessage =''}}
+\DoxyCodeLine{190 \textcolor{stringliteral}{    wmessage ='Threat class-\/type is Reconnaissance.'}}
+\DoxyCodeLine{191 \textcolor{stringliteral}{}}
+\DoxyCodeLine{192 \textcolor{stringliteral}{    cnum = 0}}
+\DoxyCodeLine{193 \textcolor{stringliteral}{    wnum = 0}}
+\DoxyCodeLine{194 \textcolor{stringliteral}{    ret = SendSlack(critical=cnum, warning=wnum, fIP=fIP, mOTX=cmessage, mWINS=wmessage)}}
+\DoxyCodeLine{195 \textcolor{stringliteral}{    text = '[UnitTest:LibSlack:SendSlack] SUCCESS'}}
+\DoxyCodeLine{196 \textcolor{stringliteral}{    if not ret:}}
+\DoxyCodeLine{197 \textcolor{stringliteral}{        text = '[UnitTest:LibSlack:SendSlack] FAIL : \{\}'.format(ret)}}
+\DoxyCodeLine{198 \textcolor{stringliteral}{    '''}}
+\DoxyCodeLine{199     ret = \mbox{\hyperlink{namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9}{Watcher}}()}
+\DoxyCodeLine{200     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{201         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'LibSlack'}, \textcolor{stringliteral}{'Watcher'}, ret)}
+\DoxyCodeLine{202     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{203         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'LibSlack'}, \textcolor{stringliteral}{'Watcher'}, ret)}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{d1/d70/namespacelibSlack_a07ab2dd6173c3505d792ac740c26e7a0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9}\label{namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9}} 
+\index{libSlack@{libSlack}!Watcher@{Watcher}}
+\index{Watcher@{Watcher}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{Watcher()}{Watcher()}}
+{\footnotesize\ttfamily def lib\+Slack.\+Watcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file lib\+Slack.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9}{Watcher}}():}
+\DoxyCodeLine{17     status = \textcolor{stringliteral}{"DOWN"}}
+\DoxyCodeLine{18     icon\_emoji = \textcolor{stringliteral}{":grinning:"}}
+\DoxyCodeLine{19     Title = \textcolor{stringliteral}{"[SOAR: Warning] Daemon status was changed"}}
+\DoxyCodeLine{20     Message = \textcolor{stringliteral}{"*Status : \{\}"}.format(status)}
+\DoxyCodeLine{21     payload = \{}
+\DoxyCodeLine{22         \textcolor{stringliteral}{"username"}: username,}
+\DoxyCodeLine{23         \textcolor{stringliteral}{"icon\_emoji"}: icon\_emoji,}
+\DoxyCodeLine{24         \textcolor{stringliteral}{"blocks"}: [}
+\DoxyCodeLine{25             \{}
+\DoxyCodeLine{26                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"section"},}
+\DoxyCodeLine{27                 \textcolor{stringliteral}{"text"}: \{}
+\DoxyCodeLine{28                     \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{29                     \textcolor{stringliteral}{"text"}: Title}
+\DoxyCodeLine{30                 \}}
+\DoxyCodeLine{31             \},}
+\DoxyCodeLine{32             \{}
+\DoxyCodeLine{33                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"section"},}
+\DoxyCodeLine{34                 \textcolor{stringliteral}{"fields"}: [}
+\DoxyCodeLine{35                     \{}
+\DoxyCodeLine{36                         \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"mrkdwn"},}
+\DoxyCodeLine{37                         \textcolor{stringliteral}{"text"}: Message}
+\DoxyCodeLine{38                     \}}
+\DoxyCodeLine{39                 ]}
+\DoxyCodeLine{40             \},}
+\DoxyCodeLine{41             \{}
+\DoxyCodeLine{42                 \textcolor{stringliteral}{"type"}: \textcolor{stringliteral}{"divider"}}
+\DoxyCodeLine{43             \}}
+\DoxyCodeLine{44         ]}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{48         requests.post(url, data=json.dumps(payload), headers=\{\textcolor{stringliteral}{'Content-\/Type'}: \textcolor{stringliteral}{'application/json'}\})}
+\DoxyCodeLine{49     \textcolor{keywordflow}{except} requests.exceptions.HTTPError \textcolor{keyword}{as} e:}
+\DoxyCodeLine{50         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{53 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{d1/d70/namespacelibSlack_a9a35b87cf41a6b26b195fa2395f2eef9_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibSlack_a16c7b84dea803841177db96097147d8d}\label{namespacelibSlack_a16c7b84dea803841177db96097147d8d}} 
+\index{libSlack@{libSlack}!ctas@{ctas}}
+\index{ctas@{ctas}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{ctas}{ctas}}
+{\footnotesize\ttfamily lib\+Slack.\+ctas = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}C\+T\+AS\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 11 of file lib\+Slack.\+py.
+
+\mbox{\Hypertarget{namespacelibSlack_a198596a5fa88fdb128302e2f0b2061ee}\label{namespacelibSlack_a198596a5fa88fdb128302e2f0b2061ee}} 
+\index{libSlack@{libSlack}!DASHBOARD@{DASHBOARD}}
+\index{DASHBOARD@{DASHBOARD}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{DASHBOARD}{DASHBOARD}}
+{\footnotesize\ttfamily lib\+Slack.\+D\+A\+S\+H\+B\+O\+A\+RD = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}R\+E\+M\+O\+TE\textquotesingle{})}
+
+
+
+Definition at line 13 of file lib\+Slack.\+py.
+
+\mbox{\Hypertarget{namespacelibSlack_a37233b86260405e77ecce494e7111112}\label{namespacelibSlack_a37233b86260405e77ecce494e7111112}} 
+\index{libSlack@{libSlack}!otx@{otx}}
+\index{otx@{otx}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{otx}{otx}}
+{\footnotesize\ttfamily lib\+Slack.\+otx = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}O\+TX\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 10 of file lib\+Slack.\+py.
+
+\mbox{\Hypertarget{namespacelibSlack_a007db87e964f8b77b3b023cab0d3238d}\label{namespacelibSlack_a007db87e964f8b77b3b023cab0d3238d}} 
+\index{libSlack@{libSlack}!url@{url}}
+\index{url@{url}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{url}{url}}
+{\footnotesize\ttfamily lib\+Slack.\+url = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}S\+L\+A\+CK\textquotesingle{}, \textquotesingle{}T\+E\+ST\textquotesingle{})}
+
+
+
+Definition at line 9 of file lib\+Slack.\+py.
+
+\mbox{\Hypertarget{namespacelibSlack_a1a9abeee10f50f92e01054659bba13b5}\label{namespacelibSlack_a1a9abeee10f50f92e01054659bba13b5}} 
+\index{libSlack@{libSlack}!username@{username}}
+\index{username@{username}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily lib\+Slack.\+username = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}S\+L\+A\+CK\textquotesingle{}, \textquotesingle{}U\+S\+ER\textquotesingle{})}
+
+
+
+Definition at line 14 of file lib\+Slack.\+py.
+
+\mbox{\Hypertarget{namespacelibSlack_a866f98140d69593408df05a9c7c2afae}\label{namespacelibSlack_a866f98140d69593408df05a9c7c2afae}} 
+\index{libSlack@{libSlack}!vt@{vt}}
+\index{vt@{vt}!libSlack@{libSlack}}
+\doxysubsubsection{\texorpdfstring{vt}{vt}}
+{\footnotesize\ttfamily lib\+Slack.\+vt = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}V\+I\+R\+U\+S\+T\+O\+T\+AL\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 12 of file lib\+Slack.\+py.
+

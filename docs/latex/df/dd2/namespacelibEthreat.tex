@@ -1,0 +1,284 @@
+\hypertarget{namespacelibEthreat}{}\doxysection{lib\+Ethreat Namespace Reference}
+\label{namespacelibEthreat}\index{libEthreat@{libEthreat}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}{Download}} (url, file\+\_\+name)
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}{Parse\+E\+T\+Rules}} (fname)
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_ab9a85a59aa727338d55f784151c19773}{Get\+E\+T\+Rules}} ()
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}{Get\+Black\+List\+From\+ET}} ()
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_a3926dc1eacddc4e2add3372774f3593a}{Detect\+Emerging\+Threats}} (address)
+\item 
+def \mbox{\hyperlink{namespacelibEthreat_a4f4a7cd8628a3d021a06cbefd659ec51}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibEthreat_a431380c73aec873431626af6496f15b6}{D\+IR}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}D\+IR\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibEthreat_a804d50bf7a3455288e20bccb6ee41b0d}{emerging\+\_\+block\+\_\+ips}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}emerging-\/block-\/ips\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibEthreat_a53a7c4427b810a13db02cc6a39ca244d}{compromised\+\_\+ips}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}compromised-\/ips\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibEthreat_a3926dc1eacddc4e2add3372774f3593a}\label{namespacelibEthreat_a3926dc1eacddc4e2add3372774f3593a}} 
+\index{libEthreat@{libEthreat}!DetectEmergingThreats@{DetectEmergingThreats}}
+\index{DetectEmergingThreats@{DetectEmergingThreats}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{DetectEmergingThreats()}{DetectEmergingThreats()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Detect\+Emerging\+Threats (\begin{DoxyParamCaption}\item[{}]{address }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_a3926dc1eacddc4e2add3372774f3593a}{DetectEmergingThreats}}(address):}
+\DoxyCodeLine{65     maliciousIPs = \mbox{\hyperlink{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}{GetBlackListFromET}}()}
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} maliciousIPs:}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordflow}{for} mip \textcolor{keywordflow}{in} maliciousIPs:}
+\DoxyCodeLine{70         \textcolor{keywordflow}{if} mip[\textcolor{stringliteral}{'ip'}] == address:}
+\DoxyCodeLine{71             \textcolor{keywordflow}{return} mip}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{74 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_a3926dc1eacddc4e2add3372774f3593a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}\label{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}} 
+\index{libEthreat@{libEthreat}!Download@{Download}}
+\index{Download@{Download}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{Download()}{Download()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Download (\begin{DoxyParamCaption}\item[{}]{url,  }\item[{}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}{Download}}(url, file\_name):}
+\DoxyCodeLine{14     \textcolor{keyword}{with} open(file\_name, \textcolor{stringliteral}{"wb"}) \textcolor{keyword}{as} file:}
+\DoxyCodeLine{15         response = requests.get(url)}
+\DoxyCodeLine{16         file.write(response.content)}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{19 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}\label{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}} 
+\index{libEthreat@{libEthreat}!GetBlackListFromET@{GetBlackListFromET}}
+\index{GetBlackListFromET@{GetBlackListFromET}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{GetBlackListFromET()}{GetBlackListFromET()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Get\+Black\+List\+From\+ET (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 47 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}{GetBlackListFromET}}():}
+\DoxyCodeLine{48     BlackList = list()}
+\DoxyCodeLine{49     filename = \textcolor{stringliteral}{"\{\}/emerging-\/block-\/ips.txt"}.format(DIR)}
+\DoxyCodeLine{50     ret = \mbox{\hyperlink{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}{ParseETRules}}(filename)}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ret:}
+\DoxyCodeLine{52         \textcolor{keywordflow}{return} BlackList}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     BlackList.extend(ret)}
+\DoxyCodeLine{55     filename = \textcolor{stringliteral}{"\{\}/compromised-\/ips.txt"}.format(DIR)}
+\DoxyCodeLine{56     ret = \mbox{\hyperlink{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}{ParseETRules}}(filename)}
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ret:}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} BlackList}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     BlackList.extend(ret)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} BlackList}
+\DoxyCodeLine{63 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibEthreat_ab9a85a59aa727338d55f784151c19773}\label{namespacelibEthreat_ab9a85a59aa727338d55f784151c19773}} 
+\index{libEthreat@{libEthreat}!GetETRules@{GetETRules}}
+\index{GetETRules@{GetETRules}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{GetETRules()}{GetETRules()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Get\+E\+T\+Rules (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 36 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_ab9a85a59aa727338d55f784151c19773}{GetETRules}}():}
+\DoxyCodeLine{37     filename = \textcolor{stringliteral}{"\{\}/emerging-\/block-\/ips.txt"}.format(DIR)}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}{Download}}(emerging\_block\_ips, filename):}
+\DoxyCodeLine{39         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     filename = \textcolor{stringliteral}{"\{\}/compromised-\/ips.txt"}.format(DIR)}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacelibEthreat_a0c31b0aabe52f8eb33de3e9eb251c08b}{Download}}(compromised\_ips, filename):}
+\DoxyCodeLine{43         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{46 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_ab9a85a59aa727338d55f784151c19773_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{df/dd2/namespacelibEthreat_ab9a85a59aa727338d55f784151c19773_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}\label{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}} 
+\index{libEthreat@{libEthreat}!ParseETRules@{ParseETRules}}
+\index{ParseETRules@{ParseETRules}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{ParseETRules()}{ParseETRules()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Parse\+E\+T\+Rules (\begin{DoxyParamCaption}\item[{}]{fname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125}{ParseETRules}}(fname):}
+\DoxyCodeLine{21     bucket = list()}
+\DoxyCodeLine{22     ret = os.path.isfile(fname)}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ret:}
+\DoxyCodeLine{25         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keyword}{with} open(fname, \textcolor{stringliteral}{'r'}) \textcolor{keyword}{as} fdata:}
+\DoxyCodeLine{28         lines = fdata.readlines()}
+\DoxyCodeLine{29         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} lines:}
+\DoxyCodeLine{30             \textcolor{keywordflow}{if} len(line) > 1:}
+\DoxyCodeLine{31                 \textcolor{keywordflow}{if} line[0] != \textcolor{stringliteral}{'\#'}:}
+\DoxyCodeLine{32                     bucket.append(\{\textcolor{stringliteral}{'ip'}: line.strip(\textcolor{stringliteral}{'\(\backslash\)n'}), \textcolor{stringliteral}{'ref'}: fname\})}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} bucket}
+\DoxyCodeLine{35 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_ad6dee45ed5e3e26c004efe1916cd9125_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibEthreat_a4f4a7cd8628a3d021a06cbefd659ec51}\label{namespacelibEthreat_a4f4a7cd8628a3d021a06cbefd659ec51}} 
+\index{libEthreat@{libEthreat}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Ethreat.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file lib\+Ethreat.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibEthreat_a4f4a7cd8628a3d021a06cbefd659ec51}{UnitTest}}():}
+\DoxyCodeLine{76     ret = \mbox{\hyperlink{namespacelibEthreat_ab9a85a59aa727338d55f784151c19773}{GetETRules}}()}
+\DoxyCodeLine{77     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{78         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libEthreat'}, \textcolor{stringliteral}{'GetETRules'}, ret)}
+\DoxyCodeLine{79     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{80         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libEthreat'}, \textcolor{stringliteral}{'GetETRules'}, ret)}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     ret = \mbox{\hyperlink{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}{GetBlackListFromET}}()}
+\DoxyCodeLine{83     \textcolor{keywordflow}{if} len(ret):}
+\DoxyCodeLine{84         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libEthreat'}, \textcolor{stringliteral}{'GetBlackListFromET'}, len(ret))}
+\DoxyCodeLine{85     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{86         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libEthreat'}, \textcolor{stringliteral}{'GetBlackListFromET'}, len(ret))}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{df/dd2/namespacelibEthreat_a4f4a7cd8628a3d021a06cbefd659ec51_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibEthreat_a53a7c4427b810a13db02cc6a39ca244d}\label{namespacelibEthreat_a53a7c4427b810a13db02cc6a39ca244d}} 
+\index{libEthreat@{libEthreat}!compromised\_ips@{compromised\_ips}}
+\index{compromised\_ips@{compromised\_ips}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{compromised\_ips}{compromised\_ips}}
+{\footnotesize\ttfamily lib\+Ethreat.\+compromised\+\_\+ips = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}compromised-\/ips\textquotesingle{})}
+
+
+
+Definition at line 11 of file lib\+Ethreat.\+py.
+
+\mbox{\Hypertarget{namespacelibEthreat_a431380c73aec873431626af6496f15b6}\label{namespacelibEthreat_a431380c73aec873431626af6496f15b6}} 
+\index{libEthreat@{libEthreat}!DIR@{DIR}}
+\index{DIR@{DIR}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{DIR}{DIR}}
+{\footnotesize\ttfamily lib\+Ethreat.\+D\+IR = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}D\+IR\textquotesingle{})}
+
+
+
+Definition at line 9 of file lib\+Ethreat.\+py.
+
+\mbox{\Hypertarget{namespacelibEthreat_a804d50bf7a3455288e20bccb6ee41b0d}\label{namespacelibEthreat_a804d50bf7a3455288e20bccb6ee41b0d}} 
+\index{libEthreat@{libEthreat}!emerging\_block\_ips@{emerging\_block\_ips}}
+\index{emerging\_block\_ips@{emerging\_block\_ips}!libEthreat@{libEthreat}}
+\doxysubsubsection{\texorpdfstring{emerging\_block\_ips}{emerging\_block\_ips}}
+{\footnotesize\ttfamily lib\+Ethreat.\+emerging\+\_\+block\+\_\+ips = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}ET\textquotesingle{}, \textquotesingle{}emerging-\/block-\/ips\textquotesingle{})}
+
+
+
+Definition at line 10 of file lib\+Ethreat.\+py.
+

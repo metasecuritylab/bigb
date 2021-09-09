@@ -1,0 +1,590 @@
+\hypertarget{namespacelibOtx}{}\doxysection{lib\+Otx Namespace Reference}
+\label{namespacelibOtx}\index{libOtx@{libOtx}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{get\+Value}} (results, keys)
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}{hostname}} (otx, hostname)
+\item 
+def \mbox{\hyperlink{namespacelibOtx_ab9a3999ce9a70946fe7859ce92a96cc0}{ip}} (otx, ip, section=\textquotesingle{}general\textquotesingle{})
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}{url}} (otx, url)
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}} (otx, hash)
+\item 
+def \mbox{\hyperlink{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}{Lookup\+Ip}} (\mbox{\hyperlink{namespacelibOtx_ab9a3999ce9a70946fe7859ce92a96cc0}{ip}})
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a54328b75979ef8e7eb57ad80ac7e3b15}{Lookup\+Host}} (\mbox{\hyperlink{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}{hostname}})
+\item 
+def \mbox{\hyperlink{namespacelibOtx_aaf93fa86a68f54cca928cc4c7959dc1b}{Lookup\+Url}} (\mbox{\hyperlink{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}{url}})
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a92eaeffea9bf0329b6f1e41a2c2cb7ce}{Lookup\+Hash}} (hash)
+\item 
+def \mbox{\hyperlink{namespacelibOtx_adf637ca8c259cd140e92c8bd2c8dcbd0}{Lookup\+File}} (\mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}})
+\item 
+def \mbox{\hyperlink{namespacelibOtx_a649b95f6d0630410ce73d1bd2d993df9}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibOtx_ad294de6fa1b0cddfd2bd94b37991ec63}{A\+P\+I\+\_\+\+K\+EY}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}\mbox{\hyperlink{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}{O\+TX}}\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibOtx_a00d5bac3e4716cd5b7e733669f972ed1}{U\+RL}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}\mbox{\hyperlink{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}{O\+TX}}\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}{O\+TX}} = O\+T\+Xv2(\mbox{\hyperlink{namespacelibOtx_ad294de6fa1b0cddfd2bd94b37991ec63}{A\+P\+I\+\_\+\+K\+EY}}, server=\mbox{\hyperlink{namespacelibOtx_a00d5bac3e4716cd5b7e733669f972ed1}{U\+RL}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}\label{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}} 
+\index{libOtx@{libOtx}!file@{file}}
+\index{file@{file}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{file()}{file()}}
+{\footnotesize\ttfamily def lib\+Otx.\+file (\begin{DoxyParamCaption}\item[{}]{otx,  }\item[{}]{hash }\end{DoxyParamCaption})}
+
+
+
+Definition at line 112 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}}(otx, hash):}
+\DoxyCodeLine{113     alerts = []}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     hash\_type = libTypes.FILE\_HASH\_MD5}
+\DoxyCodeLine{116     \textcolor{keywordflow}{if} len(hash) == 64:}
+\DoxyCodeLine{117         hash\_type = libTypes.FILE\_HASH\_SHA256}
+\DoxyCodeLine{118     \textcolor{keywordflow}{if} len(hash) == 40:}
+\DoxyCodeLine{119         hash\_type = libTypes.FILE\_HASH\_SHA1}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     result = otx.get\_indicator\_details\_full(hash\_type, hash)}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123     avg = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'avg'}, \textcolor{stringliteral}{'results'}, \textcolor{stringliteral}{'detection'}])}
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} avg:}
+\DoxyCodeLine{125         alerts.append(\{\textcolor{stringliteral}{'avg'}: avg\})}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     clamav = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'clamav'}, \textcolor{stringliteral}{'results'}, \textcolor{stringliteral}{'detection'}])}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} clamav:}
+\DoxyCodeLine{129         alerts.append(\{\textcolor{stringliteral}{'clamav'}: clamav\})}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131     avast = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'avast'}, \textcolor{stringliteral}{'results'}, \textcolor{stringliteral}{'detection'}])}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} avast:}
+\DoxyCodeLine{133         alerts.append(\{\textcolor{stringliteral}{'avast'}: avast\})}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     microsoft = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result,}
+\DoxyCodeLine{136                          [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'cuckoo'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'virustotal'}, \textcolor{stringliteral}{'scans'}, \textcolor{stringliteral}{'Microsoft'},}
+\DoxyCodeLine{137                           \textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{138     \textcolor{keywordflow}{if} microsoft:}
+\DoxyCodeLine{139         alerts.append(\{\textcolor{stringliteral}{'microsoft'}: microsoft\})}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     symantec = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result,}
+\DoxyCodeLine{142                         [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'cuckoo'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'virustotal'}, \textcolor{stringliteral}{'scans'}, \textcolor{stringliteral}{'Symantec'},}
+\DoxyCodeLine{143                          \textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{144     \textcolor{keywordflow}{if} symantec:}
+\DoxyCodeLine{145         alerts.append(\{\textcolor{stringliteral}{'symantec'}: symantec\})}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     kaspersky = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result,}
+\DoxyCodeLine{148                          [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'cuckoo'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'virustotal'}, \textcolor{stringliteral}{'scans'}, \textcolor{stringliteral}{'Kaspersky'},}
+\DoxyCodeLine{149                           \textcolor{stringliteral}{'result'}])}
+\DoxyCodeLine{150     \textcolor{keywordflow}{if} kaspersky:}
+\DoxyCodeLine{151         alerts.append(\{\textcolor{stringliteral}{'kaspersky'}: kaspersky\})}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153     suricata = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'analysis'}, \textcolor{stringliteral}{'plugins'}, \textcolor{stringliteral}{'cuckoo'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'suricata'}, \textcolor{stringliteral}{'rules'}, \textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{154     \textcolor{keywordflow}{if} suricata \textcolor{keywordflow}{and} \textcolor{stringliteral}{'trojan'} \textcolor{keywordflow}{in} str(suricata).lower():}
+\DoxyCodeLine{155         alerts.append(\{\textcolor{stringliteral}{'suricata'}: suricata\})}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157     \textcolor{keywordflow}{return} alerts}
+\DoxyCodeLine{158 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{d6/de8/namespacelibOtx_a097a86274502f86018aa73ea4fb8d340_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_a097a86274502f86018aa73ea4fb8d340_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}\label{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}} 
+\index{libOtx@{libOtx}!getValue@{getValue}}
+\index{getValue@{getValue}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{getValue()}{getValue()}}
+{\footnotesize\ttfamily def lib\+Otx.\+get\+Value (\begin{DoxyParamCaption}\item[{}]{results,  }\item[{}]{keys }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(results, keys):}
+\DoxyCodeLine{16     \textcolor{keywordflow}{if} type(keys) \textcolor{keywordflow}{is} list \textcolor{keywordflow}{and} len(keys) > 0:}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18         \textcolor{keywordflow}{if} type(results) \textcolor{keywordflow}{is} dict:}
+\DoxyCodeLine{19             key = keys.pop(0)}
+\DoxyCodeLine{20             \textcolor{keywordflow}{if} key \textcolor{keywordflow}{in} results:}
+\DoxyCodeLine{21                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(results[key], keys)}
+\DoxyCodeLine{22             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{23                 \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{24         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{25             \textcolor{keywordflow}{if} type(results) \textcolor{keywordflow}{is} list \textcolor{keywordflow}{and} len(results) > 0:}
+\DoxyCodeLine{26                 \textcolor{keywordflow}{return} \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(results[0], keys)}
+\DoxyCodeLine{27             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{28                 \textcolor{keywordflow}{return} results}
+\DoxyCodeLine{29     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{30         \textcolor{keywordflow}{return} results}
+\DoxyCodeLine{31 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}\label{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}} 
+\index{libOtx@{libOtx}!hostname@{hostname}}
+\index{hostname@{hostname}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{hostname()}{hostname()}}
+{\footnotesize\ttfamily def lib\+Otx.\+hostname (\begin{DoxyParamCaption}\item[{}]{otx,  }\item[{}]{hostname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}{hostname}}(otx, hostname):}
+\DoxyCodeLine{33     alerts = []}
+\DoxyCodeLine{34     result = otx.get\_indicator\_details\_by\_section(libTypes.HOSTNAME, hostname, \textcolor{stringliteral}{'general'})}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{\# Return nothing if it's in the whitelist}}
+\DoxyCodeLine{37     validation = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'validation'}])}
+\DoxyCodeLine{38     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} validation:}
+\DoxyCodeLine{39         pulses = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'pulse\_info'}, \textcolor{stringliteral}{'pulses'}])}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if} pulses:}
+\DoxyCodeLine{41             \textcolor{keywordflow}{for} pulse \textcolor{keywordflow}{in} pulses:}
+\DoxyCodeLine{42                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} pulse:}
+\DoxyCodeLine{43                     alerts.append(\textcolor{stringliteral}{'In pulse: '} + pulse[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     result = otx.get\_indicator\_details\_by\_section(libTypes.DOMAIN, hostname, \textcolor{stringliteral}{'general'})}
+\DoxyCodeLine{46     \textcolor{comment}{\# Return nothing if it's in the whitelist}}
+\DoxyCodeLine{47     validation = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'validation'}])}
+\DoxyCodeLine{48     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} validation:}
+\DoxyCodeLine{49         pulses = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'pulse\_info'}, \textcolor{stringliteral}{'pulses'}])}
+\DoxyCodeLine{50         \textcolor{keywordflow}{if} pulses:}
+\DoxyCodeLine{51             \textcolor{keywordflow}{for} pulse \textcolor{keywordflow}{in} pulses:}
+\DoxyCodeLine{52                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'name'} \textcolor{keywordflow}{in} pulse:}
+\DoxyCodeLine{53                     alerts.append(\textcolor{stringliteral}{'In pulse: '} + pulse[\textcolor{stringliteral}{'name'}])}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{return} alerts}
+\DoxyCodeLine{56 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{d6/de8/namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{d6/de8/namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_ab9a3999ce9a70946fe7859ce92a96cc0}\label{namespacelibOtx_ab9a3999ce9a70946fe7859ce92a96cc0}} 
+\index{libOtx@{libOtx}!ip@{ip}}
+\index{ip@{ip}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{ip()}{ip()}}
+{\footnotesize\ttfamily def lib\+Otx.\+ip (\begin{DoxyParamCaption}\item[{}]{otx,  }\item[{}]{ip,  }\item[{}]{section = {\ttfamily \textquotesingle{}general\textquotesingle{}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_ab9a3999ce9a70946fe7859ce92a96cc0}{ip}}(otx, ip, section='general'):}
+\DoxyCodeLine{58     \textcolor{comment}{\# section = general, geo, reputation, url\_list, passive\_dns, malware, nids\_list, http\_scans}}
+\DoxyCodeLine{59     data = \{\textcolor{stringliteral}{'ref'}:\textcolor{stringliteral}{'OTX'}, \textcolor{stringliteral}{'section'}:\textcolor{keywordtype}{None}, \textcolor{stringliteral}{'response'}:\textcolor{keywordtype}{None}\}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{62         result = otx.get\_indicator\_details\_by\_section(libTypes.IPv4, ip, section)}
+\DoxyCodeLine{63     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{64         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} section == \textcolor{stringliteral}{'general'}:}
+\DoxyCodeLine{67         \textcolor{comment}{\# response.status = 400, response.text = \{"detail": "IP is private."\}}}
+\DoxyCodeLine{68         data[\textcolor{stringliteral}{'section'}] = section}
+\DoxyCodeLine{69         data[\textcolor{stringliteral}{'response'}] = result}
+\DoxyCodeLine{70         \textcolor{keywordflow}{return} data}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} section == \textcolor{stringliteral}{'reputation'}:}
+\DoxyCodeLine{73         \textcolor{comment}{\# response.status = 200, response.text = \{"reputation": null\}}}
+\DoxyCodeLine{74         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} result[section]:}
+\DoxyCodeLine{75             \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         data[\textcolor{stringliteral}{'section'}] = section}
+\DoxyCodeLine{78         data[\textcolor{stringliteral}{'response'}] = result[section]}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} data}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{82 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelibOtx_adf637ca8c259cd140e92c8bd2c8dcbd0}\label{namespacelibOtx_adf637ca8c259cd140e92c8bd2c8dcbd0}} 
+\index{libOtx@{libOtx}!LookupFile@{LookupFile}}
+\index{LookupFile@{LookupFile}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{LookupFile()}{LookupFile()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Lookup\+File (\begin{DoxyParamCaption}\item[{}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line 217 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{217 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_adf637ca8c259cd140e92c8bd2c8dcbd0}{LookupFile}}(file):}
+\DoxyCodeLine{218     hash = hashlib.md5(open(file, \textcolor{stringliteral}{'rb'}).read()).hexdigest()}
+\DoxyCodeLine{219     alerts = \mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}}(OTX, hash)}
+\DoxyCodeLine{220     \textcolor{keywordflow}{if} len(alerts) > 0:}
+\DoxyCodeLine{221         retStr = \textcolor{stringliteral}{"\{\}"}.format(alerts)}
+\DoxyCodeLine{222     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{223         retStr = \textcolor{stringliteral}{"Unknown or not identified as malicious"}}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225     \textcolor{keywordflow}{return} retStr}
+\DoxyCodeLine{226 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_adf637ca8c259cd140e92c8bd2c8dcbd0_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_a92eaeffea9bf0329b6f1e41a2c2cb7ce}\label{namespacelibOtx_a92eaeffea9bf0329b6f1e41a2c2cb7ce}} 
+\index{libOtx@{libOtx}!LookupHash@{LookupHash}}
+\index{LookupHash@{LookupHash}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{LookupHash()}{LookupHash()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Lookup\+Hash (\begin{DoxyParamCaption}\item[{}]{hash }\end{DoxyParamCaption})}
+
+
+
+Definition at line 208 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{208 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a92eaeffea9bf0329b6f1e41a2c2cb7ce}{LookupHash}}(hash):}
+\DoxyCodeLine{209     alerts = \mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}}(OTX, hash)}
+\DoxyCodeLine{210     \textcolor{keywordflow}{if} len(alerts) > 0:}
+\DoxyCodeLine{211         retStr = \textcolor{stringliteral}{"\{\}"}.format(alerts)}
+\DoxyCodeLine{212     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{213         retStr = \textcolor{stringliteral}{"Unknown or not identified as malicious"}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215     \textcolor{keywordflow}{return} retStr}
+\DoxyCodeLine{216 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_a92eaeffea9bf0329b6f1e41a2c2cb7ce_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_a54328b75979ef8e7eb57ad80ac7e3b15}\label{namespacelibOtx_a54328b75979ef8e7eb57ad80ac7e3b15}} 
+\index{libOtx@{libOtx}!LookupHost@{LookupHost}}
+\index{LookupHost@{LookupHost}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{LookupHost()}{LookupHost()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Lookup\+Host (\begin{DoxyParamCaption}\item[{}]{hostname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 190 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{190 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a54328b75979ef8e7eb57ad80ac7e3b15}{LookupHost}}(hostname):}
+\DoxyCodeLine{191     alerts = \mbox{\hyperlink{namespacelibOtx_a9824a22e797f86cd327dbc0d214f2970}{hostname}}(OTX, hostname)}
+\DoxyCodeLine{192     \textcolor{keywordflow}{if} len(alerts) > 0:}
+\DoxyCodeLine{193         retStr = \textcolor{stringliteral}{"\{\}"}.format(alerts)}
+\DoxyCodeLine{194     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{195         retStr = \textcolor{stringliteral}{"Unknown or not identified as malicious"}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197     \textcolor{keywordflow}{return} retStr}
+\DoxyCodeLine{198 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_a54328b75979ef8e7eb57ad80ac7e3b15_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}\label{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}} 
+\index{libOtx@{libOtx}!LookupIp@{LookupIp}}
+\index{LookupIp@{LookupIp}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{LookupIp()}{LookupIp()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Lookup\+Ip (\begin{DoxyParamCaption}\item[{}]{ip }\end{DoxyParamCaption})}
+
+
+
+Definition at line 159 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{159 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}{LookupIp}}(ip):}
+\DoxyCodeLine{160     alerts = []}
+\DoxyCodeLine{161     ret = \{\textcolor{stringliteral}{'pulse\_info\_cnt'}: 0, \textcolor{stringliteral}{'reputation'}: 0\}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacelibUtils_a724cf09407f4b0b3f18db46beb9a3f7d}{libUtils.IsPrivateIP}}(ip):}
+\DoxyCodeLine{164         \textcolor{keywordflow}{return} alerts}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{167         result = OTX.get\_indicator\_details\_by\_section(libTypes.IPv4, ip, \textcolor{stringliteral}{'general'})}
+\DoxyCodeLine{168         \textcolor{keywordflow}{if} len(result[\textcolor{stringliteral}{'validation'}]):}
+\DoxyCodeLine{169             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} result[\textcolor{stringliteral}{'validation'}]:}
+\DoxyCodeLine{170                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source'} \textcolor{keywordflow}{in} i:}
+\DoxyCodeLine{171                     \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{'source'}] == \textcolor{stringliteral}{'whitelist'}:}
+\DoxyCodeLine{172                         ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = 0}
+\DoxyCodeLine{173                         ret[\textcolor{stringliteral}{'reputation'}] = 0}
+\DoxyCodeLine{174                         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = result[\textcolor{stringliteral}{'pulse\_info'}][\textcolor{stringliteral}{'count'}]}
+\DoxyCodeLine{177         ret[\textcolor{stringliteral}{'reputation'}] = result[\textcolor{stringliteral}{'reputation'}]}
+\DoxyCodeLine{178     \textcolor{keywordflow}{except} Exception:}
+\DoxyCodeLine{179         ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = 0}
+\DoxyCodeLine{180         ret[\textcolor{stringliteral}{'reputation'}] = 0}
+\DoxyCodeLine{181         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183     \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{184 \textcolor{stringliteral}{    if ret['reputation']:}}
+\DoxyCodeLine{185 \textcolor{stringliteral}{        text = 'ip: \{\}, reputation; \{\}, count: \{\}'.format(ip, result['reputation'], result['pulse\_info']['count'])}}
+\DoxyCodeLine{186 \textcolor{stringliteral}{        print(text)}}
+\DoxyCodeLine{187 \textcolor{stringliteral}{    '''}}
+\DoxyCodeLine{188     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{189 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{d6/de8/namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{d6/de8/namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_aaf93fa86a68f54cca928cc4c7959dc1b}\label{namespacelibOtx_aaf93fa86a68f54cca928cc4c7959dc1b}} 
+\index{libOtx@{libOtx}!LookupUrl@{LookupUrl}}
+\index{LookupUrl@{LookupUrl}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{LookupUrl()}{LookupUrl()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Lookup\+Url (\begin{DoxyParamCaption}\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+Definition at line 199 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{199 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_aaf93fa86a68f54cca928cc4c7959dc1b}{LookupUrl}}(url):}
+\DoxyCodeLine{200     alerts = \mbox{\hyperlink{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}{url}}(OTX, url)}
+\DoxyCodeLine{201     \textcolor{keywordflow}{if} len(alerts) > 0:}
+\DoxyCodeLine{202         retStr = \textcolor{stringliteral}{"\{\}"}.format(alerts)}
+\DoxyCodeLine{203     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{204         retStr = \textcolor{stringliteral}{"Unknown or not identified as malicious"}}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \textcolor{keywordflow}{return} retStr}
+\DoxyCodeLine{207 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_aaf93fa86a68f54cca928cc4c7959dc1b_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_a649b95f6d0630410ce73d1bd2d993df9}\label{namespacelibOtx_a649b95f6d0630410ce73d1bd2d993df9}} 
+\index{libOtx@{libOtx}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Otx.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 227 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{227 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a649b95f6d0630410ce73d1bd2d993df9}{UnitTest}}():}
+\DoxyCodeLine{228     ip = \textcolor{stringliteral}{'216.58.197.174'}}
+\DoxyCodeLine{229     ip = \textcolor{stringliteral}{'216.239.32.21'}}
+\DoxyCodeLine{230     ip = \textcolor{stringliteral}{'151.101.194.133'}}
+\DoxyCodeLine{231     ip = \textcolor{stringliteral}{'23.227.38.64'}}
+\DoxyCodeLine{232     ip = \textcolor{stringliteral}{'52.114.133.60'}}
+\DoxyCodeLine{233     ret = \{\textcolor{stringliteral}{'pulse\_info\_cnt'}: 0, \textcolor{stringliteral}{'reputation'}: 0\}}
+\DoxyCodeLine{234     retVal = \mbox{\hyperlink{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}{LookupIp}}(ip)}
+\DoxyCodeLine{235     \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libOtx'}, \textcolor{stringliteral}{'LookupIp'}, retVal)}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{238         result = OTX.get\_indicator\_details\_by\_section(libTypes.IPv4, ip, \textcolor{stringliteral}{'general'})}
+\DoxyCodeLine{239         \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{240 \textcolor{stringliteral}{        print(json.dumps(result, indent=4, sort\_keys=True))}}
+\DoxyCodeLine{241 \textcolor{stringliteral}{        print(ip)}}
+\DoxyCodeLine{242 \textcolor{stringliteral}{        print(len(result['validation']))}}
+\DoxyCodeLine{243 \textcolor{stringliteral}{        '''}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245         \textcolor{keywordflow}{if} len(result[\textcolor{stringliteral}{'validation'}]):}
+\DoxyCodeLine{246             ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = 0}
+\DoxyCodeLine{247             ret[\textcolor{stringliteral}{'reputation'}] = 0}
+\DoxyCodeLine{248             \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} result[\textcolor{stringliteral}{'validation'}]:}
+\DoxyCodeLine{249                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'source'} \textcolor{keywordflow}{in} i:}
+\DoxyCodeLine{250                     \textcolor{keywordflow}{if} i[\textcolor{stringliteral}{'source'}] == \textcolor{stringliteral}{'whitelist'}:}
+\DoxyCodeLine{251                         print(i[\textcolor{stringliteral}{'source'}])}
+\DoxyCodeLine{252                         print(ret)}
+\DoxyCodeLine{253                         print(\textcolor{stringliteral}{"CLEAN"})}
+\DoxyCodeLine{254                         exit()}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256         ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = result[\textcolor{stringliteral}{'pulse\_info'}][\textcolor{stringliteral}{'count'}]}
+\DoxyCodeLine{257         ret[\textcolor{stringliteral}{'reputation'}] = result[\textcolor{stringliteral}{'reputation'}]}
+\DoxyCodeLine{258         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libOtx'}, \textcolor{stringliteral}{'OTXv2'}, ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}])}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{261         ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}] = 0}
+\DoxyCodeLine{262         ret[\textcolor{stringliteral}{'reputation'}] = 0}
+\DoxyCodeLine{263         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libOtx'}, \textcolor{stringliteral}{'OTXv2'}, ret[\textcolor{stringliteral}{'pulse\_info\_cnt'}])}
+\DoxyCodeLine{264 }
+\DoxyCodeLine{265     \textcolor{keywordflow}{if} ret[\textcolor{stringliteral}{'reputation'}]:}
+\DoxyCodeLine{266         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libOtx'}, \textcolor{stringliteral}{'OTXv2'}, [ip, ret[\textcolor{stringliteral}{'reputation'}], ret[\textcolor{stringliteral}{'pulse\_info'}][\textcolor{stringliteral}{'count'}]])}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_a649b95f6d0630410ce73d1bd2d993df9_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}\label{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}} 
+\index{libOtx@{libOtx}!url@{url}}
+\index{url@{url}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{url()}{url()}}
+{\footnotesize\ttfamily def lib\+Otx.\+url (\begin{DoxyParamCaption}\item[{}]{otx,  }\item[{}]{url }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file lib\+Otx.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff}{url}}(otx, url):}
+\DoxyCodeLine{84     alerts = []}
+\DoxyCodeLine{85     result = otx.get\_indicator\_details\_full(libTypes.URL, url)}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     google = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'safebrowsing'}])}
+\DoxyCodeLine{88     \textcolor{keywordflow}{if} google \textcolor{keywordflow}{and} \textcolor{stringliteral}{'response\_code'} \textcolor{keywordflow}{in} str(google):}
+\DoxyCodeLine{89         alerts.append(\{\textcolor{stringliteral}{'google\_safebrowsing'}: \textcolor{stringliteral}{'malicious'}\})}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91     clamav = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'multiav'}, \textcolor{stringliteral}{'matches'}, \textcolor{stringliteral}{'clamav'}])}
+\DoxyCodeLine{92     \textcolor{keywordflow}{if} clamav:}
+\DoxyCodeLine{93         alerts.append(\{\textcolor{stringliteral}{'clamav'}: clamav\})}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     avast = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'multiav'}, \textcolor{stringliteral}{'matches'}, \textcolor{stringliteral}{'avast'}])}
+\DoxyCodeLine{96     \textcolor{keywordflow}{if} avast:}
+\DoxyCodeLine{97         alerts.append(\{\textcolor{stringliteral}{'avast'}: avast\})}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     \textcolor{comment}{\# Get the file analysis too, if it exists}}
+\DoxyCodeLine{100     has\_analysis = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'urlworker'}, \textcolor{stringliteral}{'has\_file\_analysis'}])}
+\DoxyCodeLine{101     \textcolor{keywordflow}{if} has\_analysis:}
+\DoxyCodeLine{102         hash = \mbox{\hyperlink{namespacelibOtx_aa71019539ae3f2cbe805130cfcaabe1f}{getValue}}(result, [\textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'url\_list'}, \textcolor{stringliteral}{'result'}, \textcolor{stringliteral}{'urlworker'}, \textcolor{stringliteral}{'sha256'}])}
+\DoxyCodeLine{103         file\_alerts = \mbox{\hyperlink{namespacelibOtx_a097a86274502f86018aa73ea4fb8d340}{file}}(otx, hash)}
+\DoxyCodeLine{104         \textcolor{keywordflow}{if} file\_alerts:}
+\DoxyCodeLine{105             \textcolor{keywordflow}{for} alert \textcolor{keywordflow}{in} file\_alerts:}
+\DoxyCodeLine{106                 alerts.append(alert)}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{comment}{\# Todo: Check file page}}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} alerts}
+\DoxyCodeLine{111 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d6/de8/namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{d6/de8/namespacelibOtx_a65854b3ccccb2c00f0a5e427bf5128ff_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibOtx_ad294de6fa1b0cddfd2bd94b37991ec63}\label{namespacelibOtx_ad294de6fa1b0cddfd2bd94b37991ec63}} 
+\index{libOtx@{libOtx}!API\_KEY@{API\_KEY}}
+\index{API\_KEY@{API\_KEY}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{API\_KEY}{API\_KEY}}
+{\footnotesize\ttfamily lib\+Otx.\+A\+P\+I\+\_\+\+K\+EY = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}\mbox{\hyperlink{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}{O\+TX}}\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})}
+
+
+
+Definition at line 11 of file lib\+Otx.\+py.
+
+\mbox{\Hypertarget{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}\label{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}} 
+\index{libOtx@{libOtx}!OTX@{OTX}}
+\index{OTX@{OTX}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{OTX}{OTX}}
+{\footnotesize\ttfamily lib\+Otx.\+O\+TX = O\+T\+Xv2(\mbox{\hyperlink{namespacelibOtx_ad294de6fa1b0cddfd2bd94b37991ec63}{A\+P\+I\+\_\+\+K\+EY}}, server=\mbox{\hyperlink{namespacelibOtx_a00d5bac3e4716cd5b7e733669f972ed1}{U\+RL}})}
+
+
+
+Definition at line 13 of file lib\+Otx.\+py.
+
+\mbox{\Hypertarget{namespacelibOtx_a00d5bac3e4716cd5b7e733669f972ed1}\label{namespacelibOtx_a00d5bac3e4716cd5b7e733669f972ed1}} 
+\index{libOtx@{libOtx}!URL@{URL}}
+\index{URL@{URL}!libOtx@{libOtx}}
+\doxysubsubsection{\texorpdfstring{URL}{URL}}
+{\footnotesize\ttfamily lib\+Otx.\+U\+RL = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}\mbox{\hyperlink{namespacelibOtx_a7a021870f6f9c53765eafc3836dd903d}{O\+TX}}\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 12 of file lib\+Otx.\+py.
+

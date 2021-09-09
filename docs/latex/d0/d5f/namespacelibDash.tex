@@ -1,0 +1,891 @@
+\hypertarget{namespacelibDash}{}\doxysection{lib\+Dash Namespace Reference}
+\label{namespacelibDash}\index{libDash@{libDash}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{Comm\+Front}} (U\+RI, data)
+\item 
+def \mbox{\hyperlink{namespacelibDash_aab2534c21da7b40f92d950b09d3853f3}{Update\+Timeline}} (event, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}{Update\+Warning}} (wlist=\mbox{[}$\,$\mbox{]}, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{Update\+Critical}} (clist=\mbox{[}$\,$\mbox{]}, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}{Update\+Threat\+Info}} (Pnum=0, M\+Lnum=0, B\+I\+Pnum=0, I\+I\+Pnum=0, Tasknum=0, Traffic=0, E\+I\+Pnum=0, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{Update\+Security\+Level}} (criticals=0, warnings=0, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{Update\+Task\+Progress}} (value=0, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}{Update\+Task\+Chart}} (object done=0, object ready=0, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{Update\+Message}} (message=\char`\"{}\char`\"{}, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{Update\+Processing}} (items=\mbox{[}$\,$\mbox{]}, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_aff94e04910095be7cfcdda073bf08887}{Update\+Security\+Level\+V2}} (criticals, warnings, status, init=False)
+\item 
+def \mbox{\hyperlink{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}{Clear\+Dash\+Board}} ()
+\item 
+def \mbox{\hyperlink{namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4}{Get\+Timeline}} ()
+\item 
+def \mbox{\hyperlink{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}{Init\+Timeline}} ()
+\item 
+def \mbox{\hyperlink{namespacelibDash_a229d3065982ee164e0c41570b2de59bc}{Set\+Timeline}} (event)
+\item 
+def \mbox{\hyperlink{namespacelibDash_ab1e67bb21fd8cadf500ab56d4116dda8}{Check\+Dash}} ()
+\item 
+def \mbox{\hyperlink{namespacelibDash_ae8d939f07bdcae98eccb212cb61d3469}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibDash_aa47abdc63b160fac9bcc4411e2e0183e}{S\+E\+R\+V\+ER}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}H\+O\+ST\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibDash_ac477bd393ce7134dfc9b40d58a959fa9}{P\+O\+RT}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}P\+O\+RT\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibDash_aa860042253f5530d28514524c466e963}{T\+I\+M\+E\+O\+UT}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}T\+I\+M\+E\+O\+UT\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibDash_a92c59ae36c49e269eaafcca1c99d1776}{api\+\_\+key}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibDash_ab1e67bb21fd8cadf500ab56d4116dda8}\label{namespacelibDash_ab1e67bb21fd8cadf500ab56d4116dda8}} 
+\index{libDash@{libDash}!CheckDash@{CheckDash}}
+\index{CheckDash@{CheckDash}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{CheckDash()}{CheckDash()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Check\+Dash (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 207 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{207 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_ab1e67bb21fd8cadf500ab56d4116dda8}{CheckDash}}():}
+\DoxyCodeLine{208 }
+\DoxyCodeLine{209     url = \textcolor{stringliteral}{'\{\}'}.format(SERVER)}
+\DoxyCodeLine{210     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{211         res = requests.get(url)}
+\DoxyCodeLine{212         \textcolor{keywordflow}{if} res.status\_code == 200:}
+\DoxyCodeLine{213             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{214     \textcolor{keywordflow}{except} requests.ConnectionError \textcolor{keyword}{as} exception:}
+\DoxyCodeLine{215         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{216 }
+\DoxyCodeLine{217     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{218 }
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}\label{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}} 
+\index{libDash@{libDash}!ClearDashBoard@{ClearDashBoard}}
+\index{ClearDashBoard@{ClearDashBoard}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{ClearDashBoard()}{ClearDashBoard()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Clear\+Dash\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{166 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}{ClearDashBoard}}():}
+\DoxyCodeLine{167     \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{UpdateProcessing}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{168     \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{UpdateMessage}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{169     \mbox{\hyperlink{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}{UpdateWarning}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{170     \mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{UpdateCritical}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{171     \mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{UpdateTaskProgress}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{172     \mbox{\hyperlink{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}{UpdateThreatInfo}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{173     \mbox{\hyperlink{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}{UpdateTaskChart}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{174     \mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{UpdateSecurityLevel}}(init=\textcolor{keyword}{True})}
+\DoxyCodeLine{175     \mbox{\hyperlink{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}{InitTimeline}}()}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{178 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a6610cc3c6178ece740959297d5e7f757_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{d0/d5f/namespacelibDash_a6610cc3c6178ece740959297d5e7f757_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}\label{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}} 
+\index{libDash@{libDash}!CommFront@{CommFront}}
+\index{CommFront@{CommFront}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{CommFront()}{CommFront()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Comm\+Front (\begin{DoxyParamCaption}\item[{}]{U\+RI,  }\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(URI, data):}
+\DoxyCodeLine{16     API = [}
+\DoxyCodeLine{17         \textcolor{stringliteral}{"securitylevel"},}
+\DoxyCodeLine{18         \textcolor{stringliteral}{"taskprogress"},}
+\DoxyCodeLine{19         \textcolor{stringliteral}{"task"},}
+\DoxyCodeLine{20         \textcolor{stringliteral}{"message"},}
+\DoxyCodeLine{21         \textcolor{stringliteral}{"processing"},}
+\DoxyCodeLine{22         \textcolor{stringliteral}{"threatinfo"},}
+\DoxyCodeLine{23         \textcolor{stringliteral}{"securitylevelv2"},}
+\DoxyCodeLine{24         \textcolor{stringliteral}{"warninglist"},}
+\DoxyCodeLine{25         \textcolor{stringliteral}{"criticallist"},}
+\DoxyCodeLine{26         \textcolor{stringliteral}{"test"},}
+\DoxyCodeLine{27         \textcolor{stringliteral}{"timeline"}}
+\DoxyCodeLine{28     ]}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} URI \textcolor{keywordflow}{in} API:}
+\DoxyCodeLine{31         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     URL = \textcolor{stringliteral}{"\{\}:\{\}/widgets/\{\}"}.format(SERVER, PORT, URI)}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{36         requests.post(URL, json=data, timeout=int(TIMEOUT))}
+\DoxyCodeLine{37     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{38         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{41 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a034a46b61d2098dbae92364cb0556bfb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4}\label{namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4}} 
+\index{libDash@{libDash}!GetTimeline@{GetTimeline}}
+\index{GetTimeline@{GetTimeline}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{GetTimeline()}{GetTimeline()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Get\+Timeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{179 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4}{GetTimeline}}():}
+\DoxyCodeLine{180     fname = \textcolor{stringliteral}{'dashboard/timeline\_data.yml'}}
+\DoxyCodeLine{181     \textcolor{keyword}{with} open(fname) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{182         ret = yaml.load(f, Loader=yaml.FullLoader)}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{185 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}\label{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}} 
+\index{libDash@{libDash}!InitTimeline@{InitTimeline}}
+\index{InitTimeline@{InitTimeline}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{InitTimeline()}{InitTimeline()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Init\+Timeline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{186 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}{InitTimeline}}():}
+\DoxyCodeLine{187     fname = \textcolor{stringliteral}{'dashboard/timeline\_data.yml'}}
+\DoxyCodeLine{188     data = \{\}}
+\DoxyCodeLine{189     data[\textcolor{stringliteral}{'events'}] = [\{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{'Exit'}, \textcolor{stringliteral}{"date"}:\textcolor{stringliteral}{'Dec 31, 2023'}, \textcolor{stringliteral}{"background"}: \textcolor{stringliteral}{'lightblue'}\}]}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191     \textcolor{keyword}{with} open(fname, \textcolor{stringliteral}{'w'}) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{192         yaml.dump(data, f)}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{195 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a229d3065982ee164e0c41570b2de59bc}\label{namespacelibDash_a229d3065982ee164e0c41570b2de59bc}} 
+\index{libDash@{libDash}!SetTimeline@{SetTimeline}}
+\index{SetTimeline@{SetTimeline}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{SetTimeline()}{SetTimeline()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Set\+Timeline (\begin{DoxyParamCaption}\item[{}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 196 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{196 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a229d3065982ee164e0c41570b2de59bc}{SetTimeline}}(event):}
+\DoxyCodeLine{197     fname = \textcolor{stringliteral}{'dashboard/timeline\_data.yml'}}
+\DoxyCodeLine{198 }
+\DoxyCodeLine{199     data = \mbox{\hyperlink{namespacelibDash_aba0c67fe0c613b0baf14da94765ce9c4}{GetTimeline}}()}
+\DoxyCodeLine{200     data[\textcolor{stringliteral}{'events'}].append(event)}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202     \textcolor{keyword}{with} open(fname, \textcolor{stringliteral}{'w'}) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{203         yaml.dump(data, f)}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{206 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=347pt]{d0/d5f/namespacelibDash_a229d3065982ee164e0c41570b2de59bc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{d0/d5f/namespacelibDash_a229d3065982ee164e0c41570b2de59bc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_ae8d939f07bdcae98eccb212cb61d3469}\label{namespacelibDash_ae8d939f07bdcae98eccb212cb61d3469}} 
+\index{libDash@{libDash}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 219 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_ae8d939f07bdcae98eccb212cb61d3469}{UnitTest}}():}
+\DoxyCodeLine{220     item1 = \{\textcolor{stringliteral}{"label"}:\textcolor{stringliteral}{"1.1.1.1"}, \textcolor{stringliteral}{"value"}:\textcolor{stringliteral}{"OK"}\}}
+\DoxyCodeLine{221     item2 = \{\textcolor{stringliteral}{"label"}:\textcolor{stringliteral}{"2.2.2.2"}, \textcolor{stringliteral}{"value"}:\textcolor{stringliteral}{"Analysing"}\}}
+\DoxyCodeLine{222     item3 = \{\textcolor{stringliteral}{"label"}:\textcolor{stringliteral}{"3.3.3.3"}, \textcolor{stringliteral}{"value"}:\textcolor{stringliteral}{"BIP"}\}}
+\DoxyCodeLine{223     items = [item1, item2, item3]}
+\DoxyCodeLine{224     ret = \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{UpdateProcessing}}(items)}
+\DoxyCodeLine{225     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{226         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateProcessing'}, ret)}
+\DoxyCodeLine{227     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{228         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateProcessing'}, ret)}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     message = \textcolor{stringliteral}{"Hello"}}
+\DoxyCodeLine{231     ret = \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{UpdateMessage}}(message)}
+\DoxyCodeLine{232     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{233         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateMessage'}, ret)}
+\DoxyCodeLine{234     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{235         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateMessage'}, ret)}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237     ret = \mbox{\hyperlink{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}{UpdateWarning}}(items)}
+\DoxyCodeLine{238     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{239         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateWarning'}, ret)}
+\DoxyCodeLine{240     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{241         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateWarning'}, ret)}
+\DoxyCodeLine{242 }
+\DoxyCodeLine{243     ret = \mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{UpdateCritical}}(items)}
+\DoxyCodeLine{244     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{245         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateCritical'}, ret)}
+\DoxyCodeLine{246     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{247         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateCritical'}, ret)}
+\DoxyCodeLine{248 }
+\DoxyCodeLine{249     value = 10}
+\DoxyCodeLine{250     ret = \mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{UpdateTaskProgress}}(value)}
+\DoxyCodeLine{251     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{252         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTaskProgress'}, ret)}
+\DoxyCodeLine{253     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{254         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTaskProgress'}, ret)}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     Pnum = 1}
+\DoxyCodeLine{257     MLnum = 1}
+\DoxyCodeLine{258     BIPnum = 12}
+\DoxyCodeLine{259     IIPnum = 10}
+\DoxyCodeLine{260     Tasknum = 30}
+\DoxyCodeLine{261     Traffic = 10}
+\DoxyCodeLine{262     EIPnum = 10}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264     ret = \mbox{\hyperlink{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}{UpdateThreatInfo}}(Pnum, MLnum, BIPnum, IIPnum, Tasknum, Traffic, EIPnum)}
+\DoxyCodeLine{265     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{266         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateThreatInfo'}, ret)}
+\DoxyCodeLine{267     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{268         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateThreatInfo'}, ret)}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270     done = 2}
+\DoxyCodeLine{271     ready = 1}
+\DoxyCodeLine{272     ret = \mbox{\hyperlink{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}{UpdateTaskChart}}(done, ready)}
+\DoxyCodeLine{273     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{274         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTaskChart'}, ret)}
+\DoxyCodeLine{275     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{276         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTaskChart'}, ret)}
+\DoxyCodeLine{277 }
+\DoxyCodeLine{278     event1 = \{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"event1"}, \textcolor{stringliteral}{"date"}:\textcolor{stringliteral}{"Thu, 7 May 2021"}, \textcolor{stringliteral}{"background"}: \textcolor{stringliteral}{"red"}\}}
+\DoxyCodeLine{279     event2 = \{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"event2"}, \textcolor{stringliteral}{"date"}:\textcolor{stringliteral}{"Thu, 6 May 2021"}, \textcolor{stringliteral}{"background"}: \textcolor{stringliteral}{"yellow"}\}}
+\DoxyCodeLine{280     event3 = \{\textcolor{stringliteral}{"name"}:\textcolor{stringliteral}{"event3"}, \textcolor{stringliteral}{"date"}:\textcolor{stringliteral}{"Thu, 5 May 2021"}, \textcolor{stringliteral}{"background"}: \textcolor{stringliteral}{"white"}\}}
+\DoxyCodeLine{281     event = [event1, event2, event3]}
+\DoxyCodeLine{282     ret = \mbox{\hyperlink{namespacelibDash_aab2534c21da7b40f92d950b09d3853f3}{UpdateTimeline}}(event)}
+\DoxyCodeLine{283     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{284         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTimeline'}, ret)}
+\DoxyCodeLine{285     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{286         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateTimeline'}, ret)}
+\DoxyCodeLine{287 }
+\DoxyCodeLine{288     criticals = 0}
+\DoxyCodeLine{289     warnings = 0}
+\DoxyCodeLine{290 }
+\DoxyCodeLine{291     ret = \mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{UpdateSecurityLevel}}(criticals, warnings)}
+\DoxyCodeLine{292     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{293         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateSecurityLevel'}, ret)}
+\DoxyCodeLine{294     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{295         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateSecurityLevel'}, ret)}
+\DoxyCodeLine{296     }
+\DoxyCodeLine{297     criticals = 2}
+\DoxyCodeLine{298     warnings = 2}
+\DoxyCodeLine{299     status = \textcolor{stringliteral}{"yellow"}}
+\DoxyCodeLine{300     ret = \mbox{\hyperlink{namespacelibDash_aff94e04910095be7cfcdda073bf08887}{UpdateSecurityLevelV2}}(criticals, warnings, status)}
+\DoxyCodeLine{301     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{302         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateSecurityLevelV2'}, ret)}
+\DoxyCodeLine{303     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{304         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'UpdateSecurityLevelV2'}, ret)}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306     ret = \mbox{\hyperlink{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}{ClearDashBoard}}()}
+\DoxyCodeLine{307     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{308         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'ClearDashBoard'}, ret)}
+\DoxyCodeLine{309     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{310         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDash'}, \textcolor{stringliteral}{'ClearDashBoard'}, ret)}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312     \mbox{\hyperlink{namespacelibDash_acc8d3592f4a3073762d149d74c86c3f1}{InitTimeline}}()}
+\DoxyCodeLine{313 }
+\DoxyCodeLine{314     \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{315 \textcolor{stringliteral}{    event = \{"name":"red", "date":"Thu, 1 Sep 2021", "background": "red"\}}}
+\DoxyCodeLine{316 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{317 \textcolor{stringliteral}{    event = \{"name":"orange", "date":"Thu, 2 Sep 2021", "background": "orange"\}}}
+\DoxyCodeLine{318 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{319 \textcolor{stringliteral}{    event = \{"name":"yellow", "date":"Thu, 3 Sep 2021", "background": "yellow"\}}}
+\DoxyCodeLine{320 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{321 \textcolor{stringliteral}{    event = \{"name":"green", "date":"Thu, 4 Sep 2021", "background": "green"\}}}
+\DoxyCodeLine{322 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{323 \textcolor{stringliteral}{    event = \{"name":"blue", "date":"Thu, 5 Sep 2021", "background": "blue"\}}}
+\DoxyCodeLine{324 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{325 \textcolor{stringliteral}{    event = \{"name":"violet", "date":"Thu, 6 Sep 2021", "background": "violet"\}}}
+\DoxyCodeLine{326 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{327 \textcolor{stringliteral}{    event = \{"name":"cyan", "date":"Thu, 7 Sep 2021", "background": "cyan"\}}}
+\DoxyCodeLine{328 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{329 \textcolor{stringliteral}{    event = \{"name":"black", "date":"Thu, 8 Sep 2021", "background": "black"\}}}
+\DoxyCodeLine{330 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{331 \textcolor{stringliteral}{    event = \{"name":"pink", "date":"Thu, 9 Sep 2021", "background": "pink"\}}}
+\DoxyCodeLine{332 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{333 \textcolor{stringliteral}{    event = \{"name":"\#e0440e", "date":"Thu, 10 Sep 2021", "background": "\#e0440e"\}}}
+\DoxyCodeLine{334 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{335 \textcolor{stringliteral}{    event = \{"name":"\#e6693e", "date":"Thu, 11 Sep 2021", "background": "\#e6693e"\}}}
+\DoxyCodeLine{336 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{337 \textcolor{stringliteral}{    event = \{"name":"\#ec8f6e", "date":"Thu, 12 Sep 2021", "background": "\#ec8f6e"\}}}
+\DoxyCodeLine{338 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{339 \textcolor{stringliteral}{    event = \{"name":"\#f6c7b6", "date":"Thu, 13 Sep 2021", "background": "\#f6c7b6"\}}}
+\DoxyCodeLine{340 \textcolor{stringliteral}{    ret = SetTimeline(event)}}
+\DoxyCodeLine{341 \textcolor{stringliteral}{}}
+\DoxyCodeLine{342 \textcolor{stringliteral}{    if ret:}}
+\DoxyCodeLine{343 \textcolor{stringliteral}{        libUtils.UnitTestPrint(True, 'libDash', 'SetTimeline', ret)}}
+\DoxyCodeLine{344 \textcolor{stringliteral}{    else:}}
+\DoxyCodeLine{345 \textcolor{stringliteral}{        libUtils.UnitTestPrint(False, 'libDash', 'SetTimeline', ret)}}
+\DoxyCodeLine{346 \textcolor{stringliteral}{    '''}}
+\DoxyCodeLine{347     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_ae8d939f07bdcae98eccb212cb61d3469_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}\label{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}} 
+\index{libDash@{libDash}!UpdateCritical@{UpdateCritical}}
+\index{UpdateCritical@{UpdateCritical}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateCritical()}{UpdateCritical()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Critical (\begin{DoxyParamCaption}\item[{}]{clist = {\ttfamily \mbox{[}\mbox{]}},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{UpdateCritical}}(clist=[], init=False):}
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{62         clist = []}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"items"}: clist\}}
+\DoxyCodeLine{65     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"criticallist"}, data)}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{68 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}\label{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}} 
+\index{libDash@{libDash}!UpdateMessage@{UpdateMessage}}
+\index{UpdateMessage@{UpdateMessage}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateMessage()}{UpdateMessage()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Message (\begin{DoxyParamCaption}\item[{}]{message = {\ttfamily \char`\"{}\char`\"{}},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{132 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{UpdateMessage}}(message="", init=False):}
+\DoxyCodeLine{133     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{134         message = \textcolor{stringliteral}{"NO DATA"}}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"text"}: message\}}
+\DoxyCodeLine{137     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"message"}, data)}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{140 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}\label{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}} 
+\index{libDash@{libDash}!UpdateProcessing@{UpdateProcessing}}
+\index{UpdateProcessing@{UpdateProcessing}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateProcessing()}{UpdateProcessing()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Processing (\begin{DoxyParamCaption}\item[{}]{items = {\ttfamily \mbox{[}\mbox{]}},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{141 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{UpdateProcessing}}(items=[], init=False):}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{144         items = []}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"unordered"}: \textcolor{stringliteral}{"True"}, \textcolor{stringliteral}{"items"}: items\}}
+\DoxyCodeLine{147     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"processing"}, data)}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{150 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a01f8cbb80e67f381de3471ea207605d4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a01f8cbb80e67f381de3471ea207605d4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}\label{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}} 
+\index{libDash@{libDash}!UpdateSecurityLevel@{UpdateSecurityLevel}}
+\index{UpdateSecurityLevel@{UpdateSecurityLevel}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateSecurityLevel()}{UpdateSecurityLevel()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Security\+Level (\begin{DoxyParamCaption}\item[{}]{criticals = {\ttfamily 0},  }\item[{}]{warnings = {\ttfamily 0},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{UpdateSecurityLevel}}(criticals=0, warnings=0, init=False):}
+\DoxyCodeLine{89     data = \{}
+\DoxyCodeLine{90         \textcolor{stringliteral}{"auth\_token"}: api\_key,}
+\DoxyCodeLine{91         \textcolor{stringliteral}{"criticals"}: int(criticals),}
+\DoxyCodeLine{92         \textcolor{stringliteral}{"warnings"}: int(warnings)}
+\DoxyCodeLine{93     \}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{96         data[\textcolor{stringliteral}{'error'}] = \textcolor{stringliteral}{"No data"}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"securitylevel"}, data)}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{101 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_abf49baeb0923bbd7e56107e25906f08a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_abf49baeb0923bbd7e56107e25906f08a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_aff94e04910095be7cfcdda073bf08887}\label{namespacelibDash_aff94e04910095be7cfcdda073bf08887}} 
+\index{libDash@{libDash}!UpdateSecurityLevelV2@{UpdateSecurityLevelV2}}
+\index{UpdateSecurityLevelV2@{UpdateSecurityLevelV2}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateSecurityLevelV2()}{UpdateSecurityLevelV2()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Security\+Level\+V2 (\begin{DoxyParamCaption}\item[{}]{criticals,  }\item[{}]{warnings,  }\item[{}]{status,  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{151 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_aff94e04910095be7cfcdda073bf08887}{UpdateSecurityLevelV2}}(criticals, warnings, status, init=False):}
+\DoxyCodeLine{152     data = \{}
+\DoxyCodeLine{153         \textcolor{stringliteral}{"auth\_token"}: api\_key,}
+\DoxyCodeLine{154         \textcolor{stringliteral}{"criticals"}: criticals,}
+\DoxyCodeLine{155         \textcolor{stringliteral}{"warnings"}: warnings,}
+\DoxyCodeLine{156         \textcolor{stringliteral}{"status"}: status}
+\DoxyCodeLine{157     \}}
+\DoxyCodeLine{158 }
+\DoxyCodeLine{159     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{160         data = \{\}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"securitylevelv2"}, data)}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{165 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aff94e04910095be7cfcdda073bf08887_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aff94e04910095be7cfcdda073bf08887_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}\label{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}} 
+\index{libDash@{libDash}!UpdateTaskChart@{UpdateTaskChart}}
+\index{UpdateTaskChart@{UpdateTaskChart}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateTaskChart()}{UpdateTaskChart()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Task\+Chart (\begin{DoxyParamCaption}\item[{object }]{done = {\ttfamily 0},  }\item[{object }]{ready = {\ttfamily 0},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 115 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}{UpdateTaskChart}}(done: object = 0, ready: object = 0, init=\textcolor{keyword}{False}):}
+\DoxyCodeLine{116     datasets = [}
+\DoxyCodeLine{117         \{}
+\DoxyCodeLine{118             \textcolor{stringliteral}{"data"}: [done, ready],}
+\DoxyCodeLine{119             \textcolor{stringliteral}{"backgroundColor"}: [\textcolor{stringliteral}{"\#F7464A"}, \textcolor{stringliteral}{"\#46BFBD"}],}
+\DoxyCodeLine{120             \textcolor{stringliteral}{"hoverBackgroundColor"}: [\textcolor{stringliteral}{"\#FF6384"}, \textcolor{stringliteral}{"\#36A2EB"}]}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122     ]}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{125         datasets = []}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"labels"}: [\textcolor{stringliteral}{"Done"}, \textcolor{stringliteral}{"Ready"}], \textcolor{stringliteral}{"datasets"}: datasets\}}
+\DoxyCodeLine{128     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"task"}, data)}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{131 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}\label{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}} 
+\index{libDash@{libDash}!UpdateTaskProgress@{UpdateTaskProgress}}
+\index{UpdateTaskProgress@{UpdateTaskProgress}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateTaskProgress()}{UpdateTaskProgress()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Task\+Progress (\begin{DoxyParamCaption}\item[{}]{value = {\ttfamily 0},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 102 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{UpdateTaskProgress}}(value=0, init=False):}
+\DoxyCodeLine{103     data = \{}
+\DoxyCodeLine{104         \textcolor{stringliteral}{"auth\_token"}: api\_key,}
+\DoxyCodeLine{105         \textcolor{stringliteral}{"value"}: value}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{109         data[\textcolor{stringliteral}{'value'}] = 0}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"taskprogress"}, data)}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{114 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_af8903d54f388757f5dc982e2cd95852a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_af8903d54f388757f5dc982e2cd95852a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}\label{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}} 
+\index{libDash@{libDash}!UpdateThreatInfo@{UpdateThreatInfo}}
+\index{UpdateThreatInfo@{UpdateThreatInfo}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateThreatInfo()}{UpdateThreatInfo()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Threat\+Info (\begin{DoxyParamCaption}\item[{}]{Pnum = {\ttfamily 0},  }\item[{}]{M\+Lnum = {\ttfamily 0},  }\item[{}]{B\+I\+Pnum = {\ttfamily 0},  }\item[{}]{I\+I\+Pnum = {\ttfamily 0},  }\item[{}]{Tasknum = {\ttfamily 0},  }\item[{}]{Traffic = {\ttfamily 0},  }\item[{}]{E\+I\+Pnum = {\ttfamily 0},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}{UpdateThreatInfo}}(Pnum=0, MLnum=0, BIPnum=0, IIPnum=0, Tasknum=0, Traffic=0, EIPnum=0, init=False):}
+\DoxyCodeLine{70     items = [}
+\DoxyCodeLine{71         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Task(Day)"}, \textcolor{stringliteral}{"value"}: Tasknum\},}
+\DoxyCodeLine{72         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Playbook Model"}, \textcolor{stringliteral}{"value"}: Pnum\},}
+\DoxyCodeLine{73         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"AI/ML Model"}, \textcolor{stringliteral}{"value"}: MLnum\},}
+\DoxyCodeLine{74         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Traffic"}, \textcolor{stringliteral}{"value"}: Traffic\},}
+\DoxyCodeLine{75         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Inspected IP"}, \textcolor{stringliteral}{"value"}: IIPnum\},}
+\DoxyCodeLine{76         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Blacklist IP"}, \textcolor{stringliteral}{"value"}: BIPnum\},}
+\DoxyCodeLine{77         \{\textcolor{stringliteral}{"label"}: \textcolor{stringliteral}{"Excluded IP"}, \textcolor{stringliteral}{"value"}: EIPnum\},}
+\DoxyCodeLine{78     ]}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{81         items = []}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"items"}: items\}}
+\DoxyCodeLine{84     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"threatinfo"}, data)}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{87 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_aab2534c21da7b40f92d950b09d3853f3}\label{namespacelibDash_aab2534c21da7b40f92d950b09d3853f3}} 
+\index{libDash@{libDash}!UpdateTimeline@{UpdateTimeline}}
+\index{UpdateTimeline@{UpdateTimeline}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateTimeline()}{UpdateTimeline()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Timeline (\begin{DoxyParamCaption}\item[{}]{event,  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_aab2534c21da7b40f92d950b09d3853f3}{UpdateTimeline}}(event, init=False):}
+\DoxyCodeLine{43     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{44         event = []}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"events"}: event\}}
+\DoxyCodeLine{47     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"timeline"}, data)}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_aab2534c21da7b40f92d950b09d3853f3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{d0/d5f/namespacelibDash_aab2534c21da7b40f92d950b09d3853f3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}\label{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}} 
+\index{libDash@{libDash}!UpdateWarning@{UpdateWarning}}
+\index{UpdateWarning@{UpdateWarning}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{UpdateWarning()}{UpdateWarning()}}
+{\footnotesize\ttfamily def lib\+Dash.\+Update\+Warning (\begin{DoxyParamCaption}\item[{}]{wlist = {\ttfamily \mbox{[}\mbox{]}},  }\item[{}]{init = {\ttfamily False} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file lib\+Dash.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}{UpdateWarning}}(wlist=[], init=False):}
+\DoxyCodeLine{52     \textcolor{keywordflow}{if} init:}
+\DoxyCodeLine{53         wlist = []}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     data = \{\textcolor{stringliteral}{"auth\_token"}: api\_key, \textcolor{stringliteral}{"items"}: wlist\}}
+\DoxyCodeLine{56     ret = \mbox{\hyperlink{namespacelibDash_a034a46b61d2098dbae92364cb0556bfb}{CommFront}}(\textcolor{stringliteral}{"warninglist"}, data)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{59 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/d5f/namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibDash_a92c59ae36c49e269eaafcca1c99d1776}\label{namespacelibDash_a92c59ae36c49e269eaafcca1c99d1776}} 
+\index{libDash@{libDash}!api\_key@{api\_key}}
+\index{api\_key@{api\_key}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{api\_key}{api\_key}}
+{\footnotesize\ttfamily lib\+Dash.\+api\+\_\+key = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})}
+
+
+
+Definition at line 13 of file lib\+Dash.\+py.
+
+\mbox{\Hypertarget{namespacelibDash_ac477bd393ce7134dfc9b40d58a959fa9}\label{namespacelibDash_ac477bd393ce7134dfc9b40d58a959fa9}} 
+\index{libDash@{libDash}!PORT@{PORT}}
+\index{PORT@{PORT}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{PORT}{PORT}}
+{\footnotesize\ttfamily lib\+Dash.\+P\+O\+RT = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}P\+O\+RT\textquotesingle{})}
+
+
+
+Definition at line 11 of file lib\+Dash.\+py.
+
+\mbox{\Hypertarget{namespacelibDash_aa47abdc63b160fac9bcc4411e2e0183e}\label{namespacelibDash_aa47abdc63b160fac9bcc4411e2e0183e}} 
+\index{libDash@{libDash}!SERVER@{SERVER}}
+\index{SERVER@{SERVER}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{SERVER}{SERVER}}
+{\footnotesize\ttfamily lib\+Dash.\+S\+E\+R\+V\+ER = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}H\+O\+ST\textquotesingle{})}
+
+
+
+Definition at line 10 of file lib\+Dash.\+py.
+
+\mbox{\Hypertarget{namespacelibDash_aa860042253f5530d28514524c466e963}\label{namespacelibDash_aa860042253f5530d28514524c466e963}} 
+\index{libDash@{libDash}!TIMEOUT@{TIMEOUT}}
+\index{TIMEOUT@{TIMEOUT}!libDash@{libDash}}
+\doxysubsubsection{\texorpdfstring{TIMEOUT}{TIMEOUT}}
+{\footnotesize\ttfamily lib\+Dash.\+T\+I\+M\+E\+O\+UT = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+A\+S\+H\+B\+O\+A\+RD\textquotesingle{}, \textquotesingle{}T\+I\+M\+E\+O\+UT\textquotesingle{})}
+
+
+
+Definition at line 12 of file lib\+Dash.\+py.
+

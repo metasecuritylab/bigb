@@ -1,0 +1,260 @@
+\hypertarget{namespacelibCtas}{}\doxysection{lib\+Ctas Namespace Reference}
+\label{namespacelibCtas}\index{libCtas@{libCtas}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibCtas_a51eb0a722921e00e2346071130dade3c}{Get\+Class\+Type}} (data)
+\item 
+def \mbox{\hyperlink{namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26}{Parse\+Data}} (data, address)
+\item 
+def \mbox{\hyperlink{namespacelibCtas_aeae1c7af26455285241b56fa993d05d5}{Lookup\+Ip}} (address)
+\item 
+def \mbox{\hyperlink{namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602}{Check\+Ctas}} ()
+\item 
+def \mbox{\hyperlink{namespacelibCtas_ab662ac30eb779e498f60228857567df0}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibCtas_a2fe7200bc1f123f2d5e808d375eac46b}{U\+RL}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}C\+T\+AS\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602}\label{namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602}} 
+\index{libCtas@{libCtas}!CheckCtas@{CheckCtas}}
+\index{CheckCtas@{CheckCtas}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{CheckCtas()}{CheckCtas()}}
+{\footnotesize\ttfamily def lib\+Ctas.\+Check\+Ctas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 91 of file lib\+Ctas.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602}{CheckCtas}}():}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{94         res = requests.get(URL)}
+\DoxyCodeLine{95         \textcolor{keywordflow}{if} res.status\_code == 200:}
+\DoxyCodeLine{96             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{97     \textcolor{keywordflow}{except} requests.ConnectionError \textcolor{keyword}{as} exception:}
+\DoxyCodeLine{98         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{101 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{d5/d49/namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibCtas_a51eb0a722921e00e2346071130dade3c}\label{namespacelibCtas_a51eb0a722921e00e2346071130dade3c}} 
+\index{libCtas@{libCtas}!GetClassType@{GetClassType}}
+\index{GetClassType@{GetClassType}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{GetClassType()}{GetClassType()}}
+{\footnotesize\ttfamily def lib\+Ctas.\+Get\+Class\+Type (\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file lib\+Ctas.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibCtas_a51eb0a722921e00e2346071130dade3c}{GetClassType}}(data):}
+\DoxyCodeLine{12     ClassType = []}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{15         \textcolor{keywordflow}{if} item[\textcolor{stringliteral}{'classtype'}] == \textcolor{keywordtype}{None}:}
+\DoxyCodeLine{16             ClassType.append(\textcolor{stringliteral}{'none'})}
+\DoxyCodeLine{17         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{18             ClassType.append(item[\textcolor{stringliteral}{'classtype'}])}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordflow}{return} list(set(ClassType))}
+\DoxyCodeLine{21 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d49/namespacelibCtas_a51eb0a722921e00e2346071130dade3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibCtas_aeae1c7af26455285241b56fa993d05d5}\label{namespacelibCtas_aeae1c7af26455285241b56fa993d05d5}} 
+\index{libCtas@{libCtas}!LookupIp@{LookupIp}}
+\index{LookupIp@{LookupIp}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{LookupIp()}{LookupIp()}}
+{\footnotesize\ttfamily def lib\+Ctas.\+Lookup\+Ip (\begin{DoxyParamCaption}\item[{}]{address }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file lib\+Ctas.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibCtas_aeae1c7af26455285241b56fa993d05d5}{LookupIp}}(address):}
+\DoxyCodeLine{62     ret = [\textcolor{stringliteral}{'none'}]}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacelibUtils_a724cf09407f4b0b3f18db46beb9a3f7d}{libUtils.IsPrivateIP}}(address):}
+\DoxyCodeLine{65         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     IP\_Search\_URL = \textcolor{stringliteral}{'\{\}/model/multi\_search\_data.php?model=ip\_search'}.format(URL)}
+\DoxyCodeLine{68     raw\_data = \textcolor{stringliteral}{'-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/237611620126405\(\backslash\)n'} \(\backslash\)}
+\DoxyCodeLine{69                \textcolor{stringliteral}{'Content-\/Disposition: form-\/data; name="multi\_search"\(\backslash\)n\(\backslash\)n\{\}'} \(\backslash\)}
+\DoxyCodeLine{70                \textcolor{stringliteral}{'\(\backslash\)n-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/237611620126405-\/-\/'}.format(address)}
+\DoxyCodeLine{71     headers = \{\textcolor{stringliteral}{'Content-\/Type'}: \textcolor{stringliteral}{"multipart/form-\/data; boundary=-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/237611620126405"},}
+\DoxyCodeLine{72                \textcolor{stringliteral}{'Referer'}: \textcolor{stringliteral}{'https://securecast.co.kr'}\}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{75         ret = requests.post(IP\_Search\_URL, data=raw\_data, headers=headers, timeout=3)}
+\DoxyCodeLine{76     \textcolor{keywordflow}{except} Exception \textcolor{keyword}{as} e:}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keywordflow}{if} ret.status\_code != 200:}
+\DoxyCodeLine{80         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{83         data = json.loads(ret.text)}
+\DoxyCodeLine{84     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{85         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     ParsedData = \mbox{\hyperlink{namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26}{ParseData}}(data, address)}
+\DoxyCodeLine{88     ret = \mbox{\hyperlink{namespacelibCtas_a51eb0a722921e00e2346071130dade3c}{GetClassType}}(ParsedData)}
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{90 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{d5/d49/namespacelibCtas_aeae1c7af26455285241b56fa993d05d5_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{d5/d49/namespacelibCtas_aeae1c7af26455285241b56fa993d05d5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26}\label{namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26}} 
+\index{libCtas@{libCtas}!ParseData@{ParseData}}
+\index{ParseData@{ParseData}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{ParseData()}{ParseData()}}
+{\footnotesize\ttfamily def lib\+Ctas.\+Parse\+Data (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{address }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file lib\+Ctas.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26}{ParseData}}(data, address):}
+\DoxyCodeLine{23     outlist = []}
+\DoxyCodeLine{24     out = \{\textcolor{stringliteral}{'rules'}: \textcolor{stringliteral}{'none'}, \textcolor{stringliteral}{'classtype'}: \textcolor{stringliteral}{'none'}, \textcolor{stringliteral}{'raw'}: \textcolor{stringliteral}{'none'}\}}
+\DoxyCodeLine{25     signature = \textcolor{stringliteral}{'none'}}
+\DoxyCodeLine{26     proto = \textcolor{stringliteral}{'none'}}
+\DoxyCodeLine{27     attacker\_ip = \textcolor{stringliteral}{'none'}}
+\DoxyCodeLine{28     attacker\_port = \textcolor{stringliteral}{'none'}}
+\DoxyCodeLine{29     class\_type = \textcolor{stringliteral}{'none'}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{if} \textcolor{stringliteral}{'res\_data\_attacker'} \textcolor{keywordflow}{in} data:}
+\DoxyCodeLine{32         \textcolor{keywordflow}{if} len(data[\textcolor{stringliteral}{'res\_data\_attacker'}]) < 1:}
+\DoxyCodeLine{33             \textcolor{keywordflow}{return} outlist}
+\DoxyCodeLine{34         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{35             \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} data[\textcolor{stringliteral}{'res\_data\_attacker'}]:}
+\DoxyCodeLine{36                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'signature'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{37                     signature = item[\textcolor{stringliteral}{'signature'}]}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'proto'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{40                     proto = item[\textcolor{stringliteral}{'proto'}]}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'attacker\_ip'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{43                     attacker\_ip = item[\textcolor{stringliteral}{'attacker\_ip'}]}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'attacker\_port'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{46                     attacker\_port = item[\textcolor{stringliteral}{'attacker\_port'}]}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48                 \textcolor{keywordflow}{if} \textcolor{stringliteral}{'classtype'} \textcolor{keywordflow}{in} item:}
+\DoxyCodeLine{49                     class\_type = item[\textcolor{stringliteral}{'classtype'}]}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51                 rules = \textcolor{stringliteral}{"alert \{\} \{\} any -\/> any \{\} (msg: \{\})"}.format(proto, attacker\_ip, attacker\_port, signature)}
+\DoxyCodeLine{52                 out[\textcolor{stringliteral}{'raw'}] = item}
+\DoxyCodeLine{53                 out[\textcolor{stringliteral}{'rules'}] = rules}
+\DoxyCodeLine{54                 out[\textcolor{stringliteral}{'classtype'}] = class\_type}
+\DoxyCodeLine{55                 outlist.append(out)}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57             \textcolor{keywordflow}{return} outlist}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{60 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d49/namespacelibCtas_a74494eb29292a08d67a8d4dcbf212a26_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibCtas_ab662ac30eb779e498f60228857567df0}\label{namespacelibCtas_ab662ac30eb779e498f60228857567df0}} 
+\index{libCtas@{libCtas}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Ctas.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 102 of file lib\+Ctas.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibCtas_ab662ac30eb779e498f60228857567df0}{UnitTest}}():}
+\DoxyCodeLine{103     ret = \mbox{\hyperlink{namespacelibCtas_ae31bffa4a706e2f932501b172f3b7602}{CheckCtas}}()}
+\DoxyCodeLine{104     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{105         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libCtas'}, \textcolor{stringliteral}{'CheckCtas'}, ret)}
+\DoxyCodeLine{106     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{107         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libCtas'}, \textcolor{stringliteral}{'CheckCtas'}, ret)}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109     IP = \textcolor{stringliteral}{'8.8.8.8'}}
+\DoxyCodeLine{110     data = \mbox{\hyperlink{namespacelibCtas_aeae1c7af26455285241b56fa993d05d5}{LookupIp}}(IP)}
+\DoxyCodeLine{111     \textcolor{keywordflow}{if} data[0] == \textcolor{stringliteral}{'exploit'}:}
+\DoxyCodeLine{112         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libCtas'}, \textcolor{stringliteral}{'LookupIp'}, data[0])}
+\DoxyCodeLine{113     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{114         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libCtas'}, \textcolor{stringliteral}{'LookupIp'}, data[0])}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d49/namespacelibCtas_ab662ac30eb779e498f60228857567df0_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibCtas_a2fe7200bc1f123f2d5e808d375eac46b}\label{namespacelibCtas_a2fe7200bc1f123f2d5e808d375eac46b}} 
+\index{libCtas@{libCtas}!URL@{URL}}
+\index{URL@{URL}!libCtas@{libCtas}}
+\doxysubsubsection{\texorpdfstring{URL}{URL}}
+{\footnotesize\ttfamily lib\+Ctas.\+U\+RL = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}C\+T\+AS\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 9 of file lib\+Ctas.\+py.
+

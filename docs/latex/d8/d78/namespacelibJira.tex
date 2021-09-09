@@ -1,0 +1,526 @@
+\hypertarget{namespacelibJira}{}\doxysection{lib\+Jira Namespace Reference}
+\label{namespacelibJira}\index{libJira@{libJira}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86}{Check\+J\+I\+RA}} ()
+\item 
+def \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{Conn\+J\+I\+RA}} ()
+\item 
+def \mbox{\hyperlink{namespacelibJira_abc8b5bfb8183ff77345348122c0eee76}{Get\+Desc\+Issue}} (Key)
+\item 
+def \mbox{\hyperlink{namespacelibJira_a930387c7730a35f50a9903a0486baf88}{Get\+Excluded\+IP}} ()
+\item 
+def \mbox{\hyperlink{namespacelibJira_a35c33760eb57c0ae990e9708de8300ab}{Create\+Issue}} (summary, desc)
+\item 
+def \mbox{\hyperlink{namespacelibJira_a35fb57d1734f6b15d32ed40019346030}{Update\+Issue}} (Key)
+\item 
+def \mbox{\hyperlink{namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b}{Get\+Watcher}} (Key)
+\item 
+def \mbox{\hyperlink{namespacelibJira_a42f6475be85056247ee68b9d2aa8c631}{Set\+Watcher}} (Key, Watchers)
+\item 
+def \mbox{\hyperlink{namespacelibJira_a4aa4affd51fc48a39c0bcf52eb40403f}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacelibJira_a1df6ce362485bf2d5c69c5ffe8ae88a6}{J\+I\+R\+A\+\_\+\+U\+RL}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibJira_ad45e1d4a6f7d970aa653bed16d28fff4}{U\+S\+ER}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}U\+S\+ER\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibJira_a5a9fa4eb25fc11a30ec1d54d06e7acff}{P\+A\+SS}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibJira_a41bfa43892600e372486b6bf67fe3613}{P\+R\+OJ}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}P\+R\+O\+J\+E\+CT\textquotesingle{})
+\item 
+\mbox{\hyperlink{namespacelibJira_abd18cb5db6ce41e500dbe2de01a62afa}{E\+X\+C\+E\+P\+T\+IP}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}E\+X\+C\+L\+U\+D\+E\+D\+IP\textquotesingle{})
+\item 
+int \mbox{\hyperlink{namespacelibJira_a6df4ef1cd9db376beca22abc73abb4b2}{Flag\+Timeout}} = 1
+\item 
+bool \mbox{\hyperlink{namespacelibJira_adc2fa975187b203f494da05470479681}{Flag\+Warnings}} = False
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86}\label{namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86}} 
+\index{libJira@{libJira}!CheckJIRA@{CheckJIRA}}
+\index{CheckJIRA@{CheckJIRA}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{CheckJIRA()}{CheckJIRA()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Check\+J\+I\+RA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86}{CheckJIRA}}():}
+\DoxyCodeLine{21     url = \textcolor{stringliteral}{'\{\}'}.format(JIRA\_URL)}
+\DoxyCodeLine{22     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{23         res = requests.get(url, timeout=1)}
+\DoxyCodeLine{24         \textcolor{keywordflow}{if} res.status\_code == 200:}
+\DoxyCodeLine{25             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{26     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{27         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{30 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{d8/d78/namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}\label{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}} 
+\index{libJira@{libJira}!ConnJIRA@{ConnJIRA}}
+\index{ConnJIRA@{ConnJIRA}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{ConnJIRA()}{ConnJIRA()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Conn\+J\+I\+RA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 31 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}():}
+\DoxyCodeLine{32     \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{33         jira = JIRA(server=JIRA\_URL, basic\_auth=(USER, PASS), timeout=FlagTimeout)}
+\DoxyCodeLine{34         \textcolor{keywordflow}{return} jira}
+\DoxyCodeLine{35     \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{pass}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{return} \textcolor{keywordtype}{None}}
+\DoxyCodeLine{39 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d78/namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_a35c33760eb57c0ae990e9708de8300ab}\label{namespacelibJira_a35c33760eb57c0ae990e9708de8300ab}} 
+\index{libJira@{libJira}!CreateIssue@{CreateIssue}}
+\index{CreateIssue@{CreateIssue}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{CreateIssue()}{CreateIssue()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Create\+Issue (\begin{DoxyParamCaption}\item[{}]{summary,  }\item[{}]{desc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a35c33760eb57c0ae990e9708de8300ab}{CreateIssue}}(summary, desc):}
+\DoxyCodeLine{68     \textcolor{comment}{\# Project, IssueType, Summary, Attachment, DueDate, Description, Assignee,}}
+\DoxyCodeLine{69     \textcolor{comment}{\# Priority, Labels, Original Estimate, Remaining Estimate}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     issue\_dict = \{}
+\DoxyCodeLine{72         \textcolor{stringliteral}{'project'}: \{\textcolor{stringliteral}{'key'}: PROJ\},}
+\DoxyCodeLine{73         \textcolor{stringliteral}{'summary'}: summary,}
+\DoxyCodeLine{74         \textcolor{stringliteral}{'description'}: desc,}
+\DoxyCodeLine{75         \textcolor{stringliteral}{'issuetype'}: \{\textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{'Task'}\},}
+\DoxyCodeLine{76         \textcolor{stringliteral}{'duedate'}: \textcolor{stringliteral}{'2021-\/09-\/18'}}
+\DoxyCodeLine{77     \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{81         jira.create\_issue(fields=issue\_dict)}
+\DoxyCodeLine{82     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{83         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{86 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=313pt]{d8/d78/namespacelibJira_a35c33760eb57c0ae990e9708de8300ab_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_abc8b5bfb8183ff77345348122c0eee76}\label{namespacelibJira_abc8b5bfb8183ff77345348122c0eee76}} 
+\index{libJira@{libJira}!GetDescIssue@{GetDescIssue}}
+\index{GetDescIssue@{GetDescIssue}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{GetDescIssue()}{GetDescIssue()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Get\+Desc\+Issue (\begin{DoxyParamCaption}\item[{}]{Key }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_abc8b5bfb8183ff77345348122c0eee76}{GetDescIssue}}(Key):}
+\DoxyCodeLine{41     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{43         issue = jira.issue(Key)}
+\DoxyCodeLine{44         summary = issue.fields.summary}
+\DoxyCodeLine{45         desc = issue.fields.description}
+\DoxyCodeLine{46     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} \textcolor{stringliteral}{''}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} desc}
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{d8/d78/namespacelibJira_abc8b5bfb8183ff77345348122c0eee76_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{d8/d78/namespacelibJira_abc8b5bfb8183ff77345348122c0eee76_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_a930387c7730a35f50a9903a0486baf88}\label{namespacelibJira_a930387c7730a35f50a9903a0486baf88}} 
+\index{libJira@{libJira}!GetExcludedIP@{GetExcludedIP}}
+\index{GetExcludedIP@{GetExcludedIP}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{GetExcludedIP()}{GetExcludedIP()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Get\+Excluded\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a930387c7730a35f50a9903a0486baf88}{GetExcludedIP}}():}
+\DoxyCodeLine{52     ExcludedIP = []}
+\DoxyCodeLine{53     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{54     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{55         issue = jira.issue(EXCEPTIP)}
+\DoxyCodeLine{56         desc = issue.fields.description}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} ExcludedIP}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     str = desc.split(\textcolor{stringliteral}{'|'})}
+\DoxyCodeLine{61     \textcolor{keywordflow}{for} ip \textcolor{keywordflow}{in} str:}
+\DoxyCodeLine{62         \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacelibUtils_ae6c8aaaeecc63924c2c4822db00cb1dd}{libUtils.IsValidIPv4Addr}}(ip.strip()):}
+\DoxyCodeLine{63             ExcludedIP.append(ip.strip())}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{return} ExcludedIP}
+\DoxyCodeLine{66 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d78/namespacelibJira_a930387c7730a35f50a9903a0486baf88_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d78/namespacelibJira_a930387c7730a35f50a9903a0486baf88_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b}\label{namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b}} 
+\index{libJira@{libJira}!GetWatcher@{GetWatcher}}
+\index{GetWatcher@{GetWatcher}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{GetWatcher()}{GetWatcher()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Get\+Watcher (\begin{DoxyParamCaption}\item[{}]{Key }\end{DoxyParamCaption})}
+
+
+
+Definition at line 110 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b}{GetWatcher}}(Key):}
+\DoxyCodeLine{111     ret = \{\}}
+\DoxyCodeLine{112     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{113     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{114         issue = jira.issue(Key)}
+\DoxyCodeLine{115         watcher = jira.watchers(issue)}
+\DoxyCodeLine{116         \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} watcher.watchers:}
+\DoxyCodeLine{117             ret[i.name] = i.emailAddress}
+\DoxyCodeLine{118     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{119         \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121     \textcolor{keywordflow}{return} ret}
+\DoxyCodeLine{122 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{d8/d78/namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{d8/d78/namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_a42f6475be85056247ee68b9d2aa8c631}\label{namespacelibJira_a42f6475be85056247ee68b9d2aa8c631}} 
+\index{libJira@{libJira}!SetWatcher@{SetWatcher}}
+\index{SetWatcher@{SetWatcher}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{SetWatcher()}{SetWatcher()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Set\+Watcher (\begin{DoxyParamCaption}\item[{}]{Key,  }\item[{}]{Watchers }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a42f6475be85056247ee68b9d2aa8c631}{SetWatcher}}(Key, Watchers):}
+\DoxyCodeLine{124     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} Watchers:}
+\DoxyCodeLine{125         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{129         issue = jira.issue(Key)}
+\DoxyCodeLine{130         \textcolor{keywordflow}{for} w \textcolor{keywordflow}{in} Watchers:}
+\DoxyCodeLine{131             \textcolor{keywordflow}{try}:}
+\DoxyCodeLine{132                 jira.add\_watcher(issue, w)}
+\DoxyCodeLine{133             \textcolor{keywordflow}{except}:}
+\DoxyCodeLine{134                 \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{136         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{139 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{d8/d78/namespacelibJira_a42f6475be85056247ee68b9d2aa8c631_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{d8/d78/namespacelibJira_a42f6475be85056247ee68b9d2aa8c631_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_a4aa4affd51fc48a39c0bcf52eb40403f}\label{namespacelibJira_a4aa4affd51fc48a39c0bcf52eb40403f}} 
+\index{libJira@{libJira}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 140 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a4aa4affd51fc48a39c0bcf52eb40403f}{UnitTest}}():}
+\DoxyCodeLine{141     ret = \mbox{\hyperlink{namespacelibJira_a1c196dd250873cf0c82fc5f725a04e86}{CheckJIRA}}()}
+\DoxyCodeLine{142     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{143         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'CheckJIRA'}, ret)}
+\DoxyCodeLine{144     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{145         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'CheckJIRA'}, ret)}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147     IssueKey = \textcolor{stringliteral}{"SOAR-\/1"}}
+\DoxyCodeLine{148     ret = \mbox{\hyperlink{namespacelibJira_abc8b5bfb8183ff77345348122c0eee76}{GetDescIssue}}(IssueKey)}
+\DoxyCodeLine{149     \textcolor{keywordflow}{if} len(ret):}
+\DoxyCodeLine{150         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetDescIssue'}, len(ret))}
+\DoxyCodeLine{151     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{152         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetDescIssue'}, len(ret))}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154     ret = \mbox{\hyperlink{namespacelibJira_a930387c7730a35f50a9903a0486baf88}{GetExcludedIP}}()}
+\DoxyCodeLine{155     \textcolor{keywordflow}{if} len(ret) == 32:}
+\DoxyCodeLine{156         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetExcludedIP'}, len(ret))}
+\DoxyCodeLine{157     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{158         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetExcludedIP'}, len(ret))}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     Key = \textcolor{stringliteral}{"ISWT-\/531"}}
+\DoxyCodeLine{161     ret = \mbox{\hyperlink{namespacelibJira_a35fb57d1734f6b15d32ed40019346030}{UpdateIssue}}(Key)}
+\DoxyCodeLine{162     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{163         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'UpdateIssue'}, ret)}
+\DoxyCodeLine{164     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{165         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'UpdateIssue'}, ret)}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     Key = \textcolor{stringliteral}{"ISWT-\/531"}}
+\DoxyCodeLine{168     ret = \mbox{\hyperlink{namespacelibJira_ae31e7bb7d014b9431d51c0e6a4dddf4b}{GetWatcher}}(Key)}
+\DoxyCodeLine{169     \textcolor{keywordflow}{if} len(ret):}
+\DoxyCodeLine{170         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetWatcher'}, ret)}
+\DoxyCodeLine{171     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{172         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'GetWatcher'}, ret)}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     Key = \textcolor{stringliteral}{"ISWT-\/531"}}
+\DoxyCodeLine{175     Watchers = [\textcolor{stringliteral}{'suwonchon'}]}
+\DoxyCodeLine{176     ret = \mbox{\hyperlink{namespacelibJira_a42f6475be85056247ee68b9d2aa8c631}{SetWatcher}}(Key, Watchers)}
+\DoxyCodeLine{177     \textcolor{keywordflow}{if} ret:}
+\DoxyCodeLine{178         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'SetWatcher'}, ret)}
+\DoxyCodeLine{179     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{180         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libJira'}, \textcolor{stringliteral}{'SetWatcher'}, ret)}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182     \textcolor{stringliteral}{'''}}
+\DoxyCodeLine{183 \textcolor{stringliteral}{    desc = "it's a test for creating issue in jira"}}
+\DoxyCodeLine{184 \textcolor{stringliteral}{    summary = "New issue for soar"}}
+\DoxyCodeLine{185 \textcolor{stringliteral}{    ret = CreateIssue(summary, desc)}}
+\DoxyCodeLine{186 \textcolor{stringliteral}{    if ret:}}
+\DoxyCodeLine{187 \textcolor{stringliteral}{        text = '[UnitTest:libJira:CreateIssue] SUCCESS : \{\}'.format(ret)}}
+\DoxyCodeLine{188 \textcolor{stringliteral}{    else:}}
+\DoxyCodeLine{189 \textcolor{stringliteral}{        text = '[UnitTest:libJira:CreateIssue] FAIL : \{\}'.format(ret)}}
+\DoxyCodeLine{190 \textcolor{stringliteral}{    print(text)}}
+\DoxyCodeLine{191 \textcolor{stringliteral}{    '''}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d8/d78/namespacelibJira_a4aa4affd51fc48a39c0bcf52eb40403f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibJira_a35fb57d1734f6b15d32ed40019346030}\label{namespacelibJira_a35fb57d1734f6b15d32ed40019346030}} 
+\index{libJira@{libJira}!UpdateIssue@{UpdateIssue}}
+\index{UpdateIssue@{UpdateIssue}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{UpdateIssue()}{UpdateIssue()}}
+{\footnotesize\ttfamily def lib\+Jira.\+Update\+Issue (\begin{DoxyParamCaption}\item[{}]{Key }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file lib\+Jira.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibJira_a35fb57d1734f6b15d32ed40019346030}{UpdateIssue}}(Key):}
+\DoxyCodeLine{88     \textcolor{keyword}{import} time}
+\DoxyCodeLine{89     now = time.localtime()}
+\DoxyCodeLine{90     ts = \textcolor{stringliteral}{"\%04d/\%02d/\%02d \%02d:\%02d:\%02d"} \% (now.tm\_year, now.tm\_mon, now.tm\_mday, now.tm\_hour,}
+\DoxyCodeLine{91                                               now.tm\_min, now.tm\_sec)}
+\DoxyCodeLine{92     desc = \textcolor{stringliteral}{"This issue is generated by soar on \{\}"}.format(ts)}
+\DoxyCodeLine{93     summary = \textcolor{stringliteral}{"New issue for soar"}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     issue\_dict = \{}
+\DoxyCodeLine{96         \textcolor{stringliteral}{'summary'}: summary,}
+\DoxyCodeLine{97         \textcolor{stringliteral}{'description'}: desc,}
+\DoxyCodeLine{98         \textcolor{stringliteral}{'assignee'} : \{\textcolor{stringliteral}{'name'}: \textcolor{stringliteral}{"schon"}\},}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     jira = \mbox{\hyperlink{namespacelibJira_aaa6d3c967bb9b8945b23e6a429ef60d3}{ConnJIRA}}()}
+\DoxyCodeLine{102     \textcolor{keywordflow}{if} jira:}
+\DoxyCodeLine{103         issue = jira.issue(Key)}
+\DoxyCodeLine{104         issue.update(fields=issue\_dict)}
+\DoxyCodeLine{105     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{106         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{109 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{d8/d78/namespacelibJira_a35fb57d1734f6b15d32ed40019346030_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{d8/d78/namespacelibJira_a35fb57d1734f6b15d32ed40019346030_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibJira_abd18cb5db6ce41e500dbe2de01a62afa}\label{namespacelibJira_abd18cb5db6ce41e500dbe2de01a62afa}} 
+\index{libJira@{libJira}!EXCEPTIP@{EXCEPTIP}}
+\index{EXCEPTIP@{EXCEPTIP}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{EXCEPTIP}{EXCEPTIP}}
+{\footnotesize\ttfamily lib\+Jira.\+E\+X\+C\+E\+P\+T\+IP = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}E\+X\+C\+L\+U\+D\+E\+D\+IP\textquotesingle{})}
+
+
+
+Definition at line 15 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_a6df4ef1cd9db376beca22abc73abb4b2}\label{namespacelibJira_a6df4ef1cd9db376beca22abc73abb4b2}} 
+\index{libJira@{libJira}!FlagTimeout@{FlagTimeout}}
+\index{FlagTimeout@{FlagTimeout}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{FlagTimeout}{FlagTimeout}}
+{\footnotesize\ttfamily int lib\+Jira.\+Flag\+Timeout = 1}
+
+
+
+Definition at line 17 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_adc2fa975187b203f494da05470479681}\label{namespacelibJira_adc2fa975187b203f494da05470479681}} 
+\index{libJira@{libJira}!FlagWarnings@{FlagWarnings}}
+\index{FlagWarnings@{FlagWarnings}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{FlagWarnings}{FlagWarnings}}
+{\footnotesize\ttfamily bool lib\+Jira.\+Flag\+Warnings = False}
+
+
+
+Definition at line 18 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_a1df6ce362485bf2d5c69c5ffe8ae88a6}\label{namespacelibJira_a1df6ce362485bf2d5c69c5ffe8ae88a6}} 
+\index{libJira@{libJira}!JIRA\_URL@{JIRA\_URL}}
+\index{JIRA\_URL@{JIRA\_URL}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{JIRA\_URL}{JIRA\_URL}}
+{\footnotesize\ttfamily lib\+Jira.\+J\+I\+R\+A\+\_\+\+U\+RL = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}U\+RL\textquotesingle{})}
+
+
+
+Definition at line 11 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_a5a9fa4eb25fc11a30ec1d54d06e7acff}\label{namespacelibJira_a5a9fa4eb25fc11a30ec1d54d06e7acff}} 
+\index{libJira@{libJira}!PASS@{PASS}}
+\index{PASS@{PASS}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{PASS}{PASS}}
+{\footnotesize\ttfamily lib\+Jira.\+P\+A\+SS = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}A\+P\+I\+\_\+\+K\+EY\textquotesingle{})}
+
+
+
+Definition at line 13 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_a41bfa43892600e372486b6bf67fe3613}\label{namespacelibJira_a41bfa43892600e372486b6bf67fe3613}} 
+\index{libJira@{libJira}!PROJ@{PROJ}}
+\index{PROJ@{PROJ}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{PROJ}{PROJ}}
+{\footnotesize\ttfamily lib\+Jira.\+P\+R\+OJ = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}P\+R\+O\+J\+E\+CT\textquotesingle{})}
+
+
+
+Definition at line 14 of file lib\+Jira.\+py.
+
+\mbox{\Hypertarget{namespacelibJira_ad45e1d4a6f7d970aa653bed16d28fff4}\label{namespacelibJira_ad45e1d4a6f7d970aa653bed16d28fff4}} 
+\index{libJira@{libJira}!USER@{USER}}
+\index{USER@{USER}!libJira@{libJira}}
+\doxysubsubsection{\texorpdfstring{USER}{USER}}
+{\footnotesize\ttfamily lib\+Jira.\+U\+S\+ER = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}J\+I\+RA\textquotesingle{}, \textquotesingle{}U\+S\+ER\textquotesingle{})}
+
+
+
+Definition at line 12 of file lib\+Jira.\+py.
+

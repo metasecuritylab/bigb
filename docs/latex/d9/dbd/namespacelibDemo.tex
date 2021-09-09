@@ -1,0 +1,205 @@
+\hypertarget{namespacelibDemo}{}\doxysection{lib\+Demo Namespace Reference}
+\label{namespacelibDemo}\index{libDemo@{libDemo}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8}{Parse\+Rules}} (fname)
+\item 
+def \mbox{\hyperlink{namespacelibDemo_a97f7551159a62c4ca8a5da1b4887a482}{Get\+Traffic\+File}} (num, limit)
+\item 
+def \mbox{\hyperlink{namespacelibDemo_af70f2d08e390166d991277857e62cf19}{Get\+Traffic\+Y\+ML}} (num)
+\item 
+def \mbox{\hyperlink{namespacelibDemo_a0dd79920d681aff3f3a7673b8713680a}{Unit\+Test}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{namespacelibDemo_a5f2b77b06413f95414802ce2a18e60e2}{D\+IR}} = \textquotesingle{}demo\textquotesingle{}
+\item 
+string \mbox{\hyperlink{namespacelibDemo_a884c5ef3036b13d1156fb4a76c29e8bc}{F\+N\+A\+ME}} = \textquotesingle{}bambenek\+\_\+banjori.\+ipset\textquotesingle{}
+\item 
+\mbox{\hyperlink{namespacelibDemo_a3b5af9bd92b741e36d291bda8a0ffa67}{L\+I\+M\+IT}} = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+E\+MO\textquotesingle{}, \textquotesingle{}L\+I\+M\+IT\textquotesingle{})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacelibDemo_a97f7551159a62c4ca8a5da1b4887a482}\label{namespacelibDemo_a97f7551159a62c4ca8a5da1b4887a482}} 
+\index{libDemo@{libDemo}!GetTrafficFile@{GetTrafficFile}}
+\index{GetTrafficFile@{GetTrafficFile}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{GetTrafficFile()}{GetTrafficFile()}}
+{\footnotesize\ttfamily def lib\+Demo.\+Get\+Traffic\+File (\begin{DoxyParamCaption}\item[{}]{num,  }\item[{}]{limit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file lib\+Demo.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDemo_a97f7551159a62c4ca8a5da1b4887a482}{GetTrafficFile}}(num, limit):}
+\DoxyCodeLine{31     fw\_dst\_hits = 0}
+\DoxyCodeLine{32     filename = \textcolor{stringliteral}{"\{\}/\{\}"}.format(DIR, FNAME)}
+\DoxyCodeLine{33     fw\_dst\_ip = \mbox{\hyperlink{namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8}{ParseRules}}(filename)}
+\DoxyCodeLine{34     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} fw\_dst\_ip:}
+\DoxyCodeLine{35         \textcolor{keywordflow}{return} \{\}, 0}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordflow}{for} i, k \textcolor{keywordflow}{in} enumerate(fw\_dst\_ip.copy()):}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} i > limit-\/1:}
+\DoxyCodeLine{39             del fw\_dst\_ip[k]}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{for} i, v \textcolor{keywordflow}{in} fw\_dst\_ip.items():}
+\DoxyCodeLine{42         fw\_dst\_hits = fw\_dst\_hits + v}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} fw\_dst\_ip, fw\_dst\_hits}
+\DoxyCodeLine{45 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dbd/namespacelibDemo_a97f7551159a62c4ca8a5da1b4887a482_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDemo_af70f2d08e390166d991277857e62cf19}\label{namespacelibDemo_af70f2d08e390166d991277857e62cf19}} 
+\index{libDemo@{libDemo}!GetTrafficYML@{GetTrafficYML}}
+\index{GetTrafficYML@{GetTrafficYML}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{GetTrafficYML()}{GetTrafficYML()}}
+{\footnotesize\ttfamily def lib\+Demo.\+Get\+Traffic\+Y\+ML (\begin{DoxyParamCaption}\item[{}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file lib\+Demo.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDemo_af70f2d08e390166d991277857e62cf19}{GetTrafficYML}}(num):}
+\DoxyCodeLine{47     fname = \textcolor{stringliteral}{'demo/data.yml'}}
+\DoxyCodeLine{48     fw\_dst\_ip = \{\}}
+\DoxyCodeLine{49     fw\_dst\_hits = 0}
+\DoxyCodeLine{50     \textcolor{keyword}{with} open(fname) \textcolor{keyword}{as} f:}
+\DoxyCodeLine{51         ret = yaml.load(f, Loader=yaml.FullLoader)}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     del ret[num][int(LIMIT):]}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{for} i \textcolor{keywordflow}{in} ret[num]:}
+\DoxyCodeLine{56         fw\_dst\_ip[i] = random.randrange(1000000,9000000)}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordflow}{for} i, v \textcolor{keywordflow}{in} fw\_dst\_ip.items():}
+\DoxyCodeLine{59         fw\_dst\_hits = fw\_dst\_hits + v}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} fw\_dst\_ip, fw\_dst\_hits}
+\DoxyCodeLine{62 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{d9/dbd/namespacelibDemo_af70f2d08e390166d991277857e62cf19_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8}\label{namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8}} 
+\index{libDemo@{libDemo}!ParseRules@{ParseRules}}
+\index{ParseRules@{ParseRules}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{ParseRules()}{ParseRules()}}
+{\footnotesize\ttfamily def lib\+Demo.\+Parse\+Rules (\begin{DoxyParamCaption}\item[{}]{fname }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file lib\+Demo.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8}{ParseRules}}(fname):}
+\DoxyCodeLine{15     bucket = \{\}}
+\DoxyCodeLine{16     ret = os.path.isfile(fname)}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} ret:}
+\DoxyCodeLine{19         \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keyword}{with} open(fname, \textcolor{stringliteral}{'r'}) \textcolor{keyword}{as} fdata:}
+\DoxyCodeLine{22         lines = fdata.readlines()}
+\DoxyCodeLine{23         \textcolor{keywordflow}{for} line \textcolor{keywordflow}{in} lines:}
+\DoxyCodeLine{24             \textcolor{keywordflow}{if} len(line) > 1:}
+\DoxyCodeLine{25                 \textcolor{keywordflow}{if} line[0] != \textcolor{stringliteral}{'\#'}:}
+\DoxyCodeLine{26                     bucket[line.strip(\textcolor{stringliteral}{'\(\backslash\)n'})] = random.randrange(1000000,9000000)}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} bucket}
+\DoxyCodeLine{29 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/dbd/namespacelibDemo_a6bc6af7b556a76c166aaf0beb00b8cb8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacelibDemo_a0dd79920d681aff3f3a7673b8713680a}\label{namespacelibDemo_a0dd79920d681aff3f3a7673b8713680a}} 
+\index{libDemo@{libDemo}!UnitTest@{UnitTest}}
+\index{UnitTest@{UnitTest}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{UnitTest()}{UnitTest()}}
+{\footnotesize\ttfamily def lib\+Demo.\+Unit\+Test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file lib\+Demo.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \textcolor{keyword}{def }\mbox{\hyperlink{namespacelibDemo_a0dd79920d681aff3f3a7673b8713680a}{UnitTest}}():}
+\DoxyCodeLine{64     fw\_dst\_ip, fw\_dst\_hits = \mbox{\hyperlink{namespacelibDemo_af70f2d08e390166d991277857e62cf19}{GetTrafficYML}}(1)}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if} len(fw\_dst\_ip):}
+\DoxyCodeLine{66         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDemo'}, \textcolor{stringliteral}{'GetTrafficYML'}, len(fw\_dst\_ip))}
+\DoxyCodeLine{67     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{68         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDemo'}, \textcolor{stringliteral}{'GetTrafficYML'}, rlen(fw\_dst\_ip))    }
+\DoxyCodeLine{69     \textcolor{keywordflow}{if} fw\_dst\_hits:}
+\DoxyCodeLine{70         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{True}, \textcolor{stringliteral}{'libDemo'}, \textcolor{stringliteral}{'GetTrafficYML'}, fw\_dst\_hits)}
+\DoxyCodeLine{71     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{72         \mbox{\hyperlink{namespacelibUtils_a237cdae37726b25124e805fe3bbd638d}{libUtils.UnitTestPrint}}(\textcolor{keyword}{False}, \textcolor{stringliteral}{'libDemo'}, \textcolor{stringliteral}{'GetTrafficYML'}, fw\_dst\_hits)}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{d9/dbd/namespacelibDemo_a0dd79920d681aff3f3a7673b8713680a_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacelibDemo_a5f2b77b06413f95414802ce2a18e60e2}\label{namespacelibDemo_a5f2b77b06413f95414802ce2a18e60e2}} 
+\index{libDemo@{libDemo}!DIR@{DIR}}
+\index{DIR@{DIR}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{DIR}{DIR}}
+{\footnotesize\ttfamily string lib\+Demo.\+D\+IR = \textquotesingle{}demo\textquotesingle{}}
+
+
+
+Definition at line 10 of file lib\+Demo.\+py.
+
+\mbox{\Hypertarget{namespacelibDemo_a884c5ef3036b13d1156fb4a76c29e8bc}\label{namespacelibDemo_a884c5ef3036b13d1156fb4a76c29e8bc}} 
+\index{libDemo@{libDemo}!FNAME@{FNAME}}
+\index{FNAME@{FNAME}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{FNAME}{FNAME}}
+{\footnotesize\ttfamily string lib\+Demo.\+F\+N\+A\+ME = \textquotesingle{}bambenek\+\_\+banjori.\+ipset\textquotesingle{}}
+
+
+
+Definition at line 11 of file lib\+Demo.\+py.
+
+\mbox{\Hypertarget{namespacelibDemo_a3b5af9bd92b741e36d291bda8a0ffa67}\label{namespacelibDemo_a3b5af9bd92b741e36d291bda8a0ffa67}} 
+\index{libDemo@{libDemo}!LIMIT@{LIMIT}}
+\index{LIMIT@{LIMIT}!libDemo@{libDemo}}
+\doxysubsubsection{\texorpdfstring{LIMIT}{LIMIT}}
+{\footnotesize\ttfamily lib\+Demo.\+L\+I\+M\+IT = \mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{lib\+Config.\+Get\+Config}}(\textquotesingle{}D\+E\+MO\textquotesingle{}, \textquotesingle{}L\+I\+M\+IT\textquotesingle{})}
+
+
+
+Definition at line 12 of file lib\+Demo.\+py.
+

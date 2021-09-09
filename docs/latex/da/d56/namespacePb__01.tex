@@ -1,0 +1,461 @@
+\hypertarget{namespacePb__01}{}\doxysection{Pb\+\_\+01 Namespace Reference}
+\label{namespacePb__01}\index{Pb\_01@{Pb\_01}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{namespacePb__01_a620cd01188bad1551fbcabfde699e520}{signal\+\_\+handler}} (sig, frame)
+\item 
+def \mbox{\hyperlink{namespacePb__01_a0079886551ee31206be3b82837481173}{Get\+Last\+Processing\+List}} (data, max\+Len=8)
+\item 
+def \mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{List\+Deduplication}} (f\+IP, Value, List)
+\item 
+def \mbox{\hyperlink{namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205}{Conv\+Time\+Stamp}} (Task)
+\item 
+def \mbox{\hyperlink{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}{Calc\+Progress\+Value}} (total, done)
+\item 
+def \mbox{\hyperlink{namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597}{Get\+Threat\+Info}} ()
+\item 
+def \mbox{\hyperlink{namespacePb__01_ade86aa2ef48f1edc7601b52138e4d252}{main}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacePb__01_ae3133032ff9231beae83ce82946c84ce}{Debug}} = True
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}\label{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}} 
+\index{Pb\_01@{Pb\_01}!CalcProgressValue@{CalcProgressValue}}
+\index{CalcProgressValue@{CalcProgressValue}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{CalcProgressValue()}{CalcProgressValue()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+Calc\+Progress\+Value (\begin{DoxyParamCaption}\item[{}]{total,  }\item[{}]{done }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}{CalcProgressValue}}(total, done):}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{if} done == 0:}
+\DoxyCodeLine{54         pValue = 0}
+\DoxyCodeLine{55     \textcolor{keywordflow}{elif} done == total:}
+\DoxyCodeLine{56         pValue = 100}
+\DoxyCodeLine{57     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{58         pValue = round(done / total * 100, 1)}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{return} pValue}
+\DoxyCodeLine{61 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=329pt]{da/d56/namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205}\label{namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205}} 
+\index{Pb\_01@{Pb\_01}!ConvTimeStamp@{ConvTimeStamp}}
+\index{ConvTimeStamp@{ConvTimeStamp}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{ConvTimeStamp()}{ConvTimeStamp()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+Conv\+Time\+Stamp (\begin{DoxyParamCaption}\item[{}]{Task }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205}{ConvTimeStamp}}(Task):}
+\DoxyCodeLine{42     \textcolor{comment}{\# Task is date-\/time}}
+\DoxyCodeLine{43     sDate = \textcolor{stringliteral}{"\{\} \{\}"}.format(Task, (\mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{libConfig.GetConfig}}(\textcolor{stringliteral}{'DETECTION'}, \textcolor{stringliteral}{'STIME'})))}
+\DoxyCodeLine{44     sEpoch = \mbox{\hyperlink{namespacelibElastic_a00bde85e525eabda933a98374d8fa0e2}{libElastic.ConvEpoch}}(sDate)}
+\DoxyCodeLine{45     eDate = \textcolor{stringliteral}{"\{\} \{\}"}.format(Task, (\mbox{\hyperlink{namespacelibConfig_a51052c0d8eb9598b29b3bbcab309eb1b}{libConfig.GetConfig}}(\textcolor{stringliteral}{'DETECTION'}, \textcolor{stringliteral}{'ETIME'})))}
+\DoxyCodeLine{46     eEpoch = \mbox{\hyperlink{namespacelibElastic_a00bde85e525eabda933a98374d8fa0e2}{libElastic.ConvEpoch}}(eDate)}
+\DoxyCodeLine{47     text = \textcolor{stringliteral}{"Task date: \{\}(\{\}) -\/ \{\}(\{\})"}.format(sDate, sEpoch, eDate, eEpoch)}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} sDate, eDate}
+\DoxyCodeLine{50 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d56/namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=320pt]{da/d56/namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_a0079886551ee31206be3b82837481173}\label{namespacePb__01_a0079886551ee31206be3b82837481173}} 
+\index{Pb\_01@{Pb\_01}!GetLastProcessingList@{GetLastProcessingList}}
+\index{GetLastProcessingList@{GetLastProcessingList}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{GetLastProcessingList()}{GetLastProcessingList()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+Get\+Last\+Processing\+List (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{max\+Len = {\ttfamily 8} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 24 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_a0079886551ee31206be3b82837481173}{GetLastProcessingList}}(data, maxLen=8):}
+\DoxyCodeLine{25     \textcolor{keywordflow}{while} \textcolor{keyword}{True}:}
+\DoxyCodeLine{26         \textcolor{keywordflow}{if} len(data) <= maxLen:}
+\DoxyCodeLine{27             \textcolor{keywordflow}{break}}
+\DoxyCodeLine{28         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{29             del data[0]}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} data}
+\DoxyCodeLine{32 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{da/d56/namespacePb__01_a0079886551ee31206be3b82837481173_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597}\label{namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597}} 
+\index{Pb\_01@{Pb\_01}!GetThreatInfo@{GetThreatInfo}}
+\index{GetThreatInfo@{GetThreatInfo}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{GetThreatInfo()}{GetThreatInfo()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+Get\+Threat\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597}{GetThreatInfo}}():}
+\DoxyCodeLine{63     TaskList = \mbox{\hyperlink{namespacelibConfig_a6bccd41dc123a88d1714eb7a28296e8f}{libConfig.GetTasks}}()}
+\DoxyCodeLine{64     BlackIP = \mbox{\hyperlink{namespacelibEthreat_a0535423abbfe0e9e705f1b0af3d3a77f}{libEthreat.GetBlackListFromET}}()}
+\DoxyCodeLine{65     AIMLnum = 0}
+\DoxyCodeLine{66     PlaybookNum = 7}
+\DoxyCodeLine{67     ExcludedIP = \mbox{\hyperlink{namespacelibJira_a930387c7730a35f50a9903a0486baf88}{libJira.GetExcludedIP}}()}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordflow}{return}  TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP}
+\DoxyCodeLine{70 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d56/namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{da/d56/namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}\label{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}} 
+\index{Pb\_01@{Pb\_01}!ListDeduplication@{ListDeduplication}}
+\index{ListDeduplication@{ListDeduplication}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{ListDeduplication()}{ListDeduplication()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+List\+Deduplication (\begin{DoxyParamCaption}\item[{}]{f\+IP,  }\item[{}]{Value,  }\item[{}]{List }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{ListDeduplication}}(fIP, Value, List):}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordflow}{for} item \textcolor{keywordflow}{in} List:}
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} item[\textcolor{stringliteral}{'label'}] == fIP \textcolor{keywordflow}{and} item[\textcolor{stringliteral}{'value'}] == Value:}
+\DoxyCodeLine{37             \textcolor{keywordflow}{return} \textcolor{keyword}{True}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} \textcolor{keyword}{False}}
+\DoxyCodeLine{40 }
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{da/d56/namespacePb__01_a78d9f3df16120dbcc0851e8167314688_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_ade86aa2ef48f1edc7601b52138e4d252}\label{namespacePb__01_ade86aa2ef48f1edc7601b52138e4d252}} 
+\index{Pb\_01@{Pb\_01}!main@{main}}
+\index{main@{main}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_ade86aa2ef48f1edc7601b52138e4d252}{main}}():}
+\DoxyCodeLine{72     \mbox{\hyperlink{namespacelibDash_a6610cc3c6178ece740959297d5e7f757}{libDash.ClearDashBoard}}()}
+\DoxyCodeLine{73     text = \textcolor{stringliteral}{"Playbook01 is started, Reset the dashboard"}}
+\DoxyCodeLine{74     \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{75     plist = []}
+\DoxyCodeLine{76     wlist = []}
+\DoxyCodeLine{77     clist = []}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{stringliteral}{''' Start of demon '''}}
+\DoxyCodeLine{80     \textcolor{keywordflow}{while} \textcolor{keyword}{True}:}
+\DoxyCodeLine{81         signal.signal(signal.SIGINT, signal\_handler)}
+\DoxyCodeLine{82         TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP = \mbox{\hyperlink{namespacePb__01_a4dcacddddee8002e0fe7b55f9c9f5597}{GetThreatInfo}}()}
+\DoxyCodeLine{83         text = \textcolor{stringliteral}{"Get threat information"}}
+\DoxyCodeLine{84         \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{85         TaskDoneNum = 0}
+\DoxyCodeLine{86         TaskTotalNum = len(TaskList)}
+\DoxyCodeLine{87         plist = []}
+\DoxyCodeLine{88         wlist = []}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90         \textcolor{keywordflow}{for} Task \textcolor{keywordflow}{in} TaskList:}
+\DoxyCodeLine{91             warningNum = 0}
+\DoxyCodeLine{92             criticalNum = 0}
+\DoxyCodeLine{93             \mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{libDash.UpdateSecurityLevel}}(criticals=criticalNum, warnings=warningNum)}
+\DoxyCodeLine{94             time.sleep(1)}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96             text = \textcolor{stringliteral}{'Task \{\} is started. '}.format(Task)}
+\DoxyCodeLine{97             \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{98             TaskReadyNum = TaskTotalNum -\/ TaskDoneNum}
+\DoxyCodeLine{99             \mbox{\hyperlink{namespacelibDash_a69bc3b4b3ddb52c9bc35491e62dbd28e}{libDash.UpdateTaskChart}}(done=TaskDoneNum, ready=TaskReadyNum)}
+\DoxyCodeLine{100             \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=text)}
+\DoxyCodeLine{101             time.sleep(1)}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103             sDate, eDate = \mbox{\hyperlink{namespacePb__01_ac1bd7610765187dcdd62e534fbf2c205}{ConvTimeStamp}}(Task)}
+\DoxyCodeLine{104             text = \textcolor{stringliteral}{"Please wait for gathering data. It takes few minutes"}}
+\DoxyCodeLine{105             \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{106             \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=text)}
+\DoxyCodeLine{107             time.sleep(1)}
+\DoxyCodeLine{108             \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} Debug:}
+\DoxyCodeLine{109                 fIPList, fIPHits = \mbox{\hyperlink{namespacelibElastic_af738286aa3fc1bf136ff8212331e6b53}{libElastic.GetIPsFromElastic}}(sDate, eDate, \textcolor{stringliteral}{'DST'})}
+\DoxyCodeLine{110             \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{111                 text = \textcolor{stringliteral}{"Start in demo mode"} }
+\DoxyCodeLine{112                 \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{113                 buf = Task.split(\textcolor{stringliteral}{'-\/'})}
+\DoxyCodeLine{114                 date\_buf = datetime.date(int(buf[0]), int(buf[1]), int(buf[2]))}
+\DoxyCodeLine{115                 date = date\_buf.strftime(\textcolor{stringliteral}{"\%a \%d \%b \%Y"})}
+\DoxyCodeLine{116                 fIPList, fIPHits = \mbox{\hyperlink{namespacelibDemo_af70f2d08e390166d991277857e62cf19}{libDemo.GetTrafficYML}}(TaskDoneNum)}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118             \textcolor{keywordflow}{if} len(fIPList) == 0:}
+\DoxyCodeLine{119                 text = \textcolor{stringliteral}{'No logs, please check log repository!'}}
+\DoxyCodeLine{120                 \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{121                 \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=text)}
+\DoxyCodeLine{122                 time.sleep(600)}
+\DoxyCodeLine{123                 \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125             HfIPList = \mbox{\hyperlink{namespacelibUtils_ab4e599af66a5a3fbcb29cae755d1ed96}{libUtils.ConvHumanFormat}}(len(fIPList))}
+\DoxyCodeLine{126             HfIPHits = \mbox{\hyperlink{namespacelibUtils_ab4e599af66a5a3fbcb29cae755d1ed96}{libUtils.ConvHumanFormat}}(fIPHits)}
+\DoxyCodeLine{127             \mbox{\hyperlink{namespacelibDash_a50008829a9ac5b5f3caabb1e599f5dff}{libDash.UpdateThreatInfo}}(Pnum=PlaybookNum, MLnum=AIMLnum, BIPnum=len(BlackIP), }
+\DoxyCodeLine{128                                     IIPnum=len(fIPList), Tasknum=len(TaskList), Traffic=HfIPHits, }
+\DoxyCodeLine{129                                     EIPnum=len(ExcludedIP))}
+\DoxyCodeLine{130             text = \textcolor{stringliteral}{"Inspected IP: \{\}, Volume: \{\}"}.format(HfIPList, HfIPHits)}
+\DoxyCodeLine{131             \mbox{\hyperlink{namespacelibUtils_a691e6aacd4965a3b989b65cc76483f26}{libUtils.InfoPrint}}(text)}
+\DoxyCodeLine{132             \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=text)}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134             ProcessTotalNum = len(fIPList)}
+\DoxyCodeLine{135             ProcessDoneNum = 0}
+\DoxyCodeLine{136             wData = \{\}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138             \textcolor{keywordflow}{for} i, fIP \textcolor{keywordflow}{in} enumerate(fIPList):}
+\DoxyCodeLine{139                 time.sleep(0.5)}
+\DoxyCodeLine{140                 \mbox{\hyperlink{namespacelibUtils_a6b58fdb6a0e1320fe6beffe60cea59f2}{libUtils.printProgressBar}}(i,len(fIPList)-\/1,\textcolor{stringliteral}{"completed"},\textcolor{stringliteral}{"[INFO]"})}
+\DoxyCodeLine{141                 \textcolor{keywordflow}{if} i == len(fIPList)-\/1:}
+\DoxyCodeLine{142                     print(\textcolor{stringliteral}{''})}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144                 cWhite = 0}
+\DoxyCodeLine{145                 mWhite = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{146                 cPrivate = 0}
+\DoxyCodeLine{147                 mPrivate = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{148                 cOTX = 0}
+\DoxyCodeLine{149                 mOTX = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{150                 cWINS = 0}
+\DoxyCodeLine{151                 mWINS = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{152                 cET = 0}
+\DoxyCodeLine{153                 mET = \textcolor{stringliteral}{''}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155                 wData[fIP] = \{\}}
+\DoxyCodeLine{156                 wValue = \{\}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158                 ProcessCurrCnt = \mbox{\hyperlink{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}{CalcProgressValue}}(ProcessTotalNum, ProcessDoneNum)}
+\DoxyCodeLine{159                 \mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{libDash.UpdateTaskProgress}}(ProcessCurrCnt)}
+\DoxyCodeLine{160                 plist = \mbox{\hyperlink{namespacePb__01_a0079886551ee31206be3b82837481173}{GetLastProcessingList}}(plist)}
+\DoxyCodeLine{161                 wlist = \mbox{\hyperlink{namespacePb__01_a0079886551ee31206be3b82837481173}{GetLastProcessingList}}(wlist)}
+\DoxyCodeLine{162                 clist = \mbox{\hyperlink{namespacePb__01_a0079886551ee31206be3b82837481173}{GetLastProcessingList}}(clist)}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164                 \textcolor{comment}{\# 1. Checking Excluded}}
+\DoxyCodeLine{165                 \textcolor{keywordflow}{if} fIP \textcolor{keywordflow}{in} ExcludedIP:}
+\DoxyCodeLine{166                     cWhite += 1}
+\DoxyCodeLine{167                     mWhite = \textcolor{stringliteral}{"Bypass excluded traffic"}}
+\DoxyCodeLine{168                     plist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mWhite\})}
+\DoxyCodeLine{169                     wValue[\textcolor{stringliteral}{'mWhite'}] = mWhite}
+\DoxyCodeLine{170 }
+\DoxyCodeLine{171                 \textcolor{comment}{\# 2. Checking Private IP}}
+\DoxyCodeLine{172                 \textcolor{keywordflow}{if} \mbox{\hyperlink{namespacelibUtils_a724cf09407f4b0b3f18db46beb9a3f7d}{libUtils.IsPrivateIP}}(fIP):}
+\DoxyCodeLine{173                     cPrivate += 1}
+\DoxyCodeLine{174                     mPrivate = \textcolor{stringliteral}{"Bypass internal traffic"}}
+\DoxyCodeLine{175                     plist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mPrivate\})}
+\DoxyCodeLine{176                     wValue[\textcolor{stringliteral}{'mPrivate'}] = mPrivate}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178                 \textcolor{keywordflow}{if} cWhite + cPrivate > 0:}
+\DoxyCodeLine{179                     ProcessDoneNum += 1}
+\DoxyCodeLine{180                     \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{libDash.UpdateProcessing}}(plist)}
+\DoxyCodeLine{181                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183                 \textcolor{comment}{\# 3. OTX lookup}}
+\DoxyCodeLine{184                 retLookupOTX = \mbox{\hyperlink{namespacelibOtx_ac95a47d8a04f0a90961ccaae6cd0f09b}{libOtx.LookupIp}}(fIP)}
+\DoxyCodeLine{185                 \textcolor{keywordflow}{if} retLookupOTX[\textcolor{stringliteral}{'pulse\_info\_cnt'}]:}
+\DoxyCodeLine{186                     cOTX += 1}
+\DoxyCodeLine{187                     mOTX = \textcolor{stringliteral}{'pulse info: \{\}'}.format(retLookupOTX[\textcolor{stringliteral}{'pulse\_info\_cnt'}])}
+\DoxyCodeLine{188                     wValue[\textcolor{stringliteral}{'mOTX'}] = mOTX}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190                 \textcolor{comment}{\# 4. Wins lookup}}
+\DoxyCodeLine{191                 \textcolor{comment}{\# retLookupWINS = libCtas.LookupIp(fIP)}}
+\DoxyCodeLine{192                 retLookupWINS = \textcolor{keyword}{False}}
+\DoxyCodeLine{193                 \textcolor{keywordflow}{if} retLookupWINS:}
+\DoxyCodeLine{194                     cWINS += 1}
+\DoxyCodeLine{195                     conretLookupWINS = \textcolor{stringliteral}{','}.join(retLookupWINS)}
+\DoxyCodeLine{196                     message = conretLookupWINS[:17] + (conretLookupWINS[17:] \textcolor{keywordflow}{and} \textcolor{stringliteral}{'..'})}
+\DoxyCodeLine{197                     mWINS = \textcolor{stringliteral}{'Threat class-\/type is \{\}'}.format(message)}
+\DoxyCodeLine{198                     wValue[\textcolor{stringliteral}{'mWINS'}] = mWINS}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200                 \textcolor{comment}{\# 5. Emerging threat lookup}}
+\DoxyCodeLine{201                 \textcolor{keywordflow}{for} BIP \textcolor{keywordflow}{in} BlackIP:}
+\DoxyCodeLine{202                     \textcolor{keywordflow}{if} BIP[\textcolor{stringliteral}{'ip'}] == fIP:}
+\DoxyCodeLine{203                         cET += 1}
+\DoxyCodeLine{204                         mET = \textcolor{stringliteral}{'reported emerging threat'}}
+\DoxyCodeLine{205                         wValue[\textcolor{stringliteral}{'mET'}] = mET}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207                 wData[fIP] = wValue}
+\DoxyCodeLine{208                 \textcolor{comment}{\# POST PROCESSING}}
+\DoxyCodeLine{209                 ProcessDoneNum += 1}
+\DoxyCodeLine{210                 \textcolor{keywordflow}{if} cOTX + cWINS + cET < 1:}
+\DoxyCodeLine{211                     plist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: \textcolor{stringliteral}{'OK'}\})}
+\DoxyCodeLine{212                     \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{libDash.UpdateProcessing}}(plist)}
+\DoxyCodeLine{213                     \textcolor{keywordflow}{continue}}
+\DoxyCodeLine{214 }
+\DoxyCodeLine{215                 \textcolor{keywordflow}{if} cOTX > 0:}
+\DoxyCodeLine{216                     \textcolor{keywordflow}{if} len(wlist) < 1:}
+\DoxyCodeLine{217                         warningNum += 1}
+\DoxyCodeLine{218                         wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mOTX\})}
+\DoxyCodeLine{219                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{220                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{ListDeduplication}}(fIP, mOTX, wlist):}
+\DoxyCodeLine{221                             warningNum += 1}
+\DoxyCodeLine{222                             wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mOTX\})}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224                 \textcolor{keywordflow}{if} cWINS > 0:}
+\DoxyCodeLine{225                     \textcolor{keywordflow}{if} len(wlist) < 1:}
+\DoxyCodeLine{226                         warningNum += 1}
+\DoxyCodeLine{227                         wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mWINS\})}
+\DoxyCodeLine{228                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{229                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{ListDeduplication}}(fIP, mWINS, wlist):}
+\DoxyCodeLine{230                             warningNum += 1}
+\DoxyCodeLine{231                             wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mWINS\})}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233                 \textcolor{keywordflow}{if} cET > 0:}
+\DoxyCodeLine{234                     \textcolor{keywordflow}{if} len(wlist) < 1:}
+\DoxyCodeLine{235                         warningNum += 1}
+\DoxyCodeLine{236                         wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mET\})}
+\DoxyCodeLine{237                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{238                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{ListDeduplication}}(fIP, mET, wlist):}
+\DoxyCodeLine{239                             warningNum += 1}
+\DoxyCodeLine{240                             wlist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: mET\})}
+\DoxyCodeLine{241 }
+\DoxyCodeLine{242                 \textcolor{keywordflow}{if} cOTX + cWINS + cET > 1:}
+\DoxyCodeLine{243                     \textcolor{keywordflow}{if} Debug:}
+\DoxyCodeLine{244                         \textcolor{keyword}{import} random}
+\DoxyCodeLine{245                         color = [\textcolor{stringliteral}{'red'}, \textcolor{stringliteral}{'orange'}, \textcolor{stringliteral}{'yellow'}, \textcolor{stringliteral}{'green'},  \textcolor{stringliteral}{'blue'}, \textcolor{stringliteral}{'violet'}, \textcolor{stringliteral}{'cyan'}, \textcolor{stringliteral}{'black'}, \textcolor{stringliteral}{'pink'}, \textcolor{stringliteral}{'\#e0440e'}]}
+\DoxyCodeLine{246                         colornum = random.randrange(0,len(color))}
+\DoxyCodeLine{247                         event = \{\textcolor{stringliteral}{"name"}:fIP, \textcolor{stringliteral}{"date"}:date, \textcolor{stringliteral}{"background"}: color[colornum]\}}
+\DoxyCodeLine{248                         \mbox{\hyperlink{namespacelibDash_a229d3065982ee164e0c41570b2de59bc}{libDash.SetTimeline}}(event)}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250                     \textcolor{keywordflow}{if} len(clist) < 1:}
+\DoxyCodeLine{251                         criticalNum += 1}
+\DoxyCodeLine{252                         clist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: \textcolor{stringliteral}{'Suspicious'}\})}
+\DoxyCodeLine{253                         \mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{libDash.UpdateCritical}}(clist)}
+\DoxyCodeLine{254                         message = \textcolor{stringliteral}{"Checking \{\} now."}.format(fIP)}
+\DoxyCodeLine{255                     \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{256                         \textcolor{keywordflow}{if} \textcolor{keywordflow}{not} \mbox{\hyperlink{namespacePb__01_a78d9f3df16120dbcc0851e8167314688}{ListDeduplication}}(fIP, \textcolor{stringliteral}{'Suspicious'}, clist):}
+\DoxyCodeLine{257                             criticalNum += 1}
+\DoxyCodeLine{258                             clist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: \textcolor{stringliteral}{'Suspicious'}\})}
+\DoxyCodeLine{259                             \mbox{\hyperlink{namespacelibDash_ab9bbcec1a825ca09f9371e2247d47004}{libDash.UpdateCritical}}(clist)}
+\DoxyCodeLine{260                             message = \textcolor{stringliteral}{"Checking \{\} now."}.format(fIP)}
+\DoxyCodeLine{261                         \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{262                             message = \textcolor{stringliteral}{"Checking \{\} now."}.format(fIP)}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264                     \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=message)}
+\DoxyCodeLine{265                     \textcolor{comment}{\#libSlack.SendSlack(criticalNum, warningNum, fIP, mOTX, mWINS, mET)}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267                 \mbox{\hyperlink{namespacelibDash_a9dad21bd0e0979221bfd7d678afcd686}{libDash.UpdateWarning}}(wlist)}
+\DoxyCodeLine{268                 plist.append(\{\textcolor{stringliteral}{'label'}: fIP, \textcolor{stringliteral}{'value'}: \textcolor{stringliteral}{'Analysing'}\})}
+\DoxyCodeLine{269                 \mbox{\hyperlink{namespacelibDash_a01f8cbb80e67f381de3471ea207605d4}{libDash.UpdateProcessing}}(plist)}
+\DoxyCodeLine{270                 \mbox{\hyperlink{namespacelibDash_abf49baeb0923bbd7e56107e25906f08a}{libDash.UpdateSecurityLevel}}(criticals=criticalNum, warnings=warningNum)}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272             time.sleep(1)}
+\DoxyCodeLine{273             ProcessCurrCnt = \mbox{\hyperlink{namespacePb__01_afaba237a1f0bbda1585ba0d812b88e69}{CalcProgressValue}}(ProcessTotalNum, ProcessDoneNum)}
+\DoxyCodeLine{274             \mbox{\hyperlink{namespacelibDash_af8903d54f388757f5dc982e2cd95852a}{libDash.UpdateTaskProgress}}(ProcessCurrCnt)}
+\DoxyCodeLine{275             TaskDoneNum += 1}
+\DoxyCodeLine{276             message = \textcolor{stringliteral}{'Task \{\} is finished. Next task.'}.format(Task)}
+\DoxyCodeLine{277             \mbox{\hyperlink{namespacelibDash_aed3f8a7f7754b4141941acd0581dba4d}{libDash.UpdateMessage}}(message=message)}
+\DoxyCodeLine{278 }
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{da/d56/namespacePb__01_ade86aa2ef48f1edc7601b52138e4d252_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{namespacePb__01_a620cd01188bad1551fbcabfde699e520}\label{namespacePb__01_a620cd01188bad1551fbcabfde699e520}} 
+\index{Pb\_01@{Pb\_01}!signal\_handler@{signal\_handler}}
+\index{signal\_handler@{signal\_handler}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{signal\_handler()}{signal\_handler()}}
+{\footnotesize\ttfamily def Pb\+\_\+01.\+signal\+\_\+handler (\begin{DoxyParamCaption}\item[{}]{sig,  }\item[{}]{frame }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file Pb\+\_\+01.\+py.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \textcolor{keyword}{def }\mbox{\hyperlink{namespacePb__01_a620cd01188bad1551fbcabfde699e520}{signal\_handler}}(sig, frame):}
+\DoxyCodeLine{21     print(\textcolor{stringliteral}{'BYE\string~'})}
+\DoxyCodeLine{22     sys.exit(0)}
+\DoxyCodeLine{23 }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespacePb__01_ae3133032ff9231beae83ce82946c84ce}\label{namespacePb__01_ae3133032ff9231beae83ce82946c84ce}} 
+\index{Pb\_01@{Pb\_01}!Debug@{Debug}}
+\index{Debug@{Debug}!Pb\_01@{Pb\_01}}
+\doxysubsubsection{\texorpdfstring{Debug}{Debug}}
+{\footnotesize\ttfamily bool Pb\+\_\+01.\+Debug = True}
+
+
+
+Definition at line 18 of file Pb\+\_\+01.\+py.
+
