@@ -6,6 +6,7 @@ import random
 import yaml
 import libConfig
 import libUtils
+import json
 
 DIR = 'demo'
 FNAME = 'bambenek_banjori.ipset'
@@ -44,11 +45,15 @@ def GetTrafficFile(num, limit):
     return fw_dst_ip, fw_dst_hits
 
 def GetTrafficYML(num):
-    fname = 'demo/data.yml'
+    fname = 'data/data.yml'
     fw_dst_ip = {}
     fw_dst_hits = 0
     with open(fname) as f:
         ret = yaml.load(f, Loader=yaml.FullLoader)
+
+    if int(LIMIT) < 1:
+        libUtils.ErrorPrint('Fail to get limit in demo')
+        exit()
 
     del ret[num][int(LIMIT):]
 
@@ -60,12 +65,48 @@ def GetTrafficYML(num):
 
     return fw_dst_ip, fw_dst_hits
 
+def GetTrafficFromDATA(fname):
+    data = GetData(fname)
+    f_ip_hits = 0
+    f_ip_list = []
+    for k, v in data['traffic']['dst'].items():
+        f_ip_hits = f_ip_hits + v
+        f_ip_list.append(k)
+
+    return f_ip_list, f_ip_hits
+
+
+def GetTaskList():
+    import os
+    tasklist = []
+    flist = os.listdir('./data')
+    for i in flist:
+        buf = i.split('-')
+        if len(buf) == 4 and buf[0] == 'playbook01':
+            task = '{}-{}-{}'.format(buf[1], buf[2], buf[3])
+            tasklist.append(task)
+
+    tasklist.sort(reverse=True)
+    return tasklist
+
+def PutData(fname, data):
+    fname = 'data/{}'.format(fname)
+    with open(fname, "w") as json_file:
+        json.dump(data, json_file, indent=4)
+    return True
+
+def GetData(fname):
+    fname = 'data/{}'.format(fname)
+    with open(fname, "r") as json_file:
+        data = json.load(json_file)
+    return data
+
 def UnitTest():
     fw_dst_ip, fw_dst_hits = GetTrafficYML(1)
     if len(fw_dst_ip):
         libUtils.UnitTestPrint(True, 'libDemo', 'GetTrafficYML', len(fw_dst_ip))
     else:
-        libUtils.UnitTestPrint(False, 'libDemo', 'GetTrafficYML', rlen(fw_dst_ip))    
+        libUtils.UnitTestPrint(False, 'libDemo', 'GetTrafficYML', rlen(fw_dst_ip))
     if fw_dst_hits:
         libUtils.UnitTestPrint(True, 'libDemo', 'GetTrafficYML', fw_dst_hits)
     else:
