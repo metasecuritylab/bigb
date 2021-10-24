@@ -18,17 +18,17 @@ libDsl.UnitTest()
 import libElastic
 libElastic.UnitTest()
 
-import libEthreat
-libEthreat.UnitTest()
+#import libEthreat
+#libEthreat.UnitTest()
 
-import libJira
-libJira.UnitTest()
+#import libJira
+#libJira.UnitTest()
 
-import libOtx
-libOtx.UnitTest()
+#import libOtx
+#libOtx.UnitTest()
 
-import libSlack
-libSlack.UnitTest()
+#import libSlack
+#libSlack.UnitTest()
 
-import libVirustotal
-libVirustotal.UnitTest()
+#import libVirustotal
+#libVirustotal.UnitTest()

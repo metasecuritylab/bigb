@@ -115,10 +115,10 @@ def UnitTest():
         libUtils.UnitTestPrint(False, 'libCtas', 'CheckCtas', ret)
 
     IP = '8.8.8.8'
-    data = LookupIp(IP)
-    if data[0] == 'exploit':
-        libUtils.UnitTestPrint(True, 'libCtas', 'LookupIp', data[0])
+    cnt, data = LookupIp(IP)
+    if data['res_data_attacker'][1]['classtype'] == 'exploit':
+        libUtils.UnitTestPrint(True, 'libCtas', 'LookupIp', data['res_data_attacker'][1]['classtype'])
     else:
-        libUtils.UnitTestPrint(False, 'libCtas', 'LookupIp', data[0])
+        libUtils.UnitTestPrint(False, 'libCtas', 'LookupIp', data['res_data_attacker'][1]['classtype'])
 
     return True
