@@ -1,0 +1,47 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-01"
+  },
+  "traffic": {
+    "dst": {},
+    "src": {},
+    "excludedip": []
+  },
+  "track": {
+    "e0003": {
+      "search": {
+        "excludedip": {
+          "fip": ""
+        },
+        "privateip": {
+          "fip": ""
+        }
+      }
+    },
+    "e0004": {
+      "search": {
+        "otx": {
+          "fip": ""
+        },
+        "ctas": {
+          "fip": ""
+        },
+        "emergingthreat": {
+          "fip": ""
+        }
+      }
+    },
+    "e0005": {
+      "search": {
+        "virustotal": {
+          "fip": ""
+        }
+      }
+    }
+  },
+  "data": {
+  }
+}

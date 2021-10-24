@@ -1,0 +1,19 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-03"
+  },
+  "failuser": {},
+  "track": {
+    "e4648": {
+      "search": {
+        "winlog": {
+          "event_id": 4625
+        }
+      }
+    }
+  },
+  "data": {}
+}

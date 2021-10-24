@@ -1,0 +1,111 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-04"
+  },
+  "result": [],
+  "track": {
+    "e1396": {
+      "search": {
+        "ips": {
+          "attack_name": "(1396)Server Side Script File Upload(JSP)"
+        },
+        "www": {
+          "clientip": [],
+          "uri": "*.jsp*",
+          "uriquery": "*.jsp*",
+          "query": "*upload*"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "data": {
+        "ipsdata": [],
+        "wwwdata": [],
+        "appdata": [],
+        "sysdata": []
+      }
+    },
+    "e1397": {
+      "search": {
+        "ips": {
+          "attack_name": "(1397)Server Side Script File Upload(PHP)"
+        },
+        "www": {
+          "clientip": [],
+          "uri": "*.php*",
+          "uriquery": "*.php*",
+          "query": "*upload*"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "data": {
+        "ipsdata": [],
+        "wwwdata": [],
+        "appdata": [],
+        "sysdata": []
+      }
+    },
+    "e1398": {
+      "search": {
+        "ips": {
+          "attack_name": "(1398)Server Side Script File Upload(ASP)"
+        },
+        "www": {
+          "clientip": [],
+          "uri": "*.asp*",
+          "uriquery": "*.asp*",
+          "query": "*upload*"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "data": {
+        "ipsdata": [],
+        "wwwdata": [],
+        "appdata": [],
+        "sysdata": []
+      }
+    },
+    "e1247": {
+      "search": {
+        "ips": {
+          "attack_name": "(1247)PHP WebShell Backdoor-2"
+        },
+        "www": "",
+        "app": "",
+        "sys": ""
+      },
+      "data": {
+        "ipsdata": [],
+        "wwwdata": [],
+        "appdata": [],
+        "sysdata": []
+      }
+    },
+    "e3727": {
+      "search": {
+        "ips": {
+          "attack_name": "(3727)Apache Tomcat DefaultServlet PUT method File Upload"
+        },
+        "www": {
+          "clientip": [],
+          "uri": "*.jsp*",
+          "uriquery": "*.jsp*",
+          "query":""
+        },
+        "app": "",
+        "sys": ""
+      },
+      "data": {
+        "ipsdata": [],
+        "wwwdata": [],
+        "appdata": [],
+        "sysdata": []
+      }
+    }
+  }
+}

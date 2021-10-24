@@ -1,0 +1,40 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-02"
+  },
+  "failretiree": {},
+  "track": {
+    "e4648": {
+      "search": {
+        "winlog": {
+          "event_id": 4648
+        }
+      }
+    },
+    "e4776": {
+      "search": {
+        "winlog": {
+          "event_id": 4776
+        }
+      }
+    },
+    "e4625": {
+      "search": {
+        "winlog": {
+          "event_id": 4625
+        }
+      }
+    },
+    "e4768": {
+      "search": {
+        "winlog": {
+          "event_id": 4768
+        }
+      }
+    }
+  },
+  "data": {}
+}

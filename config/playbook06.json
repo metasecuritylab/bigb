@@ -1,0 +1,27 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-06"
+  },
+  "result": [],
+  "track": {
+    "e0001": {
+      "search": {
+        "sepm": {
+          "query": "Security risk found"
+        },
+        "virustotal": {
+          "filehash": []
+        }
+      },
+      "filehash": [],
+      "data": {
+        "sepmdata": [],
+        "parsedsepmdata": [],
+        "virustotal": {}
+      }
+    }
+  }
+}

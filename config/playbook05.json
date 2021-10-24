@@ -1,0 +1,135 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-05"
+  },
+  "result": [],
+  "track": {
+    "e3533": {
+      "search": {
+        "ips": {
+          "attack_name": "(3533)Directory Traversal Attack(/../../../).A"
+        },
+        "www": {
+          "uriquery": "/../"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    },
+    "e2869": {
+      "search": {
+        "ips": {
+          "attack_name": "(2869)Directory Traversal Attack(/../../../)"
+        },
+        "www": {
+          "uriquery": "/../"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    },
+    "e3534": {
+      "search": {
+        "ips": {
+          "attack_name": "(3534)Directory Traversal Attack(\\..\\..\\..\\)"
+        },
+        "www": {
+          "uriquery": "\\..\\"
+        },
+        "app": "",
+        "sys": ""
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    },
+    "e5548": {
+      "search": {
+        "ips": {
+          "attack_name": "(5548)The .NET IIS server has application tracing enabled and view"
+        },
+        "www": {
+          "uriquery": "/trace"
+        },
+        "app": "",
+        "sys": {
+          "query": "/Trace.axd"
+        }
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    },
+    "e5108": {
+      "search": {
+        "ips": {
+          "attack_name": "(5108)file downloading/viewing"
+        },
+        "www": {
+          "uriquery": "etc/passwd"
+        },
+        "app": {
+          "query": "A Potentially dangerous Request.Path value was detected from the client"
+        },
+        "sys": {
+          "query": "etc/passwd"
+        }
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    },
+    "e5861": {
+      "search": {
+        "ips": {
+          "attack_name": "(5861)file downloading/viewing(/etc/shadow)"
+        },
+        "www": {
+          "uriquery": "shadow"
+        },
+        "app": {
+          "query": "A Potentially dangerous Request.Path value was detected from the client"
+        },
+        "sys": {
+          "query": "etc/passwd"
+        }
+      },
+      "hackerip": [],
+      "data": {
+        "ipsdata": {},
+        "wwwdata": {},
+        "appdata": {},
+        "sysdata": {}
+      }
+    }
+  }
+}

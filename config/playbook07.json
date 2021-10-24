@@ -1,0 +1,25 @@
+{
+  "info": {
+    "task": "",
+    "start": "",
+    "end": "",
+    "datatype": "Playbook-07"
+  },
+  "result": [],
+  "track": {
+    "e0002": {
+      "search": {
+        "ips01": {
+          "count": 6
+        },
+        "ips02": {
+          "hacker": []
+        }
+      },
+      "data": {
+        "ips01data": [],
+        "ips02data": {}
+      }
+    }
+  }
+}
