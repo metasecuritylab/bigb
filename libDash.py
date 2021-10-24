@@ -34,7 +34,7 @@ def CommFront(URI, data):
 
     try:
         requests.post(URL, json=data, timeout=int(TIMEOUT))
-    except:
+    except requests.exceptions.RequestException as e:
         return False
 
     return True

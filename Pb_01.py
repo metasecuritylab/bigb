@@ -5,6 +5,7 @@ import time
 import datetime
 import signal
 import sys
+import random
 import libConfig
 import libElastic
 import libEthreat
@@ -14,12 +15,14 @@ import libUtils
 import libOtx
 import libJira
 import libDemo
+import libPlaybook
+import libVirustotal
 
-Debug = True
 
 def signal_handler(sig, frame):
     print('BYE~')
     sys.exit(0)
+
 
 def GetLastProcessingList(data, maxLen=8):
     while True:
@@ -30,13 +33,14 @@ def GetLastProcessingList(data, maxLen=8):
 
     return data
 
-def ListDeduplication(fIP, Value, List):
 
+def ListDeduplication(fIP, Value, List):
     for item in List:
         if item['label'] == fIP and item['value'] == Value:
             return True
 
     return False
+
 
 def ConvTimeStamp(Task):
     # Task is date-time
@@ -48,8 +52,8 @@ def ConvTimeStamp(Task):
 
     return sDate, eDate
 
-def CalcProgressValue(total, done):
 
+def CalcProgressValue(total, done):
     if done == 0:
         pValue = 0
     elif done == total:
@@ -59,202 +63,214 @@ def CalcProgressValue(total, done):
 
     return pValue
 
-def GetThreatInfo():
-    TaskList = libConfig.GetTasks()
-    BlackIP = libEthreat.GetBlackListFromET()
-    AIMLnum = 0
-    PlaybookNum = 7
-    ExcludedIP = libJira.GetExcludedIP()
+fsleep = True
+sleeptime = 1
+fdemo = True
+fjira = True
+frdata = True
+fwdata = False
+aimlcnt = 0
+playbook_cnt = 7
 
-    return  TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP
+def playbook01():
 
-def main():
-    libDash.ClearDashBoard()
-    text = "Playbook01 is started, Reset the dashboard"
-    libUtils.InfoPrint(text)
-    plist = []
-    wlist = []
-    clist = []
-
-    ''' Start of demon '''
     while True:
         signal.signal(signal.SIGINT, signal_handler)
-        TaskList, BlackIP, PlaybookNum, AIMLnum, ExcludedIP = GetThreatInfo()
-        text = "Get threat information"
-        libUtils.InfoPrint(text)
-        TaskDoneNum = 0
-        TaskTotalNum = len(TaskList)
+
+        libDash.ClearDashBoard()
+        if fsleep:
+            time.sleep(sleeptime)
+
+        data = libPlaybook.GetData('playbook01')
+        blackip = libEthreat.GetBlackListFromET()
         plist = []
         wlist = []
+        clist = []
 
-        for Task in TaskList:
-            warningNum = 0
-            criticalNum = 0
-            libDash.UpdateSecurityLevel(criticals=criticalNum, warnings=warningNum)
-            time.sleep(1)
+        if fdemo:
+            libUtils.InfoPrint("Start in DEMO mode")
+            task_list = libDemo.GetTaskList()
+            #task_list = task_list[:2]
+        else:
+            task_list = libConfig.GetTasks()
 
-            text = 'Task {} is started. '.format(Task)
+        #libUtils.InfoPrint("Get threat information")
+
+        for task_done, task in enumerate(task_list):
+            text = "Task {} is started.".format(task)
             libUtils.InfoPrint(text)
-            TaskReadyNum = TaskTotalNum - TaskDoneNum
-            libDash.UpdateTaskChart(done=TaskDoneNum, ready=TaskReadyNum)
-            libDash.UpdateMessage(message=text)
-            time.sleep(1)
+            warning_num = 0
+            critical_num = 0
+            data['info']['task'] = task
+            task_ready = len(task_list)-task_done
 
-            sDate, eDate = ConvTimeStamp(Task)
+            libDash.UpdateSecurityLevel(criticals=critical_num, warnings=warning_num)
+            if fsleep:
+                time.sleep(sleeptime)
+            libDash.UpdateTaskChart(done=task_done, ready=task_ready)
+            if fsleep:
+                time.sleep(sleeptime)
+            libDash.UpdateMessage(message=text)
+            if fsleep:
+                time.sleep(sleeptime)
+
+            s_date, e_date = ConvTimeStamp(task)
             text = "Please wait for gathering data. It takes few minutes"
             libUtils.InfoPrint(text)
-            libDash.UpdateMessage(message=text)
-            time.sleep(1)
-            if not Debug:
-                fIPList, fIPHits = libElastic.GetIPsFromElastic(sDate, eDate, 'DST')
-            else:
-                text = "Start in demo mode" 
-                libUtils.InfoPrint(text)
-                buf = Task.split('-')
-                date_buf = datetime.date(int(buf[0]), int(buf[1]), int(buf[2]))
-                date = date_buf.strftime("%a %d %b %Y")
-                fIPList, fIPHits = libDemo.GetTrafficYML(TaskDoneNum)
 
-            if len(fIPList) == 0:
+            libDash.UpdateMessage(message=text)
+            if fsleep:
+                time.sleep(sleeptime)
+
+            if fdemo:
+                fname = 'playbook01-{}'.format(task)
+                f_ip_list, f_ip_hits = libDemo.GetTrafficFromDATA(fname)
+                data = libDemo.GetData(fname)
+                #task = data['info']['task']
+            else:
+                # f_ip_list, f_ip_hits = libDemo.GetTrafficYML(task_done)
+                f_ip_list, f_ip_hits = libElastic.GetIPsFromElastic(s_date, e_date, 'DST')
+                data['traffic']['dst'] = f_ip_list
+                if fjira:
+                    data['traffic']['excludedip'] = libJira.GetExcludedIP()
+
+            task_split = task.split('-')
+            task_conv_date = datetime.date(int(task_split[0]), int(task_split[1]), int(task_split[2]))
+            date = task_conv_date.strftime("%a %d %b %Y")
+
+            excluded_ip = data['traffic']['excludedip']
+            len_f_ip_list = len(data['traffic']['dst'])
+
+            if len_f_ip_list == 0:
                 text = 'No logs, please check log repository!'
                 libUtils.InfoPrint(text)
                 libDash.UpdateMessage(message=text)
                 time.sleep(600)
                 continue
 
-            HfIPList = libUtils.ConvHumanFormat(len(fIPList))
-            HfIPHits = libUtils.ConvHumanFormat(fIPHits)
-            libDash.UpdateThreatInfo(Pnum=PlaybookNum, MLnum=AIMLnum, BIPnum=len(BlackIP), 
-                                    IIPnum=len(fIPList), Tasknum=len(TaskList), Traffic=HfIPHits, 
-                                    EIPnum=len(ExcludedIP))
-            text = "Inspected IP: {}, Volume: {}".format(HfIPList, HfIPHits)
+            HfIPHits = libUtils.ConvHumanFormat(f_ip_hits)
+            libDash.UpdateThreatInfo(Pnum=playbook_cnt, MLnum=aimlcnt, BIPnum=len(blackip),
+                                     IIPnum=len_f_ip_list, Tasknum=len(task_list), Traffic=HfIPHits,
+                                     EIPnum=len(excluded_ip))
+            if fsleep:
+                time.sleep(sleeptime)
+
+            text = "Inspected IP: {}, Volume: {}".format(len_f_ip_list, HfIPHits)
             libUtils.InfoPrint(text)
+
             libDash.UpdateMessage(message=text)
+            if fsleep:
+                time.sleep(sleeptime)
 
-            ProcessTotalNum = len(fIPList)
-            ProcessDoneNum = 0
-            wData = {}
-
-            for i, fIP in enumerate(fIPList):
-                time.sleep(0.5)
-                libUtils.printProgressBar(i,len(fIPList)-1,"completed","[INFO]")
-                if i == len(fIPList)-1:
+            i = 0
+            for fIP, v in data['traffic']['dst'].items():
+                i = i + 1
+                libDash.UpdateTaskProgress(int(100 * i / len_f_ip_list))
+                libUtils.printProgressBar(i,len_f_ip_list,"completed","[INFO]")
+                if i == len_f_ip_list:
                     print('')
 
-                cWhite = 0
-                mWhite = ''
-                cPrivate = 0
-                mPrivate = ''
+                if not fdemo:
+                    data['data'][fIP] = {}
+
+                bypass = 0
                 cOTX = 0
-                mOTX = ''
                 cWINS = 0
-                mWINS = ''
                 cET = 0
-                mET = ''
 
-                wData[fIP] = {}
-                wValue = {}
-
-                ProcessCurrCnt = CalcProgressValue(ProcessTotalNum, ProcessDoneNum)
-                libDash.UpdateTaskProgress(ProcessCurrCnt)
                 plist = GetLastProcessingList(plist)
                 wlist = GetLastProcessingList(wlist)
                 clist = GetLastProcessingList(clist)
+                # print('fip: {}, critical: {}, warning: {}'.format(fIP, len(clist),len(wlist)))
 
                 # 1. Checking Excluded
-                if fIP in ExcludedIP:
-                    cWhite += 1
-                    mWhite = "Bypass excluded traffic"
-                    plist.append({'label': fIP, 'value': mWhite})
-                    wValue['mWhite'] = mWhite
+                if fIP in excluded_ip:
+                    bypass = bypass + 1
+                    plist.append({'label': fIP, 'value': "Bypass excluded traffic"})
+                    data['data'][fIP]['excludedip'] = 'True'
 
                 # 2. Checking Private IP
                 if libUtils.IsPrivateIP(fIP):
-                    cPrivate += 1
-                    mPrivate = "Bypass internal traffic"
-                    plist.append({'label': fIP, 'value': mPrivate})
-                    wValue['mPrivate'] = mPrivate
+                    bypass = bypass + 1
+                    plist.append({'label': fIP, 'value': "Bypass internal traffic"})
+                    data['data'][fIP]['privateip'] = 'True'
 
-                if cWhite + cPrivate > 0:
-                    ProcessDoneNum += 1
+                if bypass > 0:
                     libDash.UpdateProcessing(plist)
                     continue
 
                 # 3. OTX lookup
-                retLookupOTX = libOtx.LookupIp(fIP)
+                if not fdemo:
+                    retLookupOTX, dataOTX = libOtx.LookupIp(fIP)
+                else:
+                    retLookupOTX = {'pulse_info_cnt': 0, 'reputation': 0}
+                    for k, v in data['data'][fIP].items():
+                        if k == 'otx':
+                            retLookupOTX = {'pulse_info_cnt': v['pulse_info']['count'],'reputation': v['reputation']}
+                            dataOTX = v
+
                 if retLookupOTX['pulse_info_cnt']:
                     cOTX += 1
-                    mOTX = 'pulse info: {}'.format(retLookupOTX['pulse_info_cnt'])
-                    wValue['mOTX'] = mOTX
+                    data['data'][fIP]['otx'] = dataOTX
 
                 # 4. Wins lookup
-                # retLookupWINS = libCtas.LookupIp(fIP)
-                retLookupWINS = False
-                if retLookupWINS:
+                if not fdemo:
+                    retLookupCTAS, dataCTAS = libCtas.LookupIp(fIP)
+                else:
+                    retLookupCTAS = 0
+                    for k, v in data['data'][fIP].items():
+                        if k == 'ctas':
+                            dataCTAS = v
+                            retLookupCTAS = 1
+
+                if retLookupCTAS > 0:
                     cWINS += 1
-                    conretLookupWINS = ','.join(retLookupWINS)
-                    message = conretLookupWINS[:17] + (conretLookupWINS[17:] and '..')
-                    mWINS = 'Threat class-type is {}'.format(message)
-                    wValue['mWINS'] = mWINS
+                    data['data'][fIP]['ctas'] = dataCTAS
 
                 # 5. Emerging threat lookup
-                for BIP in BlackIP:
+                for BIP in blackip:
                     if BIP['ip'] == fIP:
                         cET += 1
-                        mET = 'reported emerging threat'
-                        wValue['mET'] = mET
+                        data['data'][fIP]['emergingthreat'] = {'result':'True', 'ref':BIP['ref']}
 
-                wData[fIP] = wValue
                 # POST PROCESSING
-                ProcessDoneNum += 1
                 if cOTX + cWINS + cET < 1:
                     plist.append({'label': fIP, 'value': 'OK'})
                     libDash.UpdateProcessing(plist)
+                    if fsleep:
+                        time.sleep(sleeptime)
                     continue
 
+                warning_num += 1
+                text = ''
                 if cOTX > 0:
-                    if len(wlist) < 1:
-                        warningNum += 1
-                        wlist.append({'label': fIP, 'value': mOTX})
-                    else:
-                        if not ListDeduplication(fIP, mOTX, wlist):
-                            warningNum += 1
-                            wlist.append({'label': fIP, 'value': mOTX})
-
+                    text = text + 'Threat Score: {}'.format(retLookupOTX['pulse_info_cnt'])
                 if cWINS > 0:
-                    if len(wlist) < 1:
-                        warningNum += 1
-                        wlist.append({'label': fIP, 'value': mWINS})
-                    else:
-                        if not ListDeduplication(fIP, mWINS, wlist):
-                            warningNum += 1
-                            wlist.append({'label': fIP, 'value': mWINS})
-
+                    text = text + ', ' + 'KISA: Found'
                 if cET > 0:
-                    if len(wlist) < 1:
-                        warningNum += 1
-                        wlist.append({'label': fIP, 'value': mET})
-                    else:
-                        if not ListDeduplication(fIP, mET, wlist):
-                            warningNum += 1
-                            wlist.append({'label': fIP, 'value': mET})
+                    text = text + ', ' + 'ET: Found'
+
+                wlist.append({'label': fIP, 'value': text})
 
                 if cOTX + cWINS + cET > 1:
-                    if Debug:
-                        import random
-                        color = ['red', 'orange', 'yellow', 'green',  'blue', 'violet', 'cyan', 'black', 'pink', '#e0440e']
-                        colornum = random.randrange(0,len(color))
-                        event = {"name":fIP, "date":date, "background": color[colornum]}
-                        libDash.SetTimeline(event)
+                    # 6. Virustotal
+                    if not fdemo:
+                        retlookupvt, dataVT = libVirustotal.LookupIp(fIP)
+                        data['data'][fIP]['virustotal'] = dataVT
+
+                    color = ['red', 'orange', 'yellow', 'green', 'blue', 'violet', 'cyan', 'black', 'pink', '#e0440e']
+                    color_num = random.randrange(0, len(color))
+                    event = {"name": fIP, "date": date, "background": color[color_num]}
+                    libDash.SetTimeline(event)
 
                     if len(clist) < 1:
-                        criticalNum += 1
+                        critical_num += 1
                         clist.append({'label': fIP, 'value': 'Suspicious'})
                         libDash.UpdateCritical(clist)
                         message = "Checking {} now.".format(fIP)
                     else:
                         if not ListDeduplication(fIP, 'Suspicious', clist):
-                            criticalNum += 1
+                            critical_num += 1
                             clist.append({'label': fIP, 'value': 'Suspicious'})
                             libDash.UpdateCritical(clist)
                             message = "Checking {} now.".format(fIP)
@@ -262,19 +278,34 @@ def main():
                             message = "Checking {} now.".format(fIP)
 
                     libDash.UpdateMessage(message=message)
-                    #libSlack.SendSlack(criticalNum, warningNum, fIP, mOTX, mWINS, mET)
+                    if fsleep:
+                        time.sleep(sleeptime)
+                    # libSlack.SendSlack(criticalNum, warningNum, fIP, mOTX, mWINS, mET)
 
                 libDash.UpdateWarning(wlist)
+                if fsleep:
+                    time.sleep(sleeptime)
+
                 plist.append({'label': fIP, 'value': 'Analysing'})
                 libDash.UpdateProcessing(plist)
-                libDash.UpdateSecurityLevel(criticals=criticalNum, warnings=warningNum)
+                if fsleep:
+                    time.sleep(sleeptime)
 
-            time.sleep(1)
-            ProcessCurrCnt = CalcProgressValue(ProcessTotalNum, ProcessDoneNum)
-            libDash.UpdateTaskProgress(ProcessCurrCnt)
-            TaskDoneNum += 1
-            message = 'Task {} is finished. Next task.'.format(Task)
+                libDash.UpdateSecurityLevel(criticals=critical_num, warnings=warning_num)
+                if fsleep:
+                    time.sleep(sleeptime)
+
+            if fwdata:
+                filename = 'playbook01-{}'.format(task)
+                libDemo.PutData(filename, data)
+
+            if fjira:
+                libJira.Playbook01(data)
+
+            message = 'Task {} is finished.'.format(task)
             libDash.UpdateMessage(message=message)
+            if fsleep:
+                time.sleep(sleeptime)
 
 if __name__ == "__main__":
-    main()
+    playbook01()

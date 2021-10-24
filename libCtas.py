@@ -59,7 +59,8 @@ def ParseData(data, address):
     return False
 
 def LookupIp(address):
-    ret = ['none']
+    cnt = 0
+    data = {"res_data_attacker":[],"res_data_cnc":[],"res_data_hacking":[],"res_data_via":[],"res_data_av":{},"res_data_yara":{}}
 
     if libUtils.IsPrivateIP(address):
         return ret
@@ -74,19 +75,26 @@ def LookupIp(address):
     try:
         ret = requests.post(IP_Search_URL, data=raw_data, headers=headers, timeout=3)
     except Exception as e:
-        return ret
+        libUtils.ErrorPrint('Fail to look up IP in CTAS')
+        return cnt, data
 
     if ret.status_code != 200:
-        return ret
+        libUtils.ErrorPrint('Response code is not 200 in CTAS')
+        return cnt, data
 
     try:
         data = json.loads(ret.text)
     except:
-        return ret
+        libUtils.ErrorPrint('Fail to load json format')
+        return cnt, ret
 
-    ParsedData = ParseData(data, address)
-    ret = GetClassType(ParsedData)
-    return ret
+    for k,v in data.items():
+        if v:
+            cnt = cnt + len(v)
+
+    #ParsedData = ParseData(data, address)
+    #ret = GetClassType(ParsedData)
+    return cnt, data
 
 def CheckCtas():
 
