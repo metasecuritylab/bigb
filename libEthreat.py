@@ -19,12 +19,13 @@ def Download(url, file_name):
 
 def ParseETRules(fname):
     bucket = list()
-    ret = os.path.isfile(fname)
+    filename = "{}/{}".format(DIR, fname)
+    ret = os.path.isfile(filename)
 
     if not ret:
         return False
 
-    with open(fname, 'r') as fdata:
+    with open(filename, 'r') as fdata:
         lines = fdata.readlines()
         for line in lines:
             if len(line) > 1:
@@ -45,21 +46,19 @@ def GetETRules():
     return True
 
 def GetBlackListFromET():
-    BlackList = list()
-    filename = "{}/emerging-block-ips.txt".format(DIR)
-    ret = ParseETRules(filename)
+    black_list = list()
+    ret = ParseETRules("emerging-block-ips.txt")
     if not ret:
-        return BlackList
+        return black_list
 
-    BlackList.extend(ret)
-    filename = "{}/compromised-ips.txt".format(DIR)
-    ret = ParseETRules(filename)
+    black_list.extend(ret)
+    ret = ParseETRules("compromised-ips.txt")
     if not ret:
-        return BlackList
+        return black_list
 
-    BlackList.extend(ret)
+    black_list.extend(ret)
 
-    return BlackList
+    return black_list
 
 def DetectEmergingThreats(address):
     maliciousIPs = GetBlackListFromET()
