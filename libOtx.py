@@ -159,9 +159,11 @@ def file(otx, hash):
 def LookupIp(ip):
     alerts = []
     ret = {'pulse_info_cnt': 0, 'reputation': 0}
+    result = {}
 
     if libUtils.IsPrivateIP(ip):
-        return alerts
+        print("PRIVATEIP")
+        return alerts, result
 
     try:
         result = OTX.get_indicator_details_by_section(libTypes.IPv4, ip, 'general')
@@ -171,21 +173,22 @@ def LookupIp(ip):
                     if i['source'] == 'whitelist':
                         ret['pulse_info_cnt'] = 0
                         ret['reputation'] = 0
-                        return ret
+                        return ret, result
 
         ret['pulse_info_cnt'] = result['pulse_info']['count']
         ret['reputation'] = result['reputation']
     except Exception:
         ret['pulse_info_cnt'] = 0
         ret['reputation'] = 0
-        return ret
+        return ret, result
 
     '''
     if ret['reputation']:
         text = 'ip: {}, reputation; {}, count: {}'.format(ip, result['reputation'], result['pulse_info']['count'])
         print(text)
     '''
-    return ret
+
+    return ret, result
 
 def LookupHost(hostname):
     alerts = hostname(OTX, hostname)
