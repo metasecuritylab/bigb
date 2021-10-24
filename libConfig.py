@@ -5,7 +5,7 @@ import configparser
 import datetime
 import libUtils
 
-ConfName = 'config/config.ini'
+ConfName = 'config/Config.ini'
 config = configparser.ConfigParser()
 
 def UpdateConfig(section, key, value):
