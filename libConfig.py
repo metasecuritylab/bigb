@@ -36,7 +36,13 @@ def GetConfig(section, key):
 
 def GetTasks():
     index = list()
-    day = int(GetConfig('DETECTION', 'DURATION'))
+    temp = GetConfig('DETECTION', 'DURATION')
+    if not temp:
+        text = "fail to get duration in config"
+        libUtils.ErrorPrint(text)
+        exit()
+
+    day = int(temp)
     today = datetime.date.today()
 
     for i in range(day):

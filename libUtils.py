@@ -94,7 +94,12 @@ def GetToken(text):
     return token
 
 def InfoPrint(text):
+    # text color code: red 31, green: 32, yellow: 33, blue: 34
+    # bg color code: red 41, green: 42, yellow: 43, blue: 44
     print('\033[96m' + '[INFO] ' + '\033[0m' + text)
+
+def ErrorPrint(text):
+    print('\033[31m' + '[ERROR] ' + '\033[0m' + text)
 
 def UnitTestPrint(flag, file, func, str):
     if flag:
